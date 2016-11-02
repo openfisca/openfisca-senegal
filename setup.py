@@ -31,6 +31,7 @@ setup(
         },
     install_requires=[
         'OpenFisca-Core >= 3.0.0, < 4.0',
+        'notebook',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     test_suite='nose.collector',
