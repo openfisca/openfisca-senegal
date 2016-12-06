@@ -25,6 +25,7 @@ class Scenario(AbstractScenario):
                 famille.setdefault('parents', []).append(id)
             else:
                 famille.setdefault('enfants', []).append(id)
+        famille.setdefault('enfants', [])
         conv.check(self.make_json_or_python_to_attributes())(dict(
             axes = axes,
             period = period,
