@@ -30,8 +30,9 @@ setup(
         'test': ['nose'],
         },
     install_requires=[
-        'OpenFisca-Core >= 3.0.0, < 4.0',
+        'OpenFisca-Core >= 4.1.4b1, < 5.0',
         'notebook',
+        'matplotlib',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     test_suite='nose.collector',
