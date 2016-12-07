@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openfisca_senegal.base import *
+from numpy import clip
 
 class date_de_naissance(Variable):
     column = DateCol
@@ -41,7 +42,7 @@ class nombre_de_parts(Variable):
 
         nombre_de_parts = 1 + nombre_de_parts_conjoint + nombre_de_parts_enfants
 
-        return period, np.minimum(5, nombre_de_parts)
+        return period, min_(5, nombre_de_parts)
 
 class impot_avant_reduction_famille(Variable):
     column = FloatCol
@@ -88,7 +89,7 @@ class reduction_impots_pour_charge_famille(Variable):
             (nombre_de_parts == 4) * reductions_pour_charge_de_famille.max_7 + \
             (nombre_de_parts == 4.5) * reductions_pour_charge_de_famille.max_8 + \
             (nombre_de_parts == 5) * reductions_pour_charge_de_famille.max_9
-        reduction_impot = np.clip(impot_avant_reduction_famille * taux, a_min=minimum, a_max=maximum)
+        reduction_impot = clip(impot_avant_reduction_famille * taux, a_min=minimum, a_max=maximum)
         return period, reduction_impot
 
 class impot_revenus(Variable):
@@ -99,5 +100,5 @@ class impot_revenus(Variable):
         impot_avant_reduction_famille = individu('impot_avant_reduction_famille', period)
         reduction_impots_pour_charge_famille = individu('reduction_impots_pour_charge_famille', period)
         impot_apres_reduction_famille = impot_avant_reduction_famille - reduction_impots_pour_charge_famille
-        return period, np.maximum(0, impot_apres_reduction_famille)
+        return period, max_(0, impot_apres_reduction_famille)
 
