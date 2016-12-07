@@ -28,6 +28,12 @@ class nombre_enfants(Variable):
     column = IntCol
     entity = Individu
 
+class pension_retraite(Variable):
+    column = FloatCol
+    entity = Individu
+    label = "Pension Retraite"
+    set_input = set_input_divide_by_period
+
 class nombre_de_parts(Variable):
     column = FloatCol
     entity = Individu
@@ -50,8 +56,16 @@ class impot_avant_reduction_famille(Variable):
 
     def function(individu, period, legislation):
         salaire = individu('salaire', period, options = [ADD])
+        salaire_abattement = 0.3*salaire
+        salaire_imposable = salaire - salaire_abattement
+        
+        pension_retraite = individu('pension_retraite', period, options = [ADD])
+        pension_abbattement = min_(pension_retraite*0.4, 180000)
+        retraite_imposable = pension_retraite - pension_abbattement
+        
+        revenus_imposable = salaire_imposable + retraite_imposable
         bareme_impot_progressif = legislation(period).bareme_impot_progressif
-        return period, bareme_impot_progressif.calc(salaire)
+        return period, bareme_impot_progressif.calc(revenus_imposable)
 
 class reduction_impots_pour_charge_famille(Variable):
     column = FloatCol
