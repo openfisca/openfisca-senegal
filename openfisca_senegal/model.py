@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+from openfisca_senegal.base import *
+
 class date_de_naissance(Variable):
     column = DateCol
     entity = Individu
