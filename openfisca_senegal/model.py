@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openfisca_senegal.base import *
-from numpy import clip
+from numpy import clip, floor_divide
 
 class date_de_naissance(Variable):
     column = DateCol
@@ -62,9 +62,11 @@ class impot_avant_reduction_famille(Variable):
         pension_retraite = individu('pension_retraite', period, options = [ADD])
         pension_abbattement = max_(pension_retraite * 0.4, 1800000)
         retraite_imposable = pension_retraite - pension_abbattement
-        
-        revenus_imposable = salaire_imposable + retraite_imposable
+
+        revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable, 1000) * 1000
+        revenus_imposable = max_(0, revenus_arrondis)
         bareme_impot_progressif = legislation(period).bareme_impot_progressif
+
         return period, bareme_impot_progressif.calc(revenus_imposable)
 
 class reduction_impots_pour_charge_famille(Variable):
