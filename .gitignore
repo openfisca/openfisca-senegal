@@ -1,3 +1,5 @@
 OpenFisca_Senegal.egg-info
 *.pdf
 notebooks/.ipynb_checkpoints
+build/*
+dist/*
