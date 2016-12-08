@@ -1,0 +1,20 @@
+{
+    "intermediate_variables": true,
+    "labels": true,
+    "scenarios": [{
+        "test_case": {
+            "familles": [{
+                "parents": ["parent1"],
+                "enfants": []
+            }],
+            "individus": [
+                {
+                    "id": "parent1",
+                    "salaire": "4000000"
+                }
+            ]
+        },
+        "period": "month:2016-12"
+    }],
+    "variables": ["impot_revenus"]
+}

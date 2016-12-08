@@ -13,3 +13,16 @@ See the [Jupyter Notebook](/notebooks/Senegalese%20tax%20and%20benefit%20system%
 - http://www.gouv.sn/IMG/pdf/cgi2013.pdf
 - http://www.impotsetdomaines.gouv.sn/sites/default/files/formulaires/ir_declarationsanspagedegarde.pdf
 - http://www.impotsetdomaines.gouv.sn/fr/simulateur-dimpots
+
+## API
+
+### Installation
+
+```sh
+pip install -e '.[api]' # needs to be executed in the folder containing the setup.py file
+```
+
+### Run
+```sh
+paster serve api/api_config.ini
+```
