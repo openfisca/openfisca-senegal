@@ -56,9 +56,9 @@ class impot_avant_reduction_famille(Variable):
 
     def function(individu, period, legislation):
         salaire = individu('salaire', period, options = [ADD])
-        salaire_abattement = 0.3*salaire
+        salaire_abattement = 0.3 * salaire
         salaire_imposable = salaire - salaire_abattement
-        
+
         pension_retraite = individu('pension_retraite', period, options = [ADD])
         pension_abbattement = min_(pension_retraite*0.4, 180000)
         retraite_imposable = pension_retraite - pension_abbattement
@@ -103,7 +103,9 @@ class reduction_impots_pour_charge_famille(Variable):
             (nombre_de_parts == 4) * reductions_pour_charge_de_famille.max_7 + \
             (nombre_de_parts == 4.5) * reductions_pour_charge_de_famille.max_8 + \
             (nombre_de_parts == 5) * reductions_pour_charge_de_famille.max_9
-        reduction_impot = clip(impot_avant_reduction_famille * taux, a_min=minimum, a_max=maximum)
+
+        reduction_impot = clip(impot_avant_reduction_famille * taux, a_min = minimum, a_max = maximum)
+
         return period, reduction_impot
 
 class impot_revenus(Variable):
