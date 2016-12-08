@@ -3,10 +3,12 @@
 from openfisca_senegal.base import *
 from numpy import clip, floor_divide
 
+
 class date_de_naissance(Variable):
     column = DateCol
     entity = Individu
     label = u"Date de naissance"
+
 
 class salaire(Variable):
     column = FloatCol
@@ -14,25 +16,30 @@ class salaire(Variable):
     label = "Salaire"
     set_input = set_input_divide_by_period
 
+
 class est_marie(Variable):
     column = BoolCol
     entity = Individu
     label = u"Est marié"
     set_input = set_input_dispatch_by_period
 
+
 class conjoint_a_des_revenus(Variable):
     column = BoolCol
     entity = Individu
 
+
 class nombre_enfants(Variable):
     column = IntCol
     entity = Individu
+
 
 class pension_retraite(Variable):
     column = FloatCol
     entity = Individu
     label = "Pension Retraite"
     set_input = set_input_divide_by_period
+
 
 class nombre_de_parts(Variable):
     column = FloatCol
@@ -49,6 +56,7 @@ class nombre_de_parts(Variable):
         nombre_de_parts = 1 + nombre_de_parts_conjoint + nombre_de_parts_enfants
 
         return period, min_(5, nombre_de_parts)
+
 
 class impot_avant_reduction_famille(Variable):
     column = FloatCol
@@ -68,6 +76,7 @@ class impot_avant_reduction_famille(Variable):
         bareme_impot_progressif = legislation(period).bareme_impot_progressif
 
         return period, bareme_impot_progressif.calc(revenus_imposable)
+
 
 class reduction_impots_pour_charge_famille(Variable):
     column = FloatCol
@@ -110,6 +119,7 @@ class reduction_impots_pour_charge_famille(Variable):
 
         return period, reduction_impot
 
+
 class impot_revenus(Variable):
     column = FloatCol
     entity = Individu
@@ -119,4 +129,5 @@ class impot_revenus(Variable):
         reduction_impots_pour_charge_famille = individu('reduction_impots_pour_charge_famille', period)
         impot_apres_reduction_famille = impot_avant_reduction_famille - reduction_impots_pour_charge_famille
         return period, max_(0, impot_apres_reduction_famille)
+
 
