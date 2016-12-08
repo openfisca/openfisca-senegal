@@ -60,7 +60,7 @@ class impot_avant_reduction_famille(Variable):
         salaire_imposable = salaire - salaire_abattement
 
         pension_retraite = individu('pension_retraite', period, options = [ADD])
-        pension_abbattement = min_(pension_retraite*0.4, 180000)
+        pension_abbattement = max_(pension_retraite * 0.4, 1800000)
         retraite_imposable = pension_retraite - pension_abbattement
         
         revenus_imposable = salaire_imposable + retraite_imposable
