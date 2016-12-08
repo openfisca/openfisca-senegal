@@ -27,10 +27,6 @@ setup(
          ['CHANGELOG.md', 'LICENSE', 'README.md']),
         ],
     extras_require={
-        'test': [
-            'nose',
-            'PyYAML >= 3.10',
-            ],
         'api': [
             'OpenFisca-Web-Api[paster] == 3.0.1.dev0',
             ],
@@ -41,6 +37,7 @@ setup(
         },
     install_requires=[
         'OpenFisca-Core >= 4.1.5.dev1, < 5.0',
+        'PyYAML >= 3.10',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     test_suite='nose.collector',
