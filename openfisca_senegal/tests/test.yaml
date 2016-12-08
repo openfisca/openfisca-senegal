@@ -1,0 +1,9 @@
+- name: "Allocations familiales - Couple, 2 enfants de moins de 11 ans"
+  description: Montant AF brut de CRDS
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 4000000
+  output_variables:
+    impot_avant_reduction_famille: 74000
+

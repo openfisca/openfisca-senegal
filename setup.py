@@ -27,7 +27,10 @@ setup(
          ['CHANGELOG.md', 'LICENSE', 'README.md']),
         ],
     extras_require={
-        'test': ['nose'],
+        'test': [
+            'nose',
+            'PyYAML >= 3.10',
+            ],
         'api': [
             'OpenFisca-Web-Api[paster] == 3.0.1.dev0',
             ],
