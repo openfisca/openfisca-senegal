@@ -114,10 +114,6 @@ class reduction_impots_pour_charge_famille(Variable):
         nombre_de_parts = individu('nombre_de_parts', period)
         reductions_pour_charge_de_famille = legislation(period).reductions_pour_charge_de_famille
 
-        print 'min', reductions_pour_charge_de_famille.min_6
-        print 'max', reductions_pour_charge_de_famille.max_6
-        print 'taux', reductions_pour_charge_de_famille.taux_6
-
         taux = (nombre_de_parts == 1) * reductions_pour_charge_de_famille.taux_1 + \
             (nombre_de_parts == 1.5) * reductions_pour_charge_de_famille.taux_2 + \
             (nombre_de_parts == 2) * reductions_pour_charge_de_famille.taux_3 + \
@@ -146,14 +142,7 @@ class reduction_impots_pour_charge_famille(Variable):
             (nombre_de_parts == 4.5) * reductions_pour_charge_de_famille.max_8 + \
             (nombre_de_parts == 5) * reductions_pour_charge_de_famille.max_9
 
-        print 'min', minimum
-        print 'max', maximum
-        print 'taux', taux
-        print impot_avant_reduction_famille * taux
         reduction_impot = clip(impot_avant_reduction_famille * taux, a_min = minimum, a_max = maximum)
-        print impot_avant_reduction_famille
-        print reduction_impot
-        print impot_avant_reduction_famille - reduction_impot
         return period, reduction_impot
 
 
