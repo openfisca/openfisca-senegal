@@ -23,6 +23,23 @@ class est_marie(Variable):
     label = u"Est marié"
     set_input = set_input_dispatch_by_period
 
+class est_divorce(Variable):
+    column = BoolCol
+    entity = Individu
+    label = u"Est divorcé"
+    set_input = set_input_dispatch_by_period
+
+class est_veuf(Variable):
+    column = BoolCol
+    entity = Individu
+    label = u"Est veuf"
+    set_input = set_input_dispatch_by_period
+
+class est_celibataire(Variable):
+    column = BoolCol
+    entity = Individu
+    label = u"Est célibataire"
+    set_input = set_input_dispatch_by_period
 
 class conjoint_a_des_revenus(Variable):
     column = BoolCol
@@ -40,6 +57,11 @@ class pension_retraite(Variable):
     label = "Pension Retraite"
     set_input = set_input_divide_by_period
 
+class benefices_non_salarie(Variable):
+    column = FloatCol
+    entity = Individu
+    label = "Bénéfices non salarié"
+    set_input = set_input_divide_by_period
 
 class nombre_de_parts(Variable):
     column = FloatCol
@@ -71,8 +93,15 @@ class impot_avant_reduction_famille(Variable):
         pension_abbattement = max_(pension_retraite * 0.4, 1800000)
         retraite_imposable = pension_retraite - pension_abbattement
 
-        revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable, 1000) * 1000
+        benefices_non_salarie = individu('benefices_non_salarie', period, options = [ADD])
+        benefice_abattement = benefices_non_salarie*0.15
+        benefices_imposable = benefices_non_salarie - benefice_abattement
+
+        revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + benefices_imposable, 1000) * 1000
         revenus_imposable = max_(0, revenus_arrondis)
+        
+        revenus_imposable = salaire_imposable + retraite_imposable + benefices_imposable
+
         bareme_impot_progressif = legislation(period).bareme_impot_progressif
 
         return period, bareme_impot_progressif.calc(revenus_imposable)
