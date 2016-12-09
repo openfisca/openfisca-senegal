@@ -54,13 +54,13 @@ class nombre_enfants(Variable):
 class pension_retraite(Variable):
     column = FloatCol
     entity = Individu
-    label = "Pension Retraite"
+    label = u"Pension Retraite"
     set_input = set_input_divide_by_period
 
 class benefices_non_salarie(Variable):
     column = FloatCol
     entity = Individu
-    label = "Bénéfices non salarié"
+    label = u"Bénéfices non salarié"
     set_input = set_input_divide_by_period
 
 class nombre_de_parts(Variable):
