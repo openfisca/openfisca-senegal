@@ -1,9 +1,110 @@
-- name: "Allocations familiales - Couple, 2 enfants de moins de 11 ans"
-  description: Montant AF brut de CRDS
+# - name: "Impot"
+#   description: "Impot"
+#   period: 2016
+#   absolute_error_margin: 0.03
+#   input_variables:
+#     salaire: 4000000
+#   output_variables:
+#     impot_avant_reduction_famille: 74000
+
+
+- name: "Impot non imposable"
+  description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
   input_variables:
-    salaire: 4000000
+    salaire: 500000
   output_variables:
-    impot_avant_reduction_famille: 74000
+    nombre_de_parts: 1
+    impot_avant_reduction_famille: 0
+
+
+- name: "Impot 1 part "
+  description: "Impot 1 part "
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+  output_variables:
+    nombre_de_parts: 1
+    impot_avant_reduction_famille: 18541000
+
+
+- name: "Impot 1.5 parts"
+  description: "Impot 1.5 part"
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+    nombre_de_parts: 1.5
+  output_variables:
+    impot_avant_reduction_famille: 18541000
+    impot_revenus: 18241000
+
+- name: "Impot 2 parts"
+  description: "Impot"
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+    nombre_de_parts: 2
+  output_variables:
+    impot_avant_reduction_famille: 18541000
+    impot_revenus: 17891000
+
+- name: "Impot 2.5 parts"
+  description: "Impot"
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+    nombre_de_parts: 2.5
+  output_variables:
+    impot_avant_reduction_famille: 18541000
+    impot_revenus: 17441000
+
+- name: "Impot 3 parts"
+  description: "Impot"
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+    nombre_de_parts: 3
+  output_variables:
+    impot_avant_reduction_famille: 18541000
+    impot_revenus: 16891000
+
+
+- name: "Impot 3.5 parts"
+  description: "Impot"
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+    nombre_de_parts: 3.5
+  output_variables:
+    impot_avant_reduction_famille: 18541000
+    impot_revenus: 16511000
+
+- name: "Impot 4 parts"
+  description: "Impot"
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+    nombre_de_parts: 4
+  output_variables:
+    impot_avant_reduction_famille: 18541000
+    impot_revenus: 16051000
+
+- name: "Impot 4.5 parts"
+  description: "Impot"
+  period: 2016
+  absolute_error_margin: 0.03
+  input_variables:
+    salaire: 49855000
+    nombre_de_parts: 4.5
+  output_variables:
+    impot_avant_reduction_famille: 18541000
+    impot_revenus: 15786000
 
