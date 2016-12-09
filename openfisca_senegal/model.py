@@ -73,7 +73,7 @@ class nombre_de_parts(Variable):
 
         conjoint_a_des_revenus = individu('conjoint_a_des_revenus', period)
         est_marie = individu('est_marie', period)
-        nombre_de_parts_conjoint = est_marie * 0.5 + (1 - conjoint_a_des_revenus) * 0.5
+        nombre_de_parts_conjoint = est_marie * (0.5 + not_(conjoint_a_des_revenus) * 0.5)
 
         nombre_de_parts = 1 + nombre_de_parts_conjoint + nombre_de_parts_enfants
 
