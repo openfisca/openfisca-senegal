@@ -23,11 +23,13 @@ class est_marie(Variable):
     label = u"Est marié"
     set_input = set_input_dispatch_by_period
 
+
 class est_divorce(Variable):
     column = BoolCol
     entity = Individu
     label = u"Est divorcé"
     set_input = set_input_dispatch_by_period
+
 
 class est_veuf(Variable):
     column = BoolCol
@@ -35,11 +37,13 @@ class est_veuf(Variable):
     label = u"Est veuf"
     set_input = set_input_dispatch_by_period
 
+
 class est_celibataire(Variable):
     column = BoolCol
     entity = Individu
     label = u"Est célibataire"
     set_input = set_input_dispatch_by_period
+
 
 class conjoint_a_des_revenus(Variable):
     column = BoolCol

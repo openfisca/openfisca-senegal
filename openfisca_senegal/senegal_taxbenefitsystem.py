@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import xml.etree.ElementTree
 
-from openfisca_core import conv, legislationsxml
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
 
 from . import entities, scenarios
@@ -12,6 +10,7 @@ from . import entities, scenarios
 COUNTRY_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_FILE = os.path.join(COUNTRY_DIR, 'model.py')
 PARAM_FILE = os.path.join(COUNTRY_DIR, 'parameters.xml')
+
 
 class SenegalTaxBenefitSystem(TaxBenefitSystem):
     """Senegalese tax and benefit system"""
