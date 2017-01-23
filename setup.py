@@ -36,7 +36,7 @@ setup(
             ]
         },
     install_requires=[
-        'OpenFisca-Core >= 4.1.5.dev1, < 5.0',
+        'OpenFisca-Core == 4.2.1.dev0',
         'PyYAML >= 3.10',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
