@@ -35,7 +35,3 @@ class Scenario(AbstractScenario):
                 ),
             ))
         return self
-
-    def make_json_or_python_to_test_case(self, period = None, repair = False):
-        def json_or_python_to_test_case(value, state = None):
-            return value, None
