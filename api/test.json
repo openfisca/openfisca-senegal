@@ -10,7 +10,9 @@
             "individus": [
                 {
                     "id": "parent1",
-                    "salaire": "4000000"
+                    "salaire": {
+                        "2015": "5000400"
+                    }
                 }
             ]
         },
