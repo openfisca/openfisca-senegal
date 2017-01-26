@@ -20,7 +20,7 @@ setup(
     description=u'Senegalese tax and benefit system for OpenFisca',
     keywords='benefit microsimulation senegal social tax',
     license='http://www.fsf.org/licensing/licenses/agpl-3.0.html',
-    url='https://github.com/openfisca/openfisca-senegal',
+    url='https://github.com/openfisca/senegal',
 
     data_files=[
         ('share/openfisca/openfisca-senegal',

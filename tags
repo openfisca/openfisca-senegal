@@ -1,0 +1,118 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+COUNTRY_DIR	openfisca_senegal/senegal_taxbenefitsystem.py	/^COUNTRY_DIR = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:10
+CURRENCY	openfisca_senegal/senegal_taxbenefitsystem.py	/^    CURRENCY = u"FCFA"$/;"	kind:variable	line:17
+CountryTaxBenefitSystem	openfisca_senegal/__init__.py	/^CountryTaxBenefitSystem = SenegalTaxBenefitSystem$/;"	kind:variable	line:5
+Famille	openfisca_senegal/entities.py	/^Famille = build_entity($/;"	kind:variable	line:7
+Individu	openfisca_senegal/entities.py	/^Individu = build_entity($/;"	kind:variable	line:26
+MODEL_FILE	openfisca_senegal/senegal_taxbenefitsystem.py	/^MODEL_FILE = os.path.join(COUNTRY_DIR, 'model.py')$/;"	kind:variable	line:11
+PARAM_FILE	openfisca_senegal/senegal_taxbenefitsystem.py	/^PARAM_FILE = os.path.join(COUNTRY_DIR, 'parameters.xml')$/;"	kind:variable	line:12
+Scenario	openfisca_senegal/scenarios.py	/^class Scenario(AbstractScenario):$/;"	kind:class	line:8
+SenegalTaxBenefitSystem	openfisca_senegal/senegal_taxbenefitsystem.py	/^class SenegalTaxBenefitSystem(TaxBenefitSystem):$/;"	kind:class	line:15
+__all__	openfisca_senegal/base.py	/^__all__ = [$/;"	kind:variable	line:17
+__init__	openfisca_senegal/senegal_taxbenefitsystem.py	/^    def __init__(self):$/;"	kind:member	line:19
+__init__.py	openfisca_senegal/__init__.py	1;"	kind:file	line:1
+author	setup.py	/^    author='OpenFisca Team',$/;"	kind:variable	line:11
+author_email	setup.py	/^    author_email='contact@openfisca.fr',$/;"	kind:variable	line:12
+base.py	openfisca_senegal/base.py	1;"	kind:file	line:1
+benefices_non_salarie	openfisca_senegal/model.py	/^class benefices_non_salarie(Variable):$/;"	kind:class	line:65
+classifiers	setup.py	/^    classifiers=[$/;"	kind:variable	line:13
+column	openfisca_senegal/model.py	/^    column = BoolCol$/;"	kind:variable	line:21
+column	openfisca_senegal/model.py	/^    column = BoolCol$/;"	kind:variable	line:28
+column	openfisca_senegal/model.py	/^    column = BoolCol$/;"	kind:variable	line:35
+column	openfisca_senegal/model.py	/^    column = BoolCol$/;"	kind:variable	line:42
+column	openfisca_senegal/model.py	/^    column = BoolCol$/;"	kind:variable	line:49
+column	openfisca_senegal/model.py	/^    column = DateCol$/;"	kind:variable	line:8
+column	openfisca_senegal/model.py	/^    column = FloatCol$/;"	kind:variable	line:112
+column	openfisca_senegal/model.py	/^    column = FloatCol$/;"	kind:variable	line:14
+column	openfisca_senegal/model.py	/^    column = FloatCol$/;"	kind:variable	line:154
+column	openfisca_senegal/model.py	/^    column = FloatCol$/;"	kind:variable	line:59
+column	openfisca_senegal/model.py	/^    column = FloatCol$/;"	kind:variable	line:66
+column	openfisca_senegal/model.py	/^    column = FloatCol$/;"	kind:variable	line:73
+column	openfisca_senegal/model.py	/^    column = FloatCol$/;"	kind:variable	line:89
+column	openfisca_senegal/model.py	/^    column = IntCol$/;"	kind:variable	line:54
+conjoint_a_des_revenus	openfisca_senegal/model.py	/^class conjoint_a_des_revenus(Variable):$/;"	kind:class	line:48
+data_files	setup.py	/^    data_files=[$/;"	kind:variable	line:25
+date_de_naissance	openfisca_senegal/model.py	/^class date_de_naissance(Variable):$/;"	kind:class	line:7
+description	setup.py	/^    description=u'Senegalese tax and benefit system for OpenFisca',$/;"	kind:variable	line:20
+entities	openfisca_senegal/entities.py	/^entities = [Famille, Individu]$/;"	kind:variable	line:33
+entities.py	openfisca_senegal/entities.py	1;"	kind:file	line:1
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:113
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:15
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:155
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:22
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:29
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:36
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:43
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:50
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:55
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:60
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:67
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:74
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:9
+entity	openfisca_senegal/model.py	/^    entity = Individu$/;"	kind:variable	line:90
+est_celibataire	openfisca_senegal/model.py	/^class est_celibataire(Variable):$/;"	kind:class	line:41
+est_divorce	openfisca_senegal/model.py	/^class est_divorce(Variable):$/;"	kind:class	line:27
+est_marie	openfisca_senegal/model.py	/^class est_marie(Variable):$/;"	kind:class	line:20
+est_veuf	openfisca_senegal/model.py	/^class est_veuf(Variable):$/;"	kind:class	line:34
+extras_require	setup.py	/^    extras_require={$/;"	kind:variable	line:29
+function	openfisca_senegal/model.py	/^    def function(individu, period):$/;"	kind:member	line:157
+function	openfisca_senegal/model.py	/^    def function(individu, period):$/;"	kind:member	line:77
+function	openfisca_senegal/model.py	/^    def function(individu, period, legislation):$/;"	kind:member	line:115
+function	openfisca_senegal/model.py	/^    def function(individu, period, legislation):$/;"	kind:member	line:92
+impot_avant_reduction_famille	openfisca_senegal/model.py	/^class impot_avant_reduction_famille(Variable):$/;"	kind:class	line:88
+impot_revenus	openfisca_senegal/model.py	/^class impot_revenus(Variable):$/;"	kind:class	line:153
+init_single_entity	openfisca_senegal/scenarios.py	/^    def init_single_entity(self, axes = None, enfants = None, famille = None, parent1 = None, parent2 = None,$/;"	kind:member	line:9
+install_requires	setup.py	/^    install_requires=[$/;"	kind:variable	line:38
+is_person	openfisca_senegal/entities.py	/^    is_person = True,$/;"	kind:variable	line:30
+json_or_python_to_test_case	openfisca_senegal/scenarios.py	/^        def json_or_python_to_test_case(value, state = None):$/;"	kind:function	line:40
+key	openfisca_senegal/entities.py	/^    key = "famille",$/;"	kind:variable	line:8
+key	openfisca_senegal/entities.py	/^    key = "individu",$/;"	kind:variable	line:27
+keywords	setup.py	/^    keywords='benefit microsimulation senegal social tax',$/;"	kind:variable	line:21
+label	openfisca_senegal/entities.py	/^    label = u'Famille',$/;"	kind:variable	line:10
+label	openfisca_senegal/entities.py	/^    label = u'Individu',$/;"	kind:variable	line:29
+label	openfisca_senegal/model.py	/^    label = "Salaire"$/;"	kind:variable	line:16
+label	openfisca_senegal/model.py	/^    label = u"Bénéfices non salarié"$/;"	kind:variable	line:68
+label	openfisca_senegal/model.py	/^    label = u"Date de naissance"$/;"	kind:variable	line:10
+label	openfisca_senegal/model.py	/^    label = u"Est célibataire"$/;"	kind:variable	line:44
+label	openfisca_senegal/model.py	/^    label = u"Est divorcé"$/;"	kind:variable	line:30
+label	openfisca_senegal/model.py	/^    label = u"Est marié"$/;"	kind:variable	line:23
+label	openfisca_senegal/model.py	/^    label = u"Est veuf"$/;"	kind:variable	line:37
+label	openfisca_senegal/model.py	/^    label = u"Nombre de parts"$/;"	kind:variable	line:75
+label	openfisca_senegal/model.py	/^    label = u"Pension Retraite"$/;"	kind:variable	line:61
+license	setup.py	/^    license='http:\/\/www.fsf.org\/licensing\/licenses\/agpl-3.0.html',$/;"	kind:variable	line:22
+make_json_or_python_to_test_case	openfisca_senegal/scenarios.py	/^    def make_json_or_python_to_test_case(self, period = None, repair = False):$/;"	kind:member	line:39
+model.py	openfisca_senegal/model.py	1;"	kind:file	line:1
+name	setup.py	/^    name='OpenFisca-Senegal',$/;"	kind:variable	line:9
+nombre_de_parts	openfisca_senegal/model.py	/^class nombre_de_parts(Variable):$/;"	kind:class	line:72
+nombre_enfants	openfisca_senegal/model.py	/^class nombre_enfants(Variable):$/;"	kind:class	line:53
+packages	setup.py	/^    packages=find_packages(exclude=['openfisca_senegal.tests*']),$/;"	kind:variable	line:42
+parent1	openfisca_senegal/tests/test.py	/^    parent1={$/;"	kind:variable	line:10
+pension_retraite	openfisca_senegal/model.py	/^class pension_retraite(Variable):$/;"	kind:class	line:58
+period	openfisca_senegal/tests/test.py	/^    period='2015',$/;"	kind:variable	line:16
+plural	openfisca_senegal/entities.py	/^    plural = "familles",$/;"	kind:variable	line:9
+plural	openfisca_senegal/entities.py	/^    plural = "individus",$/;"	kind:variable	line:28
+reduction_impots_pour_charge_famille	openfisca_senegal/model.py	/^class reduction_impots_pour_charge_famille(Variable):$/;"	kind:class	line:111
+roles	openfisca_senegal/entities.py	/^    roles = [$/;"	kind:variable	line:11
+salaire	openfisca_senegal/model.py	/^class salaire(Variable):$/;"	kind:class	line:13
+scenario	openfisca_senegal/tests/test.py	/^scenario = tax_benefit_system.new_scenario()$/;"	kind:variable	line:7
+scenarios.py	openfisca_senegal/scenarios.py	1;"	kind:file	line:1
+senegal_taxbenefitsystem.py	openfisca_senegal/senegal_taxbenefitsystem.py	1;"	kind:file	line:1
+set_input	openfisca_senegal/model.py	/^    set_input = set_input_dispatch_by_period$/;"	kind:variable	line:24
+set_input	openfisca_senegal/model.py	/^    set_input = set_input_dispatch_by_period$/;"	kind:variable	line:31
+set_input	openfisca_senegal/model.py	/^    set_input = set_input_dispatch_by_period$/;"	kind:variable	line:38
+set_input	openfisca_senegal/model.py	/^    set_input = set_input_dispatch_by_period$/;"	kind:variable	line:45
+set_input	openfisca_senegal/model.py	/^    set_input = set_input_divide_by_period$/;"	kind:variable	line:17
+set_input	openfisca_senegal/model.py	/^    set_input = set_input_divide_by_period$/;"	kind:variable	line:62
+set_input	openfisca_senegal/model.py	/^    set_input = set_input_divide_by_period$/;"	kind:variable	line:69
+setup.py	setup.py	1;"	kind:file	line:1
+simulation	openfisca_senegal/tests/test.py	/^simulation = scenario.new_simulation()$/;"	kind:variable	line:19
+tax_benefit_system	openfisca_senegal/tests/test.py	/^tax_benefit_system = SenegalTBS()$/;"	kind:variable	line:5
+test.py	openfisca_senegal/tests/test.py	1;"	kind:file	line:1
+test_suite	setup.py	/^    test_suite='nose.collector',$/;"	kind:variable	line:43
+url	setup.py	/^    url='https:\/\/github.com\/openfisca\/openfisca-senegal',$/;"	kind:variable	line:23
+version	setup.py	/^    version='0.2.0',$/;"	kind:variable	line:10
