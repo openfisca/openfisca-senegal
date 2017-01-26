@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.2.0',
+    version='0.3.0',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     classifiers=[
@@ -35,6 +35,7 @@ setup(
             'matplotlib',
             ]
         },
+    include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
         'OpenFisca-Core == 4.2.1.dev0',
         'PyYAML >= 3.10',
