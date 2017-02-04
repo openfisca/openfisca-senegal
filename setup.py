@@ -28,7 +28,7 @@ setup(
         ],
     extras_require={
         'api': [
-            'OpenFisca-Web-Api[paster] == 3.0.1.dev0',
+            'OpenFisca-Web-Api[paster] == 3.1.0.dev1',
             ],
         'notebook': [
             'notebook',
@@ -40,7 +40,7 @@ setup(
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core == 4.3.3',
+        'OpenFisca-Core == 5.0.0.dev0',
         'PyYAML >= 3.10',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
