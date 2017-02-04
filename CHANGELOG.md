@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.3.1
+## 0.4.1
 
-* Fix OpenFisca-Survey6Manager dependency
+* Fix OpenFisca-Survey-Manager dependency
 
 ## 0.4.0
 
