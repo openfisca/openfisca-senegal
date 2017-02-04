@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2
+
+* Use a core version that works with the api
+
 ## 0.4.1
 
 * Fix OpenFisca-Survey-Manager dependency
