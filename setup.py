@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.4.0',
+    version='0.4.1',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     classifiers=[
@@ -35,7 +35,7 @@ setup(
             'matplotlib',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.8.1',
+            'OpenFisca-Survey-Manager >= 0.8.2',
             ]
         },
     include_package_data = True,  # Will read MANIFEST.in
