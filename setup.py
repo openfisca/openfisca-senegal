@@ -37,7 +37,7 @@ setup(
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core == 5.0.0.dev0',
+        'OpenFisca-Core >= 5.0.0, < 6.0',
         'PyYAML >= 3.10',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
