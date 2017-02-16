@@ -27,9 +27,6 @@ setup(
          ['CHANGELOG.md', 'LICENSE', 'README.md']),
         ],
     extras_require={
-        'api': [
-            'OpenFisca-Web-Api[paster] == 3.1.0.dev1',
-            ],
         'notebook': [
             'notebook',
             'matplotlib',

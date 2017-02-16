@@ -19,12 +19,13 @@ See the [Jupyter Notebook](/notebooks/Senegalese%20tax%20and%20benefit%20system%
 ### Installation
 
 ```sh
-pip install -e '.[api]' # needs to be executed in the folder containing the setup.py file
+pip install -e . # needs to be executed in the folder containing the setup.py file
 ```
 
-### Run
+### Run with the Web API
 
 ```sh
+pip install OpenFisca-Web-API[paster]
 paster serve api/api_config.ini
 ```
 
