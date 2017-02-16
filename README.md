@@ -23,6 +23,13 @@ pip install -e '.[api]' # needs to be executed in the folder containing the setu
 ```
 
 ### Run
+
 ```sh
 paster serve api/api_config.ini
+```
+
+To test with a sample file:
+
+```sh
+curl http://localhost:2000/api/1/calculate -X POST --data @./api/test.json --header 'Content-type: application/json'
 ```
