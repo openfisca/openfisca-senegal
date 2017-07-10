@@ -8,6 +8,7 @@ class date_de_naissance(Variable):
     column = DateCol
     entity = Individu
     label = u"Date de naissance"
+    definition_period = ETERNITY
 
 
 class salaire(Variable):
@@ -15,6 +16,7 @@ class salaire(Variable):
     entity = Individu
     label = "Salaire"
     set_input = set_input_divide_by_period
+    definition_period = YEAR
 
 
 class est_marie(Variable):
@@ -22,43 +24,48 @@ class est_marie(Variable):
     entity = Individu
     label = u"Est marié"
     set_input = set_input_dispatch_by_period
+    definition_period = YEAR
 
 
 class est_divorce(Variable):
     column = BoolCol
     entity = Individu
     label = u"Est divorcé"
+    definition_period = YEAR
     set_input = set_input_dispatch_by_period
-
 
 class est_veuf(Variable):
     column = BoolCol
     entity = Individu
     label = u"Est veuf"
+    definition_period = YEAR
     set_input = set_input_dispatch_by_period
-
 
 class est_celibataire(Variable):
     column = BoolCol
     entity = Individu
     label = u"Est célibataire"
+    definition_period = YEAR
     set_input = set_input_dispatch_by_period
 
 
 class conjoint_a_des_revenus(Variable):
     column = BoolCol
     entity = Individu
+    definition_period = YEAR
 
 
 class nombre_enfants(Variable):
     column = IntCol
     entity = Individu
+    definition_period = YEAR
 
 
 class pension_retraite(Variable):
     column = FloatCol
     entity = Individu
     label = u"Pension Retraite"
+    definition_period = YEAR
     set_input = set_input_divide_by_period
 
 
@@ -66,6 +73,7 @@ class benefices_non_salarie(Variable):
     column = FloatCol
     entity = Individu
     label = u"Bénéfices non salarié"
+    definition_period = YEAR
     set_input = set_input_divide_by_period
 
 
@@ -73,8 +81,9 @@ class nombre_de_parts(Variable):
     column = FloatCol
     entity = Individu
     label = u"Nombre de parts"
+    definition_period = YEAR
 
-    def function(individu, period):
+    def formula(individu, period):
         nombre_de_parts_enfants = individu('nombre_enfants', period) * 0.5
         conjoint_a_des_revenus = individu('conjoint_a_des_revenus', period)
         est_marie = individu('est_marie', period)
@@ -82,14 +91,15 @@ class nombre_de_parts(Variable):
 
         nombre_de_parts = 1 + nombre_de_parts_conjoint + nombre_de_parts_enfants
 
-        return period, min_(5, nombre_de_parts)
+        return min_(5, nombre_de_parts)
 
 
 class impot_avant_reduction_famille(Variable):
     column = FloatCol
     entity = Individu
+    definition_period = YEAR
 
-    def function(individu, period, legislation):
+    def formula(individu, period, legislation):
         salaire = individu('salaire', period, options = [ADD])
         salaire_abattement = min_(0.3 * salaire, 900000)
         salaire_imposable = salaire - salaire_abattement
@@ -105,14 +115,15 @@ class impot_avant_reduction_famille(Variable):
         revenus_imposable = max_(0, revenus_arrondis)
 
         bareme_impot_progressif = legislation(period).bareme_impot_progressif
-        return period, bareme_impot_progressif.calc(revenus_imposable)
+        return bareme_impot_progressif.calc(revenus_imposable)
 
 
 class reduction_impots_pour_charge_famille(Variable):
     column = FloatCol
     entity = Individu
+    definition_period = YEAR
 
-    def function(individu, period, legislation):
+    def formula(individu, period, legislation):
         impot_avant_reduction_famille = individu('impot_avant_reduction_famille', period)
 
         nombre_de_parts = individu('nombre_de_parts', period)
@@ -147,17 +158,16 @@ class reduction_impots_pour_charge_famille(Variable):
             (nombre_de_parts == 5) * reductions_pour_charge_de_famille.max_9
 
         reduction_impot = clip(impot_avant_reduction_famille * taux, a_min = minimum, a_max = maximum)
-        return period, reduction_impot
+        return reduction_impot
 
 
 class impot_revenus(Variable):
     column = FloatCol
     entity = Individu
+    definition_period = YEAR
 
-    def function(individu, period):
+    def formula(individu, period):
         impot_avant_reduction_famille = individu('impot_avant_reduction_famille', period)
         reduction_impots_pour_charge_famille = individu('reduction_impots_pour_charge_famille', period)
         impot_apres_reduction_famille = impot_avant_reduction_famille - reduction_impots_pour_charge_famille
-        return period, max_(0, impot_apres_reduction_famille)
-
-
+        return max_(0, impot_apres_reduction_famille)

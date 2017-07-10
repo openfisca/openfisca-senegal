@@ -2,134 +2,134 @@
   <BAREME code="bareme_impot_progressif" type="monetary">
     <TRANCHE code="tranche0">
       <SEUIL>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="0" />
+        <VALUE deb="2013-01-01"  valeur="0" />
       </SEUIL>
       <TAUX>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="0" />
+        <VALUE deb="2013-01-01"  valeur="0" />
       </TAUX>
     </TRANCHE>
     <TRANCHE code="tranche1">
       <SEUIL>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="630000" />
+        <VALUE deb="2013-01-01"  valeur="630000" />
       </SEUIL>
       <TAUX>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="0.2" />
+        <VALUE deb="2013-01-01"  valeur="0.2" />
       </TAUX>
     </TRANCHE>
     <TRANCHE code="tranche2">
       <SEUIL>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="1500000" />
+        <VALUE deb="2013-01-01"  valeur="1500000" />
       </SEUIL>
       <TAUX>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="0.3" />
+        <VALUE deb="2013-01-01"  valeur="0.3" />
       </TAUX>
     </TRANCHE>
     <TRANCHE code="tranche3">
       <SEUIL>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="4000000" />
+        <VALUE deb="2013-01-01"  valeur="4000000" />
       </SEUIL>
       <TAUX>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="0.35" />
+        <VALUE deb="2013-01-01"  valeur="0.35" />
       </TAUX>
     </TRANCHE>
     <TRANCHE code="tranche4">
       <SEUIL>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="8000000" />
+        <VALUE deb="2013-01-01"  valeur="8000000" />
       </SEUIL>
       <TAUX>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="0.37" />
+        <VALUE deb="2013-01-01"  valeur="0.37" />
       </TAUX>
     </TRANCHE>
     <TRANCHE code="tranche5">
       <SEUIL>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="13500000" />
+        <VALUE deb="2013-01-01"  valeur="13500000" />
       </SEUIL>
       <TAUX>
-        <VALUE deb="2013-01-01" fuzzy="true" valeur="0.4" />
+        <VALUE deb="2013-01-01"  valeur="0.4" />
       </TAUX>
     </TRANCHE>
   </BAREME>
   <NODE code="reductions_pour_charge_de_famille">
     <CODE code="taux_1" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0" />
+      <VALUE deb="2013-01-01"  valeur="0" />
     </CODE>
     <CODE code="taux_2" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.1" />
+      <VALUE deb="2013-01-01"  valeur="0.1" />
     </CODE>
     <CODE code="taux_3" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.15" />
+      <VALUE deb="2013-01-01"  valeur="0.15" />
     </CODE>
     <CODE code="taux_4" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.2" />
+      <VALUE deb="2013-01-01"  valeur="0.2" />
     </CODE>
     <CODE code="taux_5" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.25" />
+      <VALUE deb="2013-01-01"  valeur="0.25" />
     </CODE>
     <CODE code="taux_6" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.3" />
+      <VALUE deb="2013-01-01"  valeur="0.3" />
     </CODE>
     <CODE code="taux_7" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.35" />
+      <VALUE deb="2013-01-01"  valeur="0.35" />
     </CODE>
     <CODE code="taux_8" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.4" />
+      <VALUE deb="2013-01-01"  valeur="0.4" />
     </CODE>
     <CODE code="taux_9" format="percent">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0.45" />
+      <VALUE deb="2013-01-01"  valeur="0.45" />
     </CODE>
     <CODE code="min_1" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0" />
+      <VALUE deb="2013-01-01"  valeur="0" />
     </CODE>
     <CODE code="min_2" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="100000" />
+      <VALUE deb="2013-01-01"  valeur="100000" />
     </CODE>
     <CODE code="min_3" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="200000" />
+      <VALUE deb="2013-01-01"  valeur="200000" />
     </CODE>
     <CODE code="min_4" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="300000" />
+      <VALUE deb="2013-01-01"  valeur="300000" />
     </CODE>
     <CODE code="min_5" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="400000" />
+      <VALUE deb="2013-01-01"  valeur="400000" />
     </CODE>
     <CODE code="min_6" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="500000" />
+      <VALUE deb="2013-01-01"  valeur="500000" />
     </CODE>
     <CODE code="min_7" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="600000" />
+      <VALUE deb="2013-01-01"  valeur="600000" />
     </CODE>
     <CODE code="min_8" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="700000" />
+      <VALUE deb="2013-01-01"  valeur="700000" />
     </CODE>
     <CODE code="min_9" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="800000" />
+      <VALUE deb="2013-01-01"  valeur="800000" />
     </CODE>
     <CODE code="max_1" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="0" />
+      <VALUE deb="2013-01-01"  valeur="0" />
     </CODE>
     <CODE code="max_2" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="300000" />
+      <VALUE deb="2013-01-01"  valeur="300000" />
     </CODE>
     <CODE code="max_3" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="650000" />
+      <VALUE deb="2013-01-01"  valeur="650000" />
     </CODE>
     <CODE code="max_4" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="1100000" />
+      <VALUE deb="2013-01-01"  valeur="1100000" />
     </CODE>
     <CODE code="max_5" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="1650000" />
+      <VALUE deb="2013-01-01"  valeur="1650000" />
     </CODE>
     <CODE code="max_6" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="2030000" />
+      <VALUE deb="2013-01-01"  valeur="2030000" />
     </CODE>
     <CODE code="max_7" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="2490000" />
+      <VALUE deb="2013-01-01"  valeur="2490000" />
     </CODE>
     <CODE code="max_8" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="2755000" />
+      <VALUE deb="2013-01-01"  valeur="2755000" />
     </CODE>
     <CODE code="max_9" type="monetary">
-      <VALUE deb="2013-01-01" fuzzy="true" valeur="3180000" />
+      <VALUE deb="2013-01-01"  valeur="3180000" />
     </CODE>
   </NODE>
 </NODE>

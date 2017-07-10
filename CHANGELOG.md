@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3
+
+* Migrate to core v14.1.2
+
 ## 0.4.2
 
 * Use a core version that works with the api
