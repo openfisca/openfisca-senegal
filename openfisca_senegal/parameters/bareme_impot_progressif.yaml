@@ -1,0 +1,38 @@
+brackets:
+- rate:
+    2013-01-01:
+      value: 0.0
+  threshold:
+    2013-01-01:
+      value: 0.0
+- rate:
+    2013-01-01:
+      value: 0.2
+  threshold:
+    2013-01-01:
+      value: 630000.0
+- rate:
+    2013-01-01:
+      value: 0.3
+  threshold:
+    2013-01-01:
+      value: 1500000.0
+- rate:
+    2013-01-01:
+      value: 0.35
+  threshold:
+    2013-01-01:
+      value: 4000000.0
+- rate:
+    2013-01-01:
+      value: 0.37
+  threshold:
+    2013-01-01:
+      value: 8000000.0
+- rate:
+    2013-01-01:
+      value: 0.4
+  threshold:
+    2013-01-01:
+      value: 13500000.0
+unit: currency
