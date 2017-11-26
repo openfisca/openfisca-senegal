@@ -5,14 +5,14 @@ from numpy import clip, floor_divide
 
 
 class date_de_naissance(Variable):
-    column = DateCol
+    value_type = date
     entity = Individu
     label = u"Date de naissance"
     definition_period = ETERNITY
 
 
 class salaire(Variable):
-    column = FloatCol
+    value_type = float
     entity = Individu
     label = "Salaire"
     set_input = set_input_divide_by_period
@@ -20,7 +20,7 @@ class salaire(Variable):
 
 
 class est_marie(Variable):
-    column = BoolCol
+    value_type = bool
     entity = Individu
     label = u"Est marié"
     set_input = set_input_dispatch_by_period
@@ -28,21 +28,21 @@ class est_marie(Variable):
 
 
 class est_divorce(Variable):
-    column = BoolCol
+    value_type = bool
     entity = Individu
     label = u"Est divorcé"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
 
 class est_veuf(Variable):
-    column = BoolCol
+    value_type = bool
     entity = Individu
     label = u"Est veuf"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
 
 class est_celibataire(Variable):
-    column = BoolCol
+    value_type = bool
     entity = Individu
     label = u"Est célibataire"
     definition_period = YEAR
@@ -50,19 +50,19 @@ class est_celibataire(Variable):
 
 
 class conjoint_a_des_revenus(Variable):
-    column = BoolCol
+    value_type = bool
     entity = Individu
     definition_period = YEAR
 
 
 class nombre_enfants(Variable):
-    column = IntCol
+    value_type = int
     entity = Individu
     definition_period = YEAR
 
 
 class pension_retraite(Variable):
-    column = FloatCol
+    value_type = float
     entity = Individu
     label = u"Pension Retraite"
     definition_period = YEAR
@@ -70,7 +70,7 @@ class pension_retraite(Variable):
 
 
 class benefices_non_salarie(Variable):
-    column = FloatCol
+    value_type = float
     entity = Individu
     label = u"Bénéfices non salarié"
     definition_period = YEAR
@@ -78,7 +78,7 @@ class benefices_non_salarie(Variable):
 
 
 class nombre_de_parts(Variable):
-    column = FloatCol
+    value_type = float
     entity = Individu
     label = u"Nombre de parts"
     definition_period = YEAR
@@ -95,7 +95,7 @@ class nombre_de_parts(Variable):
 
 
 class impot_avant_reduction_famille(Variable):
-    column = FloatCol
+    value_type = float
     entity = Individu
     definition_period = YEAR
 
@@ -119,7 +119,7 @@ class impot_avant_reduction_famille(Variable):
 
 
 class reduction_impots_pour_charge_famille(Variable):
-    column = FloatCol
+    value_type = float
     entity = Individu
     definition_period = YEAR
 
@@ -162,7 +162,7 @@ class reduction_impots_pour_charge_famille(Variable):
 
 
 class impot_revenus(Variable):
-    column = FloatCol
+    value_type = float
     entity = Individu
     definition_period = YEAR
 
