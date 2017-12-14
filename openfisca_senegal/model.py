@@ -1,7 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_senegal.base import *
-from numpy import clip, floor_divide
+from datetime import date
+
+from openfisca_core.model_api import *
+
+from numpy import (
+    clip,
+    floor_divide,
+    logical_not as not_,
+    maximum as max_,
+    minimum as min_,
+    )
+
+from openfisca_senegal.entities import Individu
 
 
 class date_de_naissance(Variable):
