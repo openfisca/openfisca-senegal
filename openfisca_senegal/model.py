@@ -45,12 +45,14 @@ class est_divorce(Variable):
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
 
+
 class est_veuf(Variable):
     value_type = bool
     entity = Individu
     label = u"Est veuf"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
+
 
 class est_celibataire(Variable):
     value_type = bool

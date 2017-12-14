@@ -7,14 +7,14 @@ tax_benefit_system = SenegalTBS()
 scenario = tax_benefit_system.new_scenario()
 
 scenario.init_single_entity(
-    parent1={
+    parent1 = {
         'salaire': 1800000,
         'est_marie': True,
         'conjoint_a_des_revenus': False,
         'nombre_enfants': 2,
-    },
+        },
     period='2015',
-)
+    )
 
 simulation = scenario.new_simulation()
 

@@ -33,5 +33,3 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
         self.new_simulation()
         if reference_tax_benefit_system is not None:
             self.new_simulation(reference = True)
-
-

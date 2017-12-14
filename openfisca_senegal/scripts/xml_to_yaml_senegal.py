@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-''' xml_to_yaml_senegal.py : Parse XML parameter files for Openfisca-senegal and convert them to YAML files. Comments are NOT transformed.
+''' xml_to_yaml_senegal.py : Parse XML parameter files for Openfisca-senegal and convert them to YAML files.
+Comments are NOT transformed.
 
 Usage :
   `python xml_to_yaml_senegal.py output_dir`
