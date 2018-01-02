@@ -1,7 +1,8 @@
-OpenFisca_Senegal.egg-info
+*.egg-info
 *.pdf
 notebooks/.ipynb_checkpoints
 tags
 build/*
 dist/*
 .vscode/settings.json
+*.pyc

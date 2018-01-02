@@ -1,6 +1,10 @@
 # Changelog
 
-## 5.0.0
+## 0.5.1
+
+* Add some links to execute notebooks on [mybinder](https://mybinder.org/)
+
+## 0.5.0
 
 * Migrate to core v20
 
