@@ -30,6 +30,7 @@ setup(
         'notebook': [
             'notebook',
             'matplotlib',
+            'pandas',
             ],
         'survey': [
             'OpenFisca-Survey-Manager >= 0.8.2',
