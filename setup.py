@@ -28,10 +28,12 @@ setup(
         ],
     extras_require={
         'notebook': [
-            'notebook',
             'matplotlib',
+            'notebook',
+            'openpyxl'
             'pandas',
             'xlrd',
+            'xlwt',
             ],
         'survey': [
             'OpenFisca-Survey-Manager >= 0.8.2',
