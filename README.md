@@ -4,13 +4,13 @@ Senegalese tax and benefit system for OpenFisca
 
 > Warning: this is highly experimental!
 
-## OGP Paris Hackathon
+## OGP Paris Hackathon
 This work was done during the first [OGP hackathon in Paris](https://en.2016.ogpsummit.org/osem/conference/ogp-summit/)
 
 See the [Jupyter Notebook](/notebooks/hackathon_ogp_paris.ipynb) or [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/openfisca/senegal/master?filepath=notebooks%2Fhackathon_ogp_paris.ipynb).
 
 
-## Dakar Hackathon for technological innovation for the Senegalese tax administration
+## Dakar Hackathon for technological innovation for the Senegalese tax administration
 This work was done during the first [hackathon in Dakar for Innovation and Collaboration for the Senegalese Tax System](http://www.imf.org/en/News/Events/Hackathon-Technological-Innovation-for-the-Senegalese-Tax-Administration)
 
 See the [Jupyter Notebook](/notebooks/Senegalese%20tax%20and%20benefit%20system%20from%20scratch.ipynb) or [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/openfisca/senegal/master?filepath=notebooks%2FSenegalese%20tax%20and%20benefit%20system%20from%20scratch.ipynb).
