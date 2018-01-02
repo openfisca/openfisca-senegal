@@ -31,6 +31,7 @@ setup(
             'notebook',
             'matplotlib',
             'pandas',
+            'xlrd',
             ],
         'survey': [
             'OpenFisca-Survey-Manager >= 0.8.2',
