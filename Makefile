@@ -14,9 +14,9 @@ flake8:
 	flake8 `git ls-files | grep "\.py$$"`
 
 pypi-upload:
-		rm -rf dist/*
-		python setup.py sdist bdist_wheel
-		twine upload dist/*
+	rm -rf dist/*
+	python setup.py sdist bdist_wheel
+	twine upload dist/*
 
 test: check-syntax-errors flake8
 	@# Launch tests from openfisca_senegal/tests directory (and not .) because TaxBenefitSystem must be initialized
