@@ -1,1 +1,2 @@
+include openfisca_senegal/parameters
 recursive-include openfisca_senegal/parameters *
