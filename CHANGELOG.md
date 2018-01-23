@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.5.3
+
+* Parameters no longer missing in package (fix MANIFEST.in)
+
 ## 0.5.2
 
-* * Migrate survey_scenario to core v20
+* Migrate survey_scenario to core v20
 
 ## 0.5.1
 
