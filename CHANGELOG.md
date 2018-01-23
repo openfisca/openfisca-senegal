@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2
+
+* * Migrate survey_scenario to core v20
+
 ## 0.5.1
 
 * Add some links to execute notebooks on [mybinder](https://mybinder.org/)
