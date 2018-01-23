@@ -1,1 +1,1 @@
-include openfisca_senegal/parameters.xml
+recursive-include openfisca_france/parameters *
