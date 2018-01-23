@@ -14,7 +14,7 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
         )
 
     def __init__(self, input_data_frame = None, tax_benefit_system = None,
-            reference_tax_benefit_system = None, year = None):
+            baseline_tax_benefit_system = None, year = None):
         super(SenegalSurveyScenario, self).__init__()
         assert input_data_frame is not None
         assert year is not None
@@ -23,13 +23,13 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
             tax_benefit_system = SenegalTaxBenefitSystem()
         self.set_tax_benefit_systems(
             tax_benefit_system = tax_benefit_system,
-            reference_tax_benefit_system = reference_tax_benefit_system
+            baseline_tax_benefit_system = baseline_tax_benefit_system
             )
         self.used_as_input_variables = list(
-            set(tax_benefit_system.column_by_name.keys()).intersection(
+            set(tax_benefit_system.variables.keys()).intersection(
                 set(input_data_frame.columns)
                 ))
         self.init_from_data_frame(input_data_frame = input_data_frame)
         self.new_simulation()
-        if reference_tax_benefit_system is not None:
-            self.new_simulation(reference = True)
+        if baseline_tax_benefit_system is not None:
+            self.new_simulation(use_baseline = True)
