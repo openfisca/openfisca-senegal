@@ -30,13 +30,14 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
+            'OpenFisca-Survey-Manager >= 0.9.5',
             'openpyxl'
             'pandas',
             'xlrd',
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.9.2',
+            'OpenFisca-Survey-Manager >= 0.9.5',
             ]
         },
     include_package_data = True,  # Will read MANIFEST.in
