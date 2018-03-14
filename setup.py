@@ -31,7 +31,7 @@ setup(
             'matplotlib',
             'notebook',
             'OpenFisca-Survey-Manager >= 0.9.5',
-            'openpyxl'
+            'openpyxl',
             'pandas',
             'xlrd',
             'xlwt',
