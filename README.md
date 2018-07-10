@@ -26,7 +26,13 @@ See the [Jupyter Notebook](/notebooks/Senegalese%20tax%20and%20benefit%20system%
 ### Installation
 
 ```sh
-pip install -e . # needs to be executed in the folder containing the setup.py file
+make install # needs to be executed in the folder containing the Makefile
+```
+
+### Testing
+
+```sh
+make test # needs to be executed in the folder containing the Makefile
 ```
 
 ### Run with the Web API
