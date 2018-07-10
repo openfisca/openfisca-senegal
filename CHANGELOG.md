@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.6
+
+* correction de bug
+* Détails : met à jour la dépendance à openfisca core et aux tests. 
+
 ## 0.5.5
 
 * Use core version up to 21.2
