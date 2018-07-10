@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date
+
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTBS
 
 tax_benefit_system = SenegalTBS()
@@ -12,6 +14,7 @@ scenario.init_single_entity(
         'est_marie': True,
         'conjoint_a_des_revenus': False,
         'nombre_enfants': 2,
+        'date_de_naissance': date(1974, 4, 24)
         },
     period='2015',
     )
