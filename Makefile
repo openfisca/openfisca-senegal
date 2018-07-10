@@ -19,5 +19,5 @@ pypi-upload:
 	twine upload dist/*
 
 test: 
-	check-syntax-errors flake8
+	flake8
 	openfisca-run-test -c openfisca_senegal openfisca_senegal/tests/ 	
