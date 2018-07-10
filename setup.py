@@ -48,6 +48,7 @@ setup(
     install_requires=[
         'OpenFisca-Core >= 21.0',
         'PyYAML >= 3.10',
+        'psutil >= 5.4.6',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     test_suite='nose.collector',

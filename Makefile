@@ -1,5 +1,10 @@
 all: test
 
+install:
+	pip install --upgrade pip
+	pip install -e .
+	pip install -e ".[test]"
+
 check-syntax-errors:
 	python -m compileall -q .
 
@@ -18,6 +23,6 @@ pypi-upload:
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
 
-test: 
+test: check-syntax-errors
 	flake8
-	openfisca-run-test -c openfisca_senegal openfisca_senegal/tests/ 	
+	openfisca-run-test -c openfisca_senegal openfisca_senegal/tests/
