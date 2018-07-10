@@ -38,6 +38,10 @@ setup(
             ],
         'survey': [
             'OpenFisca-Survey-Manager >= 0.9.5',
+            ],
+        'test': [
+            'flake8',
+            'nose'
             ]
         },
     include_package_data = True,  # Will read MANIFEST.in
