@@ -18,8 +18,6 @@ pypi-upload:
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
 
-test: check-syntax-errors flake8
-	@# Launch tests from openfisca_senegal/tests directory (and not .) because TaxBenefitSystem must be initialized
-	@# before parsing source files containing formulas.
-	nosetests openfisca_senegal/tests --exe --with-doctest
-
+test: 
+	check-syntax-errors flake8
+	openfisca-run-test -c openfisca_senegal openfisca_senegal/tests/ 	
