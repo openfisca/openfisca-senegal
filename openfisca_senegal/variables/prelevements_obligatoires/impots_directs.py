@@ -1,98 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from datetime import date
-
-from openfisca_core.model_api import *
-
 from numpy import (
     clip,
     floor_divide,
-    logical_not as not_,
-    maximum as max_,
-    minimum as min_,
     )
 
-from openfisca_senegal.entities import Individu
 
-
-class date_de_naissance(Variable):
-    value_type = date
-    entity = Individu
-    label = u"Date de naissance"
-    definition_period = ETERNITY
-
-
-class salaire(Variable):
-    value_type = float
-    entity = Individu
-    label = "Salaire"
-    set_input = set_input_divide_by_period
-    definition_period = YEAR
-
-
-class est_marie(Variable):
-    value_type = bool
-    entity = Individu
-    label = u"Est marié"
-    set_input = set_input_dispatch_by_period
-    definition_period = YEAR
-
-
-class est_divorce(Variable):
-    value_type = bool
-    entity = Individu
-    label = u"Est divorcé"
-    definition_period = YEAR
-    set_input = set_input_dispatch_by_period
-
-
-class est_veuf(Variable):
-    value_type = bool
-    entity = Individu
-    label = u"Est veuf"
-    definition_period = YEAR
-    set_input = set_input_dispatch_by_period
-
-
-class est_celibataire(Variable):
-    value_type = bool
-    entity = Individu
-    label = u"Est célibataire"
-    definition_period = YEAR
-    set_input = set_input_dispatch_by_period
-
-
-class conjoint_a_des_revenus(Variable):
-    value_type = bool
-    entity = Individu
-    definition_period = YEAR
-
-
-class nombre_enfants(Variable):
-    value_type = int
-    entity = Individu
-    definition_period = YEAR
-
-
-class pension_retraite(Variable):
-    value_type = float
-    entity = Individu
-    label = u"Pension Retraite"
-    definition_period = YEAR
-    set_input = set_input_divide_by_period
-
-
-class benefices_non_salarie(Variable):
-    value_type = float
-    entity = Individu
-    label = u"Bénéfices non salarié"
-    definition_period = YEAR
-    set_input = set_input_divide_by_period
+from openfisca_core.model_api import *
+from openfisca_senegal.entities import *
 
 
 class nombre_de_parts(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     label = u"Nombre de parts"
     definition_period = YEAR
 
@@ -109,7 +29,7 @@ class nombre_de_parts(Variable):
 
 class impot_avant_reduction_famille(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     definition_period = YEAR
 
     def formula(individu, period, legislation):
@@ -133,7 +53,7 @@ class impot_avant_reduction_famille(Variable):
 
 class reduction_impots_pour_charge_famille(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     definition_period = YEAR
 
     def formula(individu, period, legislation):
@@ -176,7 +96,7 @@ class reduction_impots_pour_charge_famille(Variable):
 
 class impot_revenus(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     definition_period = YEAR
 
     def formula(individu, period):
