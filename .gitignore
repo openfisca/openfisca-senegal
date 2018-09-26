@@ -4,5 +4,5 @@ notebooks/.ipynb_checkpoints
 tags
 build/*
 dist/*
-.vscode/settings.json
+.vscode/*
 *.pyc
