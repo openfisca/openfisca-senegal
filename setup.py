@@ -47,8 +47,6 @@ setup(
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
         'OpenFisca-Core >= 23.1, < 24.0',
-        'PyYAML >= 3.10',
-        'psutil >= 5.4.6',
         ],
     packages=find_packages(),
     test_suite='nose.collector',
