@@ -50,7 +50,7 @@ Chaque évolution sera documentée par les élements suivants :
 > Ou :
 >
 > * Détails :
->   - Déplacement du test runner depuis `côte d'ivoire` vers `core`.
+>   - Déplacement du test runner depuis `openfisca-senegal` vers `core`.
 >   - _Il devient possible d'exécuter `openfisca-run-test` sur un fichier YAML. [Plus d'informations](https://openfisca.readthedocs.io/en/latest/openfisca-run-test.html)._
 
 Dans le cas où une Pull Request contient plusieurs évolutions distinctes, plusieurs paragraphes peuvent être ajoutés au Changelog.
@@ -59,7 +59,7 @@ Dans le cas où une Pull Request contient plusieurs évolutions distinctes, plus
 
 Certaines interventions sur OpenFica concernent à la fois [OpenFica-Core](https://github.com/openfisca/openfisca-core) et OpenFisca-Sénégal.
 
-C'est par exemple le cas lorsqu'une version à paraître de Core contient un changement non-rétrocompatible, et que l'on souhaite s'assurer qu'il est possible d'adapter Côte d'Ivoire à cette nouvelle version.
+C'est par exemple le cas lorsqu'une version à paraître de Core contient un changement non-rétrocompatible, et que l'on souhaite s'assurer qu'il est possible d'adapter OpenFisca-Sénégal à cette nouvelle version.
 
 Dans ce cas, il peut être pertinent de faire tourner les tests d'OpenFisca-Sénégal en se basant sur une version non-publiée de Core, disponible sur une branche spécifique. Pour ce faire, éditer le fichier `circle.yml` comme suit :
 
@@ -74,4 +74,4 @@ dependencies:
 (...)
 ```
 
-Bien sûr, une fois la version spécifique de core publiée, **ce changement doit être reverté** avant le merge de la pull request sur Côte d'Ivoire.
+Bien sûr, une fois la version spécifique de core publiée, **ce changement doit être reverté** avant le merge de la pull request sur OpenFisca-Sénégal.
