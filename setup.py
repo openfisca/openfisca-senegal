@@ -38,8 +38,8 @@ setup(
         'survey': [
             'OpenFisca-Survey-Manager >= 0.9.5',
             ],
-        'test': [
-           'flake8 >= 3.4.0, < 3.5.0',
+        'dev': [
+            'flake8 >= 3.4.0, < 3.5.0',
             'flake8-print',
             'nose',
             ]
