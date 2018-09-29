@@ -16,11 +16,11 @@ Chaque évolution sera documentée par les élements suivants :
 - Sur la première ligne figure en guise de titre le numéro de version, et un lien vers la Pull Request introduisant le changement. Le niveau de titre doit correspondre au niveau d'incrémentation de la version.
 
 > Par exemple :
-> # 13.0.0 - [#671](https://github.com/openfisca/openfisca-senegal/pull/671)
+> # 13.0.0 - [#671](https://github.com/openfisca/openfisca-france/pull/671)
 >
-> ## 13.2.0 - [#676](https://github.com/openfisca/openfisca-senegal/pull/676)
+> ## 13.2.0 - [#676](https://github.com/openfisca/openfisca-france/pull/676)
 >
-> ### 13.1.5 - [#684](https://github.com/openfisca/openfisca-senegal/pull/684)
+> ### 13.1.5 - [#684](https://github.com/openfisca/openfisca-france/pull/684)
 
 - La deuxième ligne indique de quel type de changement il s'agit. Les types possibles sont :
   - `Évolution du système socio-fiscal` : Amélioration, correction, mise à jour d'un calcul. Impacte les réutilisateurs intéressés par les calculs.
