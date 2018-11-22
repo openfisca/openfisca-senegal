@@ -1,30 +1,30 @@
-Hi there!
+Bonjour
 
-I really enjoy OpenFisca, but I recently encountered an issue.
+J'ai utilisé OpenFisca mais j'ai rencontré un problème.
 
-### Here is what I did:
-
-
-### Here is what I expected to happen:
+### Voici ce que j'ai fait:
 
 
-### Here is what actually happened:
+### Voici que j'attendais qu'il se produise:
 
 
-### Here is data (or links to it) that can help you reproduce this issue:
+### Voici ce qui s'est effectivement produit:
+
+
+### Voici les données (ou un lein vers celle-ci) qui permettent de reproduire le problème:
 
 
 
-## Context
+## Eléments de contexte
 
 I identify more as a:
 
-- Analyst _(I make macroscopic computations on real populations)_.
-- Business expert _(I create tests and model legislation)_.
-- Commenter _(I make data visualisations)_.
-- Developer _(I create tools that use the existing OpenFisca code)_.
-- Historian _(I accumulate data based on past legislation values)_.
-- Lobbyist _(I model reforms to make them exist)_.
-- Producer _(I make computations on individual situations)_.
+- Economiste _(Je fais des simulations sur des données d'enquêtes ou administratives)_.
+- Expert _(Je modélise la législation et je crée des tests)_.
+- Journaliste/commenatateur _(Je crée des visualisations)_.
+- Développeur _(Je crée des outils utilisant OpenFisca)_.
+- Historien _(Je suis intéressé par l'historique de la législation)_.
+- Lobbyiste _(Je modélise des réformes pour les promouvoirs)_.
+- Producteur _(Je réalise des calculs sur des situations individuelles)_.
 
-(remove this line as well as all items in the list that don't fit your situation)
+(Effacer les lignes ne correspondant pas à votre situation)
