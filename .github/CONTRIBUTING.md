@@ -50,7 +50,7 @@ Chaque évolution sera documentée par les élements suivants :
 > Ou :
 >
 > * Détails :
->   - Déplacement du test runner depuis `openfisca-senegal` vers `core`.
+>   - Déplacement du test runner depuis `openfisca-france` vers `core`.
 >   - _Il devient possible d'exécuter `openfisca-run-test` sur un fichier YAML. [Plus d'informations](https://openfisca.readthedocs.io/en/latest/openfisca-run-test.html)._
 
 Dans le cas où une Pull Request contient plusieurs évolutions distinctes, plusieurs paragraphes peuvent être ajoutés au Changelog.
