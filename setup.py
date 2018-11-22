@@ -48,6 +48,6 @@ setup(
     install_requires=[
         'OpenFisca-Core >= 23.1, < 24.0',
         ],
-    packages=find_packages(),
+    packages=find_packages(exclude=['openfisca_senegal.tests*']),
     test_suite='nose.collector',
     )
