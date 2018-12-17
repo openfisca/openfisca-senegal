@@ -51,7 +51,7 @@ Chaque évolution sera documentée par les élements suivants :
 >
 > * Détails :
 >   - Déplacement du test runner depuis `openfisca-france` vers `core`.
->   - _Il devient possible d'exécuter `openfisca-run-test` sur un fichier YAML. [Plus d'informations](https://openfisca.readthedocs.io/en/latest/openfisca-run-test.html)._
+>   - _Il devient possible d'exécuter `openfisca test` sur un fichier YAML. [Plus d'informations](https://openfisca.org/doc/openfisca-python-api/openfisca-run-test.html)._
 
 Dans le cas où une Pull Request contient plusieurs évolutions distinctes, plusieurs paragraphes peuvent être ajoutés au Changelog.
 
@@ -73,5 +73,6 @@ dependencies:
     - pip install .[test] --upgrade
 (...)
 ```
+En remplaçant `SPECIFIC_BRANCH_NAME` par le nom de votre branche Core.
 
 Bien sûr, une fois la version spécifique de core publiée, **ce changement doit être reverté** avant le merge de la pull request sur OpenFisca-Sénégal.
