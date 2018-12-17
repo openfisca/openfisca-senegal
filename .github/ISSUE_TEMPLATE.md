@@ -1,27 +1,27 @@
-Bonjour
+Bonjour,
 
-J'ai utilisé OpenFisca mais j'ai rencontré un problème.
+J'apprécie OpenFisca mais j'ai rencontré un problème.
 
-### Voici ce que j'ai fait:
-
-
-### Voici que j'attendais qu'il se produise:
+### Voici ce que j'ai fait :
 
 
-### Voici ce qui s'est effectivement produit:
+### Voici que j'attendais qu'il se produise :
 
 
-### Voici les données (ou un lein vers celle-ci) qui permettent de reproduire le problème:
+### Voici ce qui s'est effectivement produit :
+
+
+### Voici les données (ou un lien vers celle-ci) qui permettent de reproduire le problème :
 
 
 
-## Eléments de contexte
+## Éléments de contexte
 
-I identify more as a:
+Je me reconnais principalement en tant que :
 
-- Economiste _(Je fais des simulations sur des données d'enquêtes ou administratives)_.
+- Économiste _(Je fais des simulations sur des données d'enquêtes ou administratives)_.
 - Expert _(Je modélise la législation et je crée des tests)_.
-- Journaliste/commenatateur _(Je crée des visualisations)_.
+- Journaliste/commentateur _(Je crée des visualisations)_.
 - Développeur _(Je crée des outils utilisant OpenFisca)_.
 - Historien _(Je suis intéressé par l'historique de la législation)_.
 - Lobbyiste _(Je modélise des réformes pour les promouvoirs)_.
