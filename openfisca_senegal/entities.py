@@ -3,28 +3,28 @@
 # This file defines the entities needed by our legislation.
 from openfisca_core.entities import build_entity
 
-Household = build_entity(
-    key = "household",
-    plural = "households",
-    label = u'Household',
+Menage = build_entity(
+    key = "menage",
+    plural = "menages",
+    label = u"Occupants d'un logement principal",
     doc = '''
-    Household is an example of a group entity.
-    A group entity contains one or more individual·s.
-    Each individual in a group entity has a role (e.g. parent or children).
-    Some roles can only be held by a limited number of individuals (e.g. a 'first_parent' can only be held by
-    one individual), while others can have an unlimited number of individuals (e.g. 'children').
+    Ménage est un exemple d'entité groupe.
+    Une entité groupe contient un ou plusieurs individus.
+    Chaque individu dans une entité groupe a un rôle (e.g. parent ou enfant).
+    Certains rôles ne peuvent être tenus que par un nombre limité d'individus (e.g. a 'premier_parent' ne peut être tenu que
+    par un individu), alors que d'autres peuvent avoir un nombre illimité d'individus (e.g. 'enfant').
 
-    Example:
-    Housing variables (e.g. housing_tax') are usually defined for a group entity such as 'Household'.
+    Exemple :
+    Les variables de logement (e.g. 'taxe_habitation') sont généralement définies pour une entité groupe telle que 'Menage'.
 
-    Usage:
-    Check the number of individuals of a specific role (e.g. check if there is a 'second_parent' with
-    household.nb_persons(Household.SECOND_PARENT)).
-    Calculate a variable applied to each individual of the group entity (e.g. calculate the 'salary' of each member of
-    the 'Household' with salaries = household.members('salary', period = MONTH);
-    sum_salaries = household.sum(salaries)).
+    Utilisation :
+    Vérifier le nombre d'individus d'un rôle spécifique (e.g. vérifier s'il y a un 'second_parent') avec
+    menage.nb_persons(Menage.PREMIER_PARENT).
+    Calculer une variable appliquée à chaque individu de l'entité groupe (e.g. calculer le 'salaire' de chaque membre
+    du 'Menage') avec salaires = menage.members('salaire', period = MONTH);
+    sum_salaries = menage.sum(salaires).
 
-    For more information, see: https://openfisca.org/doc/coding-the-legislation/50_entities.html
+    Pour en savoir plus, consulter ce lien : https://openfisca.org/doc/coding-the-legislation/50_entities.html
     ''',
     roles = [
         {
@@ -32,37 +32,37 @@ Household = build_entity(
             'plural': 'parents',
             'label': u'Parents',
             'max': 2,
-            'subroles': ['first_parent', 'second_parent'],
-            'doc': u'The one or two adults in charge of the household.'
+            'subroles': ['premier_parent', 'second_parent'],
+            'doc': u'Le ou les deux adultes en charge du ménage.'
             },
         {
-            'key': 'child',
-            'plural': 'children',
-            'label': u'Child',
-            'doc': u'Other individuals living in the household.'
+            'key': 'enfant',
+            'plural': 'enfants',
+            'label': u'Enfant',
+            'doc': u'Autres individus vivant au sein du ménage.'
             }
         ]
     )
 
-Person = build_entity(
-    key = "person",
-    plural = "persons",
-    label = u'Person',
+Individu = build_entity(
+    key = "individu",
+    plural = "individus",
+    label = u'Individu',
     doc = '''
-    A Person represents an individual, the minimal legal entity on which a legislation might be applied.
+    Un Individu représente l'entité légale minimale à laquelle la législation peut s'appliquer.
 
-    Example:
-    The 'salary' and 'income_tax' variables are usually defined for the entity 'Person'.
+    Exemple :
+    Les variables 'salaire' and 'impot_revenus' sont généralement définies pour l'entité 'Individu'.
 
-    Usage:
-    Calculate a variable applied to a 'Person' (e.g. access the 'salary' of a specific month with
-    person('salary', "2017-05")).
-    Check the role of a 'Person' in a group entity (e.g. check if a the 'Person' is a 'first_parent' in a
-    'Household' entity with person.has_role(Household.FIRST_PARENT)).
+    Utilisation :
+    Calculer une variable s'appliquant à un 'Individu' (e.g. accéder au 'salaire' d'un mois donné) avec
+    individu('salaire', "2017-05").
+    Vérifier le rôle d'un 'Individu' dans une entité groupe (e.g. vérifier si 'Individu' est 'premier_parent' 
+    dans une entité 'Menage') avec individu.has_role(Menage.PREMIER_PARENT)).
 
-    For more information, see: https://openfisca.org/doc/coding-the-legislation/50_entities.html
+    Pour en savoir plus, consulter ce lien : https://openfisca.org/doc/coding-the-legislation/50_entities.html
     ''',
     is_person = True,
     )
 
-entities = [Household, Person]
+entities = [Menage, Individu]
