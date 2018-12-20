@@ -36,7 +36,7 @@ setup(
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= >= 0.15.2',
+            'OpenFisca-Survey-Manager >= 0.15.2',
             ],
         'dev': [
             'flake8 >= 3.4.0, < 3.5.0',
