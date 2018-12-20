@@ -17,5 +17,5 @@ class SenegalTaxBenefitSystem(TaxBenefitSystem):
     def __init__(self):
         super(SenegalTaxBenefitSystem, self).__init__(entities.entities)
         self.Scenario = scenarios.Scenario
-        self.add_variables_from_file(os.path.join(COUNTRY_DIR, 'model.py'))
+        self.add_variables_from_directory(os.path.join(COUNTRY_DIR, 'variables'))
         self.load_parameters(os.path.join(COUNTRY_DIR, 'parameters'))

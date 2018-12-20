@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.5.6',
+    version='0.6',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     classifiers=[
@@ -21,7 +21,6 @@ setup(
     keywords='benefit microsimulation senegal social tax',
     license='http://www.fsf.org/licensing/licenses/agpl-3.0.html',
     url='https://github.com/openfisca/senegal',
-
     data_files=[
         ('share/openfisca/openfisca-senegal',
          ['CHANGELOG.md', 'LICENSE', 'README.md']),
@@ -39,16 +38,15 @@ setup(
         'survey': [
             'OpenFisca-Survey-Manager >= 0.9.5',
             ],
-        'test': [
-            'flake8',
-            'nose'
+        'dev': [
+            'flake8 >= 3.4.0, < 3.5.0',
+            'flake8-print',
+            'nose',
             ]
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core >= 21.0',
-        'PyYAML >= 3.10',
-        'psutil >= 5.4.6',
+        'OpenFisca-Core >= 23.1, < 24.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     test_suite='nose.collector',

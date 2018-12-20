@@ -1,9 +1,14 @@
 # Changelog
 
+## 0.6
+
+* Amélioration technique
+- Reoganisation du modèles pour coller à l'arborescence adoptée pour Mali et Côte d'Ivoire
+
 ## 0.5.6
 
 * correction de bug
-* Détails : met à jour la dépendance à openfisca core et aux tests. 
+* Détails : met à jour la dépendance à openfisca core et aux tests.
 
 ## 0.5.5
 

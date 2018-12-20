@@ -2,8 +2,7 @@ all: test
 
 install:
 	pip install --upgrade pip
-	pip install -e .
-	pip install -e ".[test]"
+	pip install -e .[dev]
 
 check-syntax-errors:
 	python -m compileall -q .
