@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7
+
+* Amélioration technique
+- Adaptation du SenegalSurveyScenario pour coller à l'évolution d'OpenfFisca-Survey-Manager
+
 ## 0.6
 
 * Amélioration technique

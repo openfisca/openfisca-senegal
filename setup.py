@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.6',
+    version='0.7',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     classifiers=[
@@ -29,14 +29,14 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.9.5',
+            'OpenFisca-Survey-Manager >= 0.15.2',
             'openpyxl',
             'pandas',
             'xlrd',
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.9.5',
+            'OpenFisca-Survey-Manager >= >= 0.15.2',
             ],
         'dev': [
             'flake8 >= 3.4.0, < 3.5.0',
