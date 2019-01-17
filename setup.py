@@ -29,14 +29,14 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.15.2',
+            'OpenFisca-Survey-Manager >= 0.17.1',
             'openpyxl',
             'pandas',
             'xlrd',
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.15.2',
+            'OpenFisca-Survey-Manager >= 0.17.1',
             ],
         'dev': [
             'flake8 >= 3.4.0, < 3.5.0',
@@ -46,7 +46,7 @@ setup(
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core >= 23.1, < 24.0',
+        'OpenFisca-Core >= 25.2.6, < 26.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     test_suite='nose.collector',
