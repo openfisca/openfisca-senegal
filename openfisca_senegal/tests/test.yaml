@@ -2,9 +2,9 @@
 #   description: "Impot"
 #   period: 2016
 #   absolute_error_margin: 0.03
-#   input_variables:
+#   input:
 #     salaire: 4000000
-#   output_variables:
+#   output:
 #     impot_avant_reduction_famille: 74000
 
 
@@ -12,9 +12,9 @@
   description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 500000
-  output_variables:
+  output:
     nombre_de_parts: 1
     impot_avant_reduction_famille: 0
 
@@ -23,9 +23,9 @@
   description: "Impot 1 part "
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
-  output_variables:
+  output:
     nombre_de_parts: 1
     impot_avant_reduction_famille: 18541000
 
@@ -34,10 +34,10 @@
   description: "Impot 1.5 part"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
     nombre_de_parts: 1.5
-  output_variables:
+  output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 18241000
 
@@ -45,10 +45,10 @@
   description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
     nombre_de_parts: 2
-  output_variables:
+  output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 17891000
 
@@ -56,10 +56,10 @@
   description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
     nombre_de_parts: 2.5
-  output_variables:
+  output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 17441000
 
@@ -67,10 +67,10 @@
   description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
     nombre_de_parts: 3
-  output_variables:
+  output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 16891000
 
@@ -79,10 +79,10 @@
   description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
     nombre_de_parts: 3.5
-  output_variables:
+  output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 16511000
 
@@ -90,10 +90,10 @@
   description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
     nombre_de_parts: 4
-  output_variables:
+  output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 16051000
 
@@ -101,10 +101,10 @@
   description: "Impot"
   period: 2016
   absolute_error_margin: 0.03
-  input_variables:
+  input:
     salaire: 49855000
     nombre_de_parts: 4.5
-  output_variables:
+  output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 15786000
 

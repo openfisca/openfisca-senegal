@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.7',
+    version='0.7.1',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     classifiers=[
