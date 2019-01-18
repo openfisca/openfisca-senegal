@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.1 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+
+* Amélioration technique
+  - Adapte à la dernière version de core et survey-manager (0.17.2)
+
 ## 0.7 [#12](https://github.com/openfisca/openfisca-senegal/pull/12)
 
 * Amélioration technique

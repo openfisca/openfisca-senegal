@@ -3,7 +3,7 @@
     "labels": true,
     "scenarios": [{
         "test_case": {
-            "familles": [{
+            "menages": [{
                 "parents": ["parent1"],
                 "enfants": []
             }],
