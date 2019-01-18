@@ -36,7 +36,7 @@ setup(
             "flake8 >= 3.5.0, < 3.6.0",
             "flake8-print",
             "pycodestyle >= 2.3.0, < 2.4.0",  # To avoid incompatibility with flake
-            "pytest < 4.0",
+            "pytest <5.0",
             "openfisca-survey-manager >= 0.16.2",
             "yamllint >= 1.11.1, < 1.12",
             ]
