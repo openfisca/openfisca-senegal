@@ -10,13 +10,6 @@ setup(
     version='0.7.1',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
-    classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
-        "License :: OSI Approved :: GNU Affero General Public License v3",
-        "Operating System :: POSIX",
-        "Programming Language :: Python",
-        "Topic :: Scientific/Engineering :: Information Analysis",
-        ],
     description=u'Senegalese tax and benefit system for OpenFisca',
     keywords='benefit microsimulation senegal social tax',
     license='http://www.fsf.org/licensing/licenses/agpl-3.0.html',
@@ -39,9 +32,13 @@ setup(
             'OpenFisca-Survey-Manager >= 0.17.2',
             ],
         'dev': [
-            'flake8 >= 3.4.0, < 3.5.0',
-            'flake8-print',
-            'nose',
+            "autopep8 == 1.4.0",
+            "flake8 >= 3.5.0, < 3.6.0",
+            "flake8-print",
+            "pycodestyle >= 2.3.0, < 2.4.0",  # To avoid incompatibility with flake
+            "pytest < 4.0",
+            "openfisca-survey-manager >= 0.16.2",
+            "yamllint >= 1.11.1, < 1.12",
             ]
         },
     include_package_data = True,  # Will read MANIFEST.in
@@ -49,5 +46,4 @@ setup(
         'OpenFisca-Core >= 25.2.6, < 26.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
-    test_suite='nose.collector',
     )
