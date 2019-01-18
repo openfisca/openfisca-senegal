@@ -25,3 +25,4 @@ pypi-upload:
 test: check-syntax-errors
 	flake8
 	openfisca-run-test -c openfisca_senegal openfisca_senegal/tests/
+	pytest
