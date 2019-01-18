@@ -29,14 +29,14 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.17.1',
+            'OpenFisca-Survey-Manager >= 0.17.2',
             'openpyxl',
             'pandas',
             'xlrd',
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.17.1',
+            'OpenFisca-Survey-Manager >= 0.17.2',
             ],
         'dev': [
             'flake8 >= 3.4.0, < 3.5.0',
