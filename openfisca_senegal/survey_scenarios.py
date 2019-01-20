@@ -7,10 +7,10 @@ from openfisca_survey_manager.scenarios import AbstractSurveyScenario
 
 class SenegalSurveyScenario(AbstractSurveyScenario):
     id_variable_by_entity_key = dict(
-        famille = 'id_famille',
+        menage = 'id_menage',
         )
     role_variable_by_entity_key = dict(
-        famille = 'role_famille',
+        menage = 'role_menage',
         )
 
     def __init__(self, tax_benefit_system = None, baseline_tax_benefit_system = None, year = None,
@@ -24,9 +24,15 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
             tax_benefit_system = tax_benefit_system,
             baseline_tax_benefit_system = baseline_tax_benefit_system
             )
+        if data is None:
+            return
+
         if data is not None:
             input_data_frame = data.get('input_data_frame')
 
+        if input_data_frame is None:
+            return 
+            
         if input_data_frame is not None:
             self.used_as_input_variables = list(
                 set(tax_benefit_system.variables.keys()).intersection(
