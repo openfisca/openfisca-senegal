@@ -31,8 +31,8 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
             input_data_frame = data.get('input_data_frame')
 
         if input_data_frame is None:
-            return 
-            
+            return
+
         if input_data_frame is not None:
             self.used_as_input_variables = list(
                 set(tax_benefit_system.variables.keys()).intersection(
