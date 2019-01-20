@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.2 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+
+* Correction d'un crash
+  - Répare survey scenario
+
+
 ## 0.7.1 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
 * Amélioration technique
