@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.7.3',
+    version='0.7.4',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     description=u'Senegalese tax and benefit system for OpenFisca',
@@ -25,11 +25,13 @@ setup(
             'OpenFisca-Survey-Manager >= 0.17.5',
             'openpyxl',
             'pandas',
+            'scipy',
             'xlrd',
             'xlwt',
             ],
         'survey': [
             'OpenFisca-Survey-Manager >= 0.17.5',
+            'scipy',
             ],
         'dev': [
             "autopep8 ==1.4.3",

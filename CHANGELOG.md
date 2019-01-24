@@ -3,8 +3,12 @@
 ## 0.7.3 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
 * Correction d'un crash
-  - Corrige version de survey-manager dans les dépendances
+  - Rajoute scipy dans les dépendances
 
+## 0.7.3 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+
+* Correction d'un crash
+  - Corrige version de survey-manager dans les dépendances
 
 ## 0.7.2 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
