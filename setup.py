@@ -40,7 +40,7 @@ setup(
             "pycodestyle >= 2.3.0, < 2.4.0",  # To avoid incompatibility with flake
             "pytest <5.0",
             "openfisca-survey-manager >= 0.17.5",
-            "yamllint >=1.11.1,<1.15",
+            "yamllint >=1.11.1,<1.16",
             ]
         },
     include_package_data = True,  # Will read MANIFEST.in
