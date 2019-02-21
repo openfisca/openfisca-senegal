@@ -16,7 +16,7 @@ class nombre_de_parts(Variable):
     label = u"Nombre de parts"
     definition_period = YEAR
 
-    def formula(individu, period):
+    def formula(individu, period, parameters):
         nombre_de_parts_par_enfant = parameters(period).nombre_de_parts.par_enfant
         limite_nombre_de_parts = parameters(period).nombre_de_parts.limite_max
         repartition_nombre_de_parts = parameters(period).nombre_de_parts.repartition_marie_conjoint
