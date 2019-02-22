@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
+import padnas as pd
+
+
 from openfisca_core import periods
 from openfisca_survey_manager.scenarios import AbstractSurveyScenario
 
