@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 
+from openfisca_core import periods
 from openfisca_survey_manager.scenarios import AbstractSurveyScenario
+
+
+from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 
 
 class SenegalSurveyScenario(AbstractSurveyScenario):
@@ -27,15 +30,22 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
         if data is None:
             return
 
-        if data is not None:
+        if 'input_data_frame_by_entity_by_period' in data:
+            period = periods.period(year)
+            dataframe_variables = set()
+            for entity_dataframe in data['input_data_frame_by_entity_by_period'][period].values():
+                if not isinstance(entity_dataframe, pd.DataFrame):
+                    continue
+                dataframe_variables = dataframe_variables.union(set(entity_dataframe.columns))
+            self.used_as_input_variables = list(
+                set(tax_benefit_system.variables.keys()).intersection(dataframe_variables)
+                )
+
+        elif 'input_data_frame' in data:
             input_data_frame = data.get('input_data_frame')
-
-        if input_data_frame is None:
-            return
-
-        if input_data_frame is not None:
             self.used_as_input_variables = list(
                 set(tax_benefit_system.variables.keys()).intersection(
                     set(input_data_frame.columns)
                     ))
+
         self.init_from_data(data = data)
