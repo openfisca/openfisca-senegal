@@ -29,16 +29,18 @@ def get_data_file_path():
 def create_dataframes_from_stata_data():
     data_file_path = get_data_file_path()
     import pprint
-    # dico_labels = pd.read_stata(data_file_path, iterator=True)
-    # pprint.pprint(dico_labels.variable_labels())
+    dico_labels = pd.read_stata(data_file_path, iterator=True)
+    pprint.pprint(dico_labels.variable_labels())
     dataframe = pd.read_stata(data_file_path)
     person_variables = [
         'age',
+        'link_to_head',
+        'sex',
+        'wage_formal_ind',
         ]
     person_dataframe = dataframe[person_variables].copy()
-    # person_dataframe['salaire'] = person_dataframe.inc_act1_ind * (
-    #     (person_dataframe.formel_informel == 1) | (person_dataframe.formel_informel == 1)
-    #     )
+    person_dataframe['salaire'] = person_dataframe.wage_formal_ind
+    print(person_dataframe.link_to_head.value_counts())
     # person_dataframe['household_legacy_role'] = (
     #     0 * (person_dataframe.link_to_head == 'chef de menage')
     #     + 1 * (person_dataframe.link_to_head == 'epouse ou mari')

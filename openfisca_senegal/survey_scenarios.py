@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-import padnas as pd
+import pandas as pd
 
 
 from openfisca_core import periods
