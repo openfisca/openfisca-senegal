@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.5 [#33](https://github.com/openfisca/openfisca-senegal/pull/33)
+
+* Évolution du système socio-fiscal.
+* Zones impactées : `impots_directs`.
+  - Transformation des valeurs du code en paramètres de la législation
+
 ## 0.7.4 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
 * Correction d'un crash

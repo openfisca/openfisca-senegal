@@ -16,15 +16,19 @@ class nombre_de_parts(Variable):
     label = u"Nombre de parts"
     definition_period = YEAR
 
-    def formula(individu, period):
-        nombre_de_parts_enfants = individu('nombre_enfants', period) * 0.5
+    def formula(individu, period, parameters):
+        nombre_de_parts_par_enfant = parameters(period).nombre_de_parts.par_enfant
+        limite_nombre_de_parts = parameters(period).nombre_de_parts.limite_max
+        repartition_marie_conjoint = parameters(period).nombre_de_parts.repartition_marie_conjoint
+
+        nombre_de_parts_enfants = individu('nombre_enfants', period) * nombre_de_parts_par_enfant
         conjoint_a_des_revenus = individu('conjoint_a_des_revenus', period)
         est_marie = individu('est_marie', period)
-        nombre_de_parts_conjoint = est_marie * (0.5 + not_(conjoint_a_des_revenus) * 0.5)
+        nombre_de_parts_conjoint = est_marie * repartition_marie_conjoint * (1 + not_(conjoint_a_des_revenus))
 
         nombre_de_parts = 1 + nombre_de_parts_conjoint + nombre_de_parts_enfants
 
-        return min_(5, nombre_de_parts)
+        return min_(limite_nombre_de_parts, nombre_de_parts)
 
 
 class impot_avant_reduction_famille(Variable):
