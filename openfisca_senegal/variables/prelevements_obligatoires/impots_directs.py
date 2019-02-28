@@ -25,7 +25,7 @@ class nombre_de_parts(Variable):
         est_marie = individu('est_marie', period)
         est_veuf = individu('est_veuf', period)
         nombre_enfants = individu('nombre_enfants', period)
-        parts_enfant_veuf = est_veuf * veuf_avec_enfant * min_(1,nombre_enfants)
+        parts_enfant_veuf = est_veuf * veuf_avec_enfant * min_(1, nombre_enfants)
 
         nombre_de_parts_enfants = nombre_enfants * nombre_de_parts_par_enfant + parts_enfant_veuf
         conjoint_a_des_revenus = individu('conjoint_a_des_revenus', period)
