@@ -1,0 +1,36 @@
+- name: "Nombre de parts veuf"
+  description: "Veuf sans enfant"
+  period: 2016
+  input:
+    est_veuf: True
+    nombre_enfants: 0
+  output:
+    nombre_de_parts: 1
+
+- name: "Nombre de parts veuf"
+  description: "Veuf avec 2 enfants"
+  period: 2016
+  input:
+    est_veuf: True
+    nombre_enfants: 2
+  output:
+    nombre_de_parts: 2.5
+
+- name: "Nombre de parts marié sans enfant"
+  description: "Marié avec conjoint qui a des revenus"
+  period: 2016
+  input:
+    est_marie: True
+    conjoint_a_des_revenus: True
+  output:
+    nombre_de_parts: 1.5
+
+- name: "Nombre de parts marié avec 2 enfants"
+  description: "Marié avec conjoint qui a des revenus"
+  period: 2016
+  input:
+    est_marie: True
+    conjoint_a_des_revenus: True
+    nombre_enfants: 2
+  output:
+    nombre_de_parts: 2.5
