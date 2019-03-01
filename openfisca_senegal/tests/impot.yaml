@@ -107,13 +107,3 @@
   output:
     impot_avant_reduction_famille: 18541000
     impot_revenus: 15786000
-
-- name: "Nombre de parts veuf avec enfant"
-  description: "Veuf avec 2 enfants"
-  period: 2016
-  absolute_error_margin: 0.03
-  input:
-    est_veuf: True
-    nombre_enfants: 2
-  output:
-    nombre_de_parts: 2.5
