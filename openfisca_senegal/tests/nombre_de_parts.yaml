@@ -17,7 +17,7 @@
     nombre_de_parts: 2.5
 
 - name: "Nombre de parts marié sans enfant"
-  description: "Marié avec conjoint a des revenus"
+  description: "Marié avec conjoint qui a des revenus"
   period: 2016
   input:
     est_marie: True
@@ -26,7 +26,7 @@
     nombre_de_parts: 1.5
 
 - name: "Nombre de parts marié avec 2 enfants"
-  description: "Marié avec conjoint a des revenus"
+  description: "Marié avec conjoint qui a des revenus"
   period: 2016
   input:
     est_marie: True
