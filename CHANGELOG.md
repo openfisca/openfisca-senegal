@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.6 [#37](https://github.com/openfisca/openfisca-senegal/pull/37)
+
+* Évolution du système socio-fiscal.
+* Zones impactées : `impots_directs`.
+  - Ajoute: Nombre de parts pour veuf avec enfant
+
 ## 0.7.5 [#33](https://github.com/openfisca/openfisca-senegal/pull/33)
 
 * Évolution du système socio-fiscal.
