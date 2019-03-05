@@ -12,11 +12,9 @@ from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 
 
 class SenegalSurveyScenario(AbstractSurveyScenario):
-    id_variable_by_entity_key = dict(
-        menage = 'id_menage',
-        )
-    role_variable_by_entity_key = dict(
-        menage = 'role_menage',
+    weight_column_name_by_entity = dict(
+        household = 'household_weight',
+        person = 'person_weight',
         )
 
     def __init__(self, tax_benefit_system = None, baseline_tax_benefit_system = None, year = None,

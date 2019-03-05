@@ -5,12 +5,23 @@ from openfisca_core.model_api import *
 from openfisca_senegal.entities import *
 
 
+class TypesStatutMarital(Enum):
+    __order__ = 'marie celibataire veuf_divorce non_concerne'
+    marie = 'Marié'
+    celibataire = 'Célibataire'
+    veuf_divorce = 'Veuf ou divorcé'
+    non_concerne = 'Non concerné'
+
+
 class est_marie(Variable):
     value_type = bool
     entity = Individu
     label = u"Est marié"
     set_input = set_input_dispatch_by_period
     definition_period = YEAR
+
+    def formula(individu, period):
+        return individu('statut_marital', period) == TypesStatutMarital.marie
 
 
 class est_divorce(Variable):
@@ -20,6 +31,9 @@ class est_divorce(Variable):
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
 
+    def formula(individu, period):
+        return individu('statut_marital', period) == TypesStatutMarital.veuf_divorce
+
 
 class est_veuf(Variable):
     value_type = bool
@@ -28,6 +42,9 @@ class est_veuf(Variable):
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
 
+    def formula(individu, period):
+        return individu('statut_marital', period) == TypesStatutMarital.veuf_divorce
+
 
 class est_celibataire(Variable):
     value_type = bool
@@ -35,6 +52,9 @@ class est_celibataire(Variable):
     label = u"Est célibataire"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
+
+    def formula(individu, period):
+        return individu('statut_marital', period) == TypesStatutMarital.celibataire
 
 
 class nombre_enfants(Variable):
@@ -69,3 +89,12 @@ class age(Variable):
             )
         # If the birthday is not passed this year, subtract one year
         return (period.start.year - birth_year) - where(is_birthday_past, 0, 1)
+
+
+class statut_marital(Variable):
+    value_type = Enum
+    possible_values = TypesStatutMarital
+    default_value = TypesStatutMarital.non_concerne
+    entity = Individu
+    label = "Statut marital"
+    definition_period = YEAR
