@@ -28,7 +28,7 @@ def get_data_file_path():
 
 def create_dataframes_from_stata_data():
     data_file_path = get_data_file_path()
-    dico_labels = pd.read_stata(data_file_path, iterator=True)
+    # dico_labels = pd.read_stata(data_file_path, iterator=True)
     # import pprint
     # pprint.pprint(dico_labels.variable_labels())
     dataframe = pd.read_stata(data_file_path)
@@ -42,10 +42,7 @@ def create_dataframes_from_stata_data():
         'wage_formal_ind',
         ]
 
-
     person_dataframe = dataframe[person_variables].copy()
-    print(person_dataframe.age.value_counts(dropna = False))
-
     person_dataframe['age'] = person_dataframe['age'].replace({
         "98 ans et plus": "98.0",
         "NSP": "50.0",
@@ -62,7 +59,7 @@ def create_dataframes_from_stata_data():
         "Marie": 0,
         "Celibataire": 1,
         "Veuf, Divorce": 2,
-        "Non concerne": 3 ,
+        "Non concerne": 3,
         })
     assert (person_dataframe.statut_marital.isin([0, 1, 2, 3])).all()
     # print(person_dataframe.link_to_head.value_counts())
@@ -112,7 +109,6 @@ def create_data_from_stata(create_dataframes = True):
             'household': household_dataframe,
             }
         input_data_frame_by_entity_by_period = {periods.period(year): input_data_frame_by_entity}
-        print(input_data_frame_by_entity_by_period)
         data['input_data_frame_by_entity_by_period'] = input_data_frame_by_entity_by_period
 
     else:
@@ -128,9 +124,4 @@ if __name__ == '__main__':
     import sys
     logging.basicConfig(level = logging.DEBUG, stream = sys.stdout)
     person_dataframe, household_dataframe = create_dataframes_from_stata_data()
-    print(person_dataframe.age)
-
-    # print(person_dataframe)
-    # print(household_dataframe)
-    # data = create_data_from_stata()
-    # print(data)
+    data = create_data_from_stata()
