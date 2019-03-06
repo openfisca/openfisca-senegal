@@ -20,6 +20,7 @@ def test_survey_scenario(create_dataframes = True):
 
     year = 2017
     data = create_data_from_stata(create_dataframes = create_dataframes)
+    print(data)
     survey_scenario = SenegalSurveyScenario(
         data = data,
         year = year,

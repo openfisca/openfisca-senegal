@@ -12,7 +12,7 @@ from openfisca_senegal.entities import *
 
 class nombre_de_parts(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     label = u"Nombre de parts"
     definition_period = YEAR
 
@@ -38,7 +38,7 @@ class nombre_de_parts(Variable):
 
 class impot_avant_reduction_famille(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     definition_period = YEAR
 
     def formula(individu, period, legislation):
@@ -62,7 +62,7 @@ class impot_avant_reduction_famille(Variable):
 
 class reduction_impots_pour_charge_famille(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     definition_period = YEAR
 
     def formula(individu, period, legislation):
@@ -105,7 +105,7 @@ class reduction_impots_pour_charge_famille(Variable):
 
 class impot_revenus(Variable):
     value_type = float
-    entity = Individu
+    entity = Person
     definition_period = YEAR
 
     def formula(individu, period):

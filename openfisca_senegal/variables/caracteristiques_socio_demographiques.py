@@ -15,7 +15,7 @@ class TypesStatutMarital(Enum):
 
 class est_marie(Variable):
     value_type = bool
-    entity = Individu
+    entity = Person
     label = u"Est marié"
     set_input = set_input_dispatch_by_period
     definition_period = YEAR
@@ -26,7 +26,7 @@ class est_marie(Variable):
 
 class est_divorce(Variable):
     value_type = bool
-    entity = Individu
+    entity = Person
     label = u"Est divorcé"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
@@ -37,7 +37,7 @@ class est_divorce(Variable):
 
 class est_veuf(Variable):
     value_type = bool
-    entity = Individu
+    entity = Person
     label = u"Est veuf"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
@@ -48,7 +48,7 @@ class est_veuf(Variable):
 
 class est_celibataire(Variable):
     value_type = bool
-    entity = Individu
+    entity = Person
     label = u"Est célibataire"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
@@ -59,23 +59,24 @@ class est_celibataire(Variable):
 
 class nombre_enfants(Variable):
     value_type = int
-    entity = Individu
+    entity = Person
     definition_period = YEAR
 
 
 class date_naissance(Variable):
     value_type = date
     default_value = date(1970, 1, 1)
-    entity = Individu
+    entity = Person
     label = u"Date de naissance"
     definition_period = ETERNITY  # This variable cannot change over time.
 
 
 class age(Variable):
     value_type = int
-    entity = Individu
+    entity = Person
     definition_period = MONTH
     label = u"Âge de l'individu (en années)"
+    set_input = set_input_dispatch_by_period
 
     # A person's age is computed according to its birth date.
     def formula(individu, period, parameters):
@@ -95,6 +96,6 @@ class statut_marital(Variable):
     value_type = Enum
     possible_values = TypesStatutMarital
     default_value = TypesStatutMarital.non_concerne
-    entity = Individu
+    entity = Person
     label = "Statut marital"
     definition_period = YEAR
