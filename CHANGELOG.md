@@ -1,11 +1,12 @@
 # Changelog
 
-## 0.8.0 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+## 0.8.0 [#39](https://github.com/openfisca/openfisca-senegal/pull/39)
 
 * Amélioration technique
+  - Construction des bases individus et ménages à partir des données brutes pour injection dans un SurveyScenario
   - Adapte à la dernière version de core (26.0.6) et survey-manager (0.18.2)
-  - Ajoute: Nombre de parts pour veuf avec enfant
-
+  - Ajoute variables de poids
+  - Modifie les entités pour suivre celle de CEQ (comme Côte d'Ivoire et Mali)
 
 ## 0.7.6 [#37](https://github.com/openfisca/openfisca-senegal/pull/37)
 
