@@ -37,11 +37,15 @@ setup(
             "autopep8 ==1.4.4",
             "flake8 >=3.5.0,<3.7.0",
             "flake8-print",
+            "openfisca-ceq >= 0.2.3",
+            "openfisca-survey-manager >= 0.18.2",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <5.0",
-            "openfisca-survey-manager >= 0.18.2",
             "yamllint >=1.11.1,<1.16",
             ]
+        'ceq': [
+            "openfisca-ceq >= 0.2.4",
+            ],
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
