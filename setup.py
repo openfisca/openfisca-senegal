@@ -42,7 +42,7 @@ setup(
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <5.0",
             "yamllint >=1.11.1,<1.16",
-            ]
+            ],
         'ceq': [
             "openfisca-ceq >= 0.2.4",
             ],
