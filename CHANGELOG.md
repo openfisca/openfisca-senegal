@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+
+* Amélioration technique
+  - Adapte à la dernière version de core (26.0.6) et survey-manager (0.18.2)
+  - Ajoute: Nombre de parts pour veuf avec enfant
+
+
 ## 0.7.6 [#37](https://github.com/openfisca/openfisca-senegal/pull/37)
 
 * Évolution du système socio-fiscal.
@@ -12,23 +19,23 @@
 * Zones impactées : `impots_directs`.
   - Transformation des valeurs du code en paramètres de la législation
 
-## 0.7.4 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+### 0.7.4 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
 * Correction d'un crash
   - Rajoute scipy dans les dépendances
 
-## 0.7.3 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+### 0.7.3 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
 * Correction d'un crash
   - Corrige version de survey-manager dans les dépendances
 
-## 0.7.2 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+### 0.7.2 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
 * Correction d'un crash
   - Répare survey scenario
 
 
-## 0.7.1 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+### 0.7.1 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 
 * Amélioration technique
   - Adapte à la dernière version de core et survey-manager (0.17.2)

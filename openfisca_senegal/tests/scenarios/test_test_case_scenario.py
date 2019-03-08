@@ -1,10 +1,11 @@
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenfitSystem
+from openfisca_senegal.scenarios import init_single_entity
 
 
 def test_senario():
     scenario = SenegalTaxBenfitSystem().new_scenario()
-
-    scenario.init_single_entity(
+    init_single_entity(
+        scenario,
         parent1 = {
             'salaire': 2800000,
             'est_marie': True,
