@@ -63,7 +63,7 @@ def create_dataframes_from_stata_data():
         })
     assert (person_dataframe.statut_marital.isin([0, 1, 2, 3])).all()
     # print(person_dataframe.link_to_head.value_counts())
-    person_dataframe['household_legacy_role'] = (
+    person_dataframe['household_role_index'] = (
         0 * (person_dataframe.link_to_head == 1)
         + 1 * (person_dataframe.link_to_head == 2)
         + 2 * (person_dataframe.link_to_head > 2)

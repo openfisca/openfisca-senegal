@@ -38,7 +38,7 @@ setup(
             "flake8 >=3.5.0,<3.7.0",
             "flake8-print",
             "openfisca-ceq >= 0.2.3",
-            "openfisca-survey-manager >= 0.18.2",
+            "openfisca-survey-manager >= 0.20, <=1.0",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <5.0",
             "yamllint >=1.11.1,<1.16",
@@ -49,7 +49,7 @@ setup(
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core >= 26.0.6, < 27.0',
+        'OpenFisca-Core >= 34.2.0, < 35.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     )
