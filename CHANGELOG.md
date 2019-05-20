@@ -4,7 +4,7 @@
 
 * Amélioration technique
   - Construction des bases individus et ménages à partir des données brutes pour injection dans un SurveyScenario
-  - Adapte à la dernière version de core (26.0.6) et survey-manager (0.18.2)
+  - Adapte à la dernière version de core (34.2.0) et survey-manager (0.20)
   - Ajoute variables de poids
   - Modifie les entités pour suivre celle de CEQ (comme Côte d'Ivoire et Mali)
 
@@ -34,7 +34,6 @@
 
 * Correction d'un crash
   - Répare survey scenario
-
 
 ### 0.7.1 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
 

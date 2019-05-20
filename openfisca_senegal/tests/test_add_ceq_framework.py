@@ -17,7 +17,7 @@ from openfisca_senegal.tests.test_survey_scenario_from_stata_data import (
 log = logging.getLogger(__name__)
 
 
-def test_add_ceq_framework_to_cote_d_ivoire():
+def test_add_ceq_framework_to_senegal():
     tax_benefit_system = SenegalTaxBenefitSystem()
     ceq_enhanced_tax_benefit_system = add_ceq_framework(tax_benefit_system)
     if not data_is_available:
@@ -36,4 +36,4 @@ def test_add_ceq_framework_to_cote_d_ivoire():
 
 if __name__ == "__main__":
     logging.basicConfig(level = logging.INFO, stream = sys.stdout)
-    test_add_ceq_framework_to_cote_d_ivoire()
+    test_add_ceq_framework_to_senegal()
