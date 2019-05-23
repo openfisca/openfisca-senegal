@@ -29,7 +29,7 @@ def test_survey_scenario(create_dataframes = True):
         )
 
     for entity, df in df_by_entity.items():
-        log.debug(entity)
+        assert not df.empty, "{} dataframe is empty".format(entity)
         log.debug(df)
 
 
