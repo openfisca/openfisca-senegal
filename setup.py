@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.7.6',
+    version='0.8.0',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     description=u'Senegalese tax and benefit system for OpenFisca',
@@ -22,7 +22,7 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.17.5',
+            'OpenFisca-Survey-Manager >= 0.24',
             'openpyxl',
             'pandas',
             'scipy',
@@ -30,22 +30,26 @@ setup(
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.17.5',
+            'OpenFisca-Survey-Manager >= 0.24',
             'scipy',
             ],
         'dev': [
             "autopep8 ==1.4.4",
             "flake8 >=3.5.0,<3.7.0",
             "flake8-print",
+            "openfisca-ceq >= 0.2.3",
+            "openfisca-survey-manager >= 0.24, <=1.0",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <5.0",
-            "openfisca-survey-manager >= 0.17.5",
             "yamllint >=1.11.1,<1.16",
-            ]
+            ],
+        'ceq': [
+            "openfisca-ceq >= 0.2.5",
+            ],
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core >= 25.2.6, < 26.0',
+        'OpenFisca-Core >= 34.2.2, < 35.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     )
