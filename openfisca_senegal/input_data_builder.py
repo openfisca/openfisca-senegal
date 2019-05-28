@@ -106,7 +106,7 @@ def create_data_from_stata(create_dataframes = True):
 
     if create_dataframes:
         person_dataframe, household_dataframe = create_dataframes_from_stata_data()
-        print(person_dataframe.columns)
+        log.debug(person_dataframe.columns)
         input_data_frame_by_entity = {
             'person': person_dataframe,
             'household': household_dataframe,
@@ -128,4 +128,3 @@ if __name__ == '__main__':
     logging.basicConfig(level = logging.DEBUG, stream = sys.stdout)
     person_dataframe, household_dataframe = create_dataframes_from_stata_data()
     data = create_data_from_stata()
-    print(data)

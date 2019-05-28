@@ -38,10 +38,7 @@ def read_aggregates():
     asset_path = os.path.join(package_path, "openfisca_senegal", 'assets')
     file_path = os.path.join(asset_path, 'general_government_budget.csv')
     recettes = pd.read_csv(file_path)
-
-
     recettes.columns = [slugify(column, separator = "_") for column in recettes.columns]
-
     # print(recettes.columns)
     government_revenue_spending_in_milliards_fcfa_by_variable = {
         "impot_revenus": "Personal Income Tax"
@@ -67,7 +64,7 @@ def test_aggregates():
             logging.info("Aggregats de la variable {}".format(variable))
             logging.info(survey_scenario.compute_aggregate(variable, period = period) / 1e9)
             logging.info(recette)
-    assert False
+
 
 if __name__ == '__main__':
     import sys

@@ -24,7 +24,6 @@ class pension_retraite(Variable):
     definition_period = YEAR
 
 
-
 class salaire(Variable):
     value_type = float
     entity = Person
