@@ -42,9 +42,9 @@ def read_aggregates():
 
     recettes.columns = [slugify(column, separator = "_") for column in recettes.columns]
 
-    print(recettes.columns)
+    # print(recettes.columns)
     government_revenue_spending_in_milliards_fcfa_by_variable = {
-        "impot_general_revenu": "Personal Income Tax"
+        "impot_revenus": "Personal Income Tax"
         }
 
     recette_by_variable = dict(
@@ -54,7 +54,7 @@ def read_aggregates():
             ].values[0])
         for variable, government_revenue_spending_in_milliards_fcfa in government_revenue_spending_in_milliards_fcfa_by_variable.items()
         )
-    print(recette_by_variable)
+    # print(recette_by_variable)
     return recette_by_variable
 
 
@@ -67,7 +67,7 @@ def test_aggregates():
             logging.info("Aggregats de la variable {}".format(variable))
             logging.info(survey_scenario.compute_aggregate(variable, period = period) / 1e9)
             logging.info(recette)
-
+    assert False
 
 if __name__ == '__main__':
     import sys
