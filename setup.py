@@ -41,7 +41,7 @@ setup(
             "openfisca-survey-manager >= 0.24, <=1.0",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <5.0",
-            "yamllint >=1.11.1,<1.16",
+            "yamllint >=1.11.1,<1.17",
             ],
         'ceq': [
             "openfisca-ceq >= 0.2.5",
