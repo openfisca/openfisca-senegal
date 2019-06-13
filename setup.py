@@ -22,7 +22,7 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.24',
+            'OpenFisca-Survey-Manager >= 0.28',
             'openpyxl',
             'pandas',
             'scipy',
@@ -30,7 +30,7 @@ setup(
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.24',
+            'OpenFisca-Survey-Manager >= 0.28',
             "python-slugify",
             'scipy',
             ],
