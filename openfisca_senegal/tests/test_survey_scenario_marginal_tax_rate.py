@@ -31,7 +31,6 @@ def test_survey_scenario(create_dataframes = True):
         varying_variable = 'salaire',
         )
     log.info(1 - survey_scenario.compute_marginal_tax_rate(target_variable = 'impot_revenus', period = year))
-
     return survey_scenario
 
 
