@@ -18,7 +18,6 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
         )
     varying_variable = None
 
-
     def __init__(self, tax_benefit_system = None, baseline_tax_benefit_system = None, year = None,
             data = None, varying_variable = None):
         super(SenegalSurveyScenario, self).__init__()
@@ -51,6 +50,7 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
                     set(input_data_frame.columns)
                     ))
 
+        use_marginal_tax_rate = False
         if varying_variable is not None:
             assert varying_variable in self.tax_benefit_system.variables
             self.varying_variable = varying_variable
