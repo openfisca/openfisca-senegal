@@ -58,7 +58,6 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
 
         self.init_from_data(data = data, use_marginal_tax_rate = use_marginal_tax_rate)
 
-
     def custom_initialize(self, simulation):
         if simulation == self.baseline_simulation:
             return
