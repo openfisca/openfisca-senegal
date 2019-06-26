@@ -32,7 +32,7 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
             tax_benefit_system = SenegalTaxBenefitSystem()
         self.set_tax_benefit_systems(
             tax_benefit_system = tax_benefit_system,
-            baseline_tax_benefit_system = baseline_tax_benefit_system
+            baseline_tax_benefit_system = baseline_tax_benefit_system,
             )
         if data is None:
             return
