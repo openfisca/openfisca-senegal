@@ -24,12 +24,6 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
         assert year is not None
         self.year = year
 
-        if use_marginal_tax_rate:
-            assert varying_variable is not None
-            assert varying_variable in self.tax_benefit_system.variables
-            self.variation_factor = varying_factor
-            self.varying_variable = varying_variable
-
         if tax_benefit_system is None:
             tax_benefit_system = SenegalTaxBenefitSystem()
         self.set_tax_benefit_systems(
@@ -38,6 +32,12 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
             )
         if data is None:
             return
+
+        if use_marginal_tax_rate:
+            assert varying_variable is not None
+            assert varying_variable in self.tax_benefit_system.variables
+            self.variation_factor = varying_factor
+            self.varying_variable = varying_variable
 
         if 'input_data_frame_by_entity_by_period' in data:
             period = periods.period(year)
