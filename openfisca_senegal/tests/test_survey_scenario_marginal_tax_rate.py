@@ -11,7 +11,7 @@ from openfisca_senegal import SenegalTaxBenefitSystem
 from openfisca_senegal.survey_scenarios import SenegalSurveyScenario
 
 
-# log = logging.getLogger(__file__)
+log = logging.getLogger(__name__)
 
 
 def test_survey_scenario(create_dataframes = True):
@@ -30,14 +30,8 @@ def test_survey_scenario(create_dataframes = True):
         baseline_tax_benefit_system = tax_benefit_system,
         varying_variable = 'salaire',
         )
-    df_by_entity = survey_scenario.create_data_frame_by_entity(
-        variables = ['age', 'salaire', 'impot_avant_reduction_famille', 'impot_revenus']
-        )
+    log.info(1 - survey_scenario.compute_marginal_tax_rate(target_variable = 'impot_revenus', period = year))
 
-    # for entity, df in df_by_entity.items():
-    #     assert not df.empty, "{} dataframe is empty".format(entity)
-    #     log.debug(df)
-    print(survey_scenario.compute_marginal_tax_rate(target_variable = 'salaire', period = year))
     return survey_scenario
 
 if __name__ == '__main__':

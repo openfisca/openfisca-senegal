@@ -51,10 +51,12 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
                     set(input_data_frame.columns)
                     ))
 
-        if varying_variable:
+        if varying_variable is not None:
+            assert varying_variable in self.tax_benefit_system.variables
             self.varying_variable = varying_variable
+            use_marginal_tax_rate = True
 
-        self.init_from_data(data = data)
+        self.init_from_data(data = data, use_marginal_tax_rate = use_marginal_tax_rate)
 
 
     def custom_initialize(self, simulation):
