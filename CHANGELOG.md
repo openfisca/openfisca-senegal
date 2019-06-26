@@ -1,9 +1,9 @@
 # Changelog
 
-## 0.9.0 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+## 0.9.0 [#51](https://github.com/openfisca/openfisca-senegal/pull/51)
 
 * Amélioration technique
-  - Permet de calculer le taux marginal d'imosition
+  - Permet de calculer le taux marginal d'imposition
 
 ## 0.8.0 [#39](https://github.com/openfisca/openfisca-senegal/pull/39)
 
