@@ -18,10 +18,16 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
         )
 
     def __init__(self, tax_benefit_system = None, baseline_tax_benefit_system = None, year = None,
-            data = None):
+            data = None, use_marginal_tax_rate = False, varying_variable = None, varying_factor = 0.03):
         super(SenegalSurveyScenario, self).__init__()
         assert year is not None
         self.year = year
+
+        if use_marginal_tax_rate:
+            assert varying_variable is not None
+            self.variation_factor = varying_factor
+            self.varying_variable = varying_variable
+
         if tax_benefit_system is None:
             tax_benefit_system = SenegalTaxBenefitSystem()
         self.set_tax_benefit_systems(
@@ -49,4 +55,4 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
                     set(input_data_frame.columns)
                     ))
 
-        self.init_from_data(data = data)
+        self.init_from_data(data = data, use_marginal_tax_rate = use_marginal_tax_rate)
