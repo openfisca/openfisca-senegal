@@ -37,5 +37,4 @@ def test_survey_scenario(create_dataframes = True):
 if __name__ == '__main__':
     import sys
     logging.basicConfig(level = logging.DEBUG, stream = sys.stdout)
-
     survey_scenario = test_survey_scenario()
