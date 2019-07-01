@@ -40,7 +40,7 @@ setup(
             "openfisca-ceq >= 0.2.3",
             "openfisca-survey-manager >= 0.30, <=1.0",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
-            "pytest <5.0",
+            "pytest <6.0",
             "yamllint >=1.11.1,<1.17",
             ],
         'ceq': [
