@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.1 [#52](https://github.com/openfisca/openfisca-senegal/pull/52)
+
+* Amélioration technique
+  - Utilise une notation cohérente pour `variation_factor`
+
 ## 0.9.0 [#51](https://github.com/openfisca/openfisca-senegal/pull/51)
 
 * Amélioration technique
