@@ -19,7 +19,7 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
     varying_variable = None
 
     def __init__(self, tax_benefit_system = None, baseline_tax_benefit_system = None, year = None,
-            data = None, use_marginal_tax_rate = False, varying_variable = None, varying_factor = 0.03):
+            data = None, use_marginal_tax_rate = False, varying_variable = None, variation_factor = 0.03):
         super(SenegalSurveyScenario, self).__init__()
         assert year is not None
         self.year = year
@@ -36,7 +36,7 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
         if use_marginal_tax_rate:
             assert varying_variable is not None
             assert varying_variable in self.tax_benefit_system.variables
-            self.variation_factor = varying_factor
+            self.variation_factor = variation_factor
             self.varying_variable = varying_variable
 
         if 'input_data_frame_by_entity_by_period' in data:
