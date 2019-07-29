@@ -61,8 +61,10 @@ def test_aggregates():
     period = 2017
     if survey_scenario is not None:
         for variable, recette in recette_by_variable.items():
-            logging.info("Aggregats de la variable {}".format(variable))
-            logging.info(survey_scenario.compute_aggregate(variable, period = period) / 1e9)
+            unit = 1e9
+            logging.info("Computed value for variable {}".format(variable))
+            logging.info(survey_scenario.compute_aggregate(variable, period = period) / unit)
+            logging.info("Tabulated value for variable {}".format(variable))
             logging.info(recette)
 
 
