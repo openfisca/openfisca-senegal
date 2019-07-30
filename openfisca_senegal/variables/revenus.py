@@ -7,7 +7,7 @@ from openfisca_senegal.entities import *
 class benefices_non_salarie(Variable):
     value_type = float
     entity = Person
-    label = u"Bénéfices non salarié"
+    label = "Bénéfices non salarié"
     definition_period = YEAR
 
 
@@ -20,7 +20,7 @@ class conjoint_a_des_revenus(Variable):
 class pension_retraite(Variable):
     value_type = float
     entity = Person
-    label = u"Pension de retraite"
+    label = "Pension de retraite"
     definition_period = YEAR
 
 
