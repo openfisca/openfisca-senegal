@@ -54,7 +54,7 @@ class date_naissance(Variable):
 class age(Variable):
     value_type = int
     entity = Individu
-    definition_period = MONTH
+    definition_period = YEAR
     label = u"Âge de l'individu (en années)"
 
     # A person's age is computed according to its birth date.
