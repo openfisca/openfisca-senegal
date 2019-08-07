@@ -6,6 +6,9 @@ import pandas as pd
 
 from openfisca_core import periods
 from openfisca_survey_manager.scenarios import AbstractSurveyScenario
+from openfisca_survey_manager.utils import stata_files_to_data_frames
+
+from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 
 
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
@@ -30,14 +33,15 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
             tax_benefit_system = tax_benefit_system,
             baseline_tax_benefit_system = baseline_tax_benefit_system,
             )
-        if data is None:
-            return
 
         if use_marginal_tax_rate:
             assert varying_variable is not None
             assert varying_variable in self.tax_benefit_system.variables
             self.variation_factor = variation_factor
             self.varying_variable = varying_variable
+
+        if data is None:
+            return
 
         if 'input_data_frame_by_entity_by_period' in data:
             period = periods.period(year)
