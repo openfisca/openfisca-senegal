@@ -31,17 +31,17 @@ def create_dataframes_from_stata_data():
     # dico_labels = pd.read_stata(data_file_path, iterator=True)
     # import pprint
     # pprint.pprint(dico_labels.variable_labels())
+    log.info("Readind data from file {}".format(data_file_path))
     dataframe = pd.read_stata(data_file_path)
     person_variables = [
         'age',
         'hhid',
+        'inc_pension_ind',
         'link_to_head',
         'mstatus_ind',
-        'inc_pension_ind',
-        'weight_pc',
         'sex',
         'wage_formal_ind',
-        'inc_pension_ind',
+        'weight_pc',
         ]
 
     person_dataframe = dataframe[person_variables].copy()
