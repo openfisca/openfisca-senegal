@@ -6,9 +6,6 @@ import pandas as pd
 
 from openfisca_core import periods
 from openfisca_survey_manager.scenarios import AbstractSurveyScenario
-from openfisca_survey_manager.utils import stata_files_to_data_frames
-
-from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 
 
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
