@@ -37,6 +37,7 @@ def create_dataframes_from_stata_data():
         'hhid',
         'link_to_head',
         'mstatus_ind',
+        'inc_pension_ind',
         'weight_pc',
         'sex',
         'wage_formal_ind',

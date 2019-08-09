@@ -25,7 +25,7 @@ def test_survey_scenario(create_dataframes = True):
         year = year,
         )
     df_by_entity = survey_scenario.create_data_frame_by_entity(
-        variables = ['age', 'salaire', 'impot_avant_reduction_famille', 'impot_revenus']
+        variables = ['age', 'salaire', 'impot_avant_reduction_famille', 'impot_revenus', 'household_weight']
         )
 
     for entity, df in df_by_entity.items():

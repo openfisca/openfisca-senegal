@@ -7,7 +7,7 @@ from openfisca_senegal.input_data_builder import (
     data_is_available,
     create_data_from_stata,
     )
-from openfisca_senegal import SenegalTaxBenefitSystem
+from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 from openfisca_senegal.survey_scenarios import SenegalSurveyScenario
 
 
@@ -29,6 +29,7 @@ def test_survey_scenario(create_dataframes = True):
         tax_benefit_system = tax_benefit_system,
         baseline_tax_benefit_system = tax_benefit_system,
         varying_variable = 'salaire',
+        use_marginal_tax_rate = True,
         )
     log.info(1 - survey_scenario.compute_marginal_tax_rate(target_variable = 'impot_revenus', period = year))
     return survey_scenario
