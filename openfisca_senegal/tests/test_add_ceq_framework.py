@@ -5,7 +5,7 @@ import logging
 import sys
 
 
-from openfisca_ceq.tools import add_ceq_framework
+from openfisca_ceq.tools.tax_benefit_system_completion import add_ceq_framework
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 from openfisca_senegal.survey_scenarios import SenegalSurveyScenario
 from openfisca_senegal.tests.test_survey_scenario_from_stata_data import (
