@@ -44,7 +44,7 @@ setup(
             "yamllint >=1.11.1,<1.18",
             ],
         'ceq': [
-            "openfisca-ceq >= 0.2.5",
+            "openfisca-ceq >= 0.2.6",
             ],
         },
     include_package_data = True,  # Will read MANIFEST.in
