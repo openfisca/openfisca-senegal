@@ -22,7 +22,7 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.24',
+            'OpenFisca-Survey-Manager >= 0.34, <=1.0',
             'openpyxl',
             'pandas',
             'scipy',
@@ -30,7 +30,7 @@ setup(
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.24',
+            'OpenFisca-Survey-Manager >= 0.34, <=1.0',
             'scipy',
             ],
         'dev': [
@@ -38,7 +38,7 @@ setup(
             "flake8 >=3.5.0,<3.7.0",
             "flake8-print",
             "openfisca-ceq >= 0.2.3",
-            "openfisca-survey-manager >= 0.30, <=1.0",
+            "openfisca-survey-manager >= 0.34, <=1.0",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <6.0",
             "yamllint >=1.11.1,<1.18",
