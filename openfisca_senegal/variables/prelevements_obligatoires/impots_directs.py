@@ -13,7 +13,7 @@ from openfisca_senegal.entities import *
 class nombre_de_parts(Variable):
     value_type = float
     entity = Person
-    label = u"Nombre de parts"
+    label = "Nombre de parts"
     definition_period = YEAR
 
     def formula(individu, period, parameters):
