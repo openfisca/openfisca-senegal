@@ -10,7 +10,7 @@ class household_weight(Variable):
     is_period_size_independent = True
     value_type = float
     entity = Household
-    label = u"Poids du ménage"
+    label = "Poids du ménage"
     definition_period = YEAR
 
 
@@ -19,5 +19,5 @@ class person_weight(Variable):
     is_period_size_independent = True
     value_type = float
     entity = Person
-    label = u"Poids de l'individu"
+    label = "Poids de l'individu"
     definition_period = YEAR

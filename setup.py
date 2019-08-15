@@ -10,7 +10,7 @@ setup(
     version='0.9.1',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
-    description=u'Senegalese tax and benefit system for OpenFisca',
+    description='Senegalese tax and benefit system for OpenFisca',
     keywords='benefit microsimulation senegal social tax',
     license='http://www.fsf.org/licensing/licenses/agpl-3.0.html',
     url='https://github.com/openfisca/senegal',
@@ -22,7 +22,7 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.24',
+            'OpenFisca-Survey-Manager >= 0.28',
             'openpyxl',
             'pandas',
             'scipy',
@@ -30,7 +30,8 @@ setup(
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.24',
+            'OpenFisca-Survey-Manager >= 0.28',
+            "python-slugify",
             'scipy',
             ],
         'dev': [
@@ -41,6 +42,7 @@ setup(
             "openfisca-survey-manager >= 0.30, <=1.0",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <6.0",
+            "python-slugify",
             "yamllint >=1.11.1,<1.18",
             ],
         'ceq': [
