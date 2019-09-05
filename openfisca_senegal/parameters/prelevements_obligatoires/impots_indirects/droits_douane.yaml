@@ -1,0 +1,71 @@
+categorie_0:
+  description: Biens sociaux essentiels
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0
+  metadata:
+    unit: /1
+categorie_1:
+  description: Produits de première nécessité, matières premières de base, biens d’équipement, intrants spécifiques
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.05
+  metadata:
+    unit: /1
+categorie_2:
+  description: Intrants et produits intermédiaires
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.10
+  metadata:
+    unit: /1
+categorie_3:
+  description: Biens de consommation finale
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.20
+  metadata:
+    unit: /1
+categorie_4:
+  description: Biens spécifiques pour le développement économique
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.35
+  metadata:
+    unit: /1
+
+
+redevance_statistique:
+  description: Redevance Statistique (RS)
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.01
+  metadata:
+    unit: /1
+
+prelevement_communautaire_de_solidarite:
+  description: Prélèvement Communautaire de Solidarité (PCS)
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.01
+  metadata:
+    unit: /1
+
+
+metadata:
+  href: https://www.douanes.sn/fr/node/722, https://www.douanes.sn/sites/default/files/fichiers/doc_51.pdf
+  order:
+  - categorie_0
+  - categorie_1
+  - categorie_2
+  - categorie_3
+  - categorie_4
+  - redevance_statistique
+  - prelevement_communautaire_de_solidarite
