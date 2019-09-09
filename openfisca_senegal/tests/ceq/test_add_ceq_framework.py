@@ -5,8 +5,7 @@ import logging
 import sys
 
 
-from openfisca_core.reforms import Reform
-from openfisca_ceq.tools.tax_benefit_system_completion import add_ceq_framework
+from openfisca_ceq.tools.tax_benefit_system_completion import ceq
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 from openfisca_senegal.survey_scenarios import SenegalSurveyScenario
 from openfisca_senegal.tests.test_survey_scenario_from_stata_data import (
@@ -18,16 +17,9 @@ from openfisca_senegal.tests.test_survey_scenario_from_stata_data import (
 log = logging.getLogger(__name__)
 
 
-class ceq_senegal(Reform):
-    name = "CEQ enhanced Sénégal tax and benefit system"
-
-    def apply(self):
-        add_ceq_framework(self)
-
-
 def test_add_ceq_framework_to_senegal():
     tax_benefit_system = SenegalTaxBenefitSystem()
-    ceq_enhanced_tax_benefit_system = ceq_senegal(tax_benefit_system)
+    ceq_enhanced_tax_benefit_system = ceq(tax_benefit_system)
     if not data_is_available:
         return
     data = create_data_from_stata()

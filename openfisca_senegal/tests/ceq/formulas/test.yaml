@@ -1,5 +1,7 @@
-- name: Dépense hors taxe d'un produits taxé (CEQ)
+- name: Dépense hors taxe d'un produits taxé
   description: Dépense hors taxe d'un produits taxé
+  reforms:
+  - openfisca_ceq.tools.tax_benefit_system_completion.ceq
   period: 2016
   absolute_error_margin: 0.000001
   input:
@@ -11,13 +13,4 @@
     tva_taux_normal: .18 * 100 / (1 + .18)
     tva: .18 * 100 / (1 + .18)
     impots_indirects: .18 * 100 / (1 + .18)
-
-- name: Dépense hors taxe d'un produits exonéré
-  description: Dépense hors taxe d'un produits exonéré
-  period: 2016
-  input:
-    # Charbon de bois
-    poste_4_5_4_1_1: 100
-  output:
-    depenses_ht_poste_4_5_4_1_1: 100
-    depenses_ht_tva_exonere: 100
+    indirect_taxes: .18 * 100 / (1 + .18)
