@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+
+* TODO
+
 ### 0.9.2 [#58](https://github.com/openfisca/openfisca-senegal/pull/58)
 
 * Mise à jour des dépendances notamment openfisca-ceq
