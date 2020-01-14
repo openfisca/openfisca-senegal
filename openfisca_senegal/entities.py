@@ -15,15 +15,15 @@ Household = build_entity(
     roles = [
         {
             'key': 'personne_de_reference',
-            'plural': 'personnes_de_reference',
             'label': 'Personne de reference (Chef-fe de ménage)',
-            'doc': 'La personne de référence dans le ménage.'
+            'doc': 'La personne de référence dans le ménage.',
+            'max': 1,
             },
         {
             'key': 'conjoint',
-            'plural': 'conjoints',
             'label': 'Conjoint de la personne de référence',
-            'doc': 'Le/la conjoint-e de la personne de référence.'
+            'doc': 'Le/la conjoint-e de la personne de référence.',
+            'max': 1,
             },
         {
             'key': 'enfant',

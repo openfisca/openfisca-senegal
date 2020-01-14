@@ -3,18 +3,19 @@
 from datetime import date
 
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTBS
+from openfisca_senegal.scenarios import init_single_entity
 
 tax_benefit_system = SenegalTBS()
 
 scenario = tax_benefit_system.new_scenario()
 
-scenario.init_single_entity(
+init_single_entity(
+    scenario,
     parent1 = {
         'salaire': 1800000,
         'est_marie': True,
         'conjoint_a_des_revenus': False,
         'nombre_enfants': 2,
-        'date_de_naissance': date(1974, 4, 24)
         },
     period='2015',
     )
