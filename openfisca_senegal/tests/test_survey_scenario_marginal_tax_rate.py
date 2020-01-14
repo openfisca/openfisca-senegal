@@ -12,6 +12,7 @@ from openfisca_senegal.survey_scenarios import SenegalSurveyScenario
 
 log = logging.getLogger(__name__)
 
+
 @pytest.mark.skip(reason = "FileNotFoundError: [Errno 2] No such file or directory: '/home/benjello/Dropbox/Projet_Micro_Sim/B_all_final_dta/TaxeIneq_prep_inc_SEN.dta'")
 def test_survey_scenario(create_dataframes = True):
     circleci = 'CIRCLECI' in os.environ

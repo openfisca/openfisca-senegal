@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-from datetime import date
-
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTBS
 from openfisca_senegal.scenarios import init_single_entity
 
