@@ -1,8 +1,12 @@
 import configparser
+import logging
 import os
 
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
 from openfisca_senegal import entities
+
+
+log = logging.getLogger(__name__)
 
 
 COUNTRY_DIR = os.path.dirname(os.path.abspath(__file__))
