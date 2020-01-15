@@ -22,7 +22,7 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 0.34, <=1.0',
+            'OpenFisca-Survey-Manager >= 0.38.1, <=1.0',
             'openpyxl',
             'pandas',
             'scipy',
@@ -30,7 +30,7 @@ setup(
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 0.34, <=1.0',
+            'OpenFisca-Survey-Manager >= 0.38.1, <=1.0',
             'scipy',
             ],
         'dev': [
@@ -38,7 +38,7 @@ setup(
             "openfisca-ceq >= 0.3",
             "flake8 >=3.5.0,<3.7.0",
             "flake8-print",
-            "openfisca-survey-manager >= 0.34, <=1.0",
+            "openfisca-survey-manager >= 0.38.1, <=1.0",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             "pytest <6.0",
             "yamllint >=1.11.1,<1.18",
@@ -49,7 +49,7 @@ setup(
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core >= 34.4.2, < 35.0',
+        'OpenFisca-Core >= 34.6.7, < 35.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     )
