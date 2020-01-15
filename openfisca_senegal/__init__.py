@@ -29,5 +29,8 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
         try:
             from openfisca_ceq.tests.test_indirect_tax_variables_generator import add_coicop_item_to_tax_benefit_system
             add_coicop_item_to_tax_benefit_system(self, country = "senegal")
-        except configparser.NoSectionError:
-            log.info("No ceq")
+        except (configparser.NoSectionError, ModuleNotFoundError) as e:
+            log.info("No ceq baecause:")
+            log.info(e)
+            log.info("Passing")
+
