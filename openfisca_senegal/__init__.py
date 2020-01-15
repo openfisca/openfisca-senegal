@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
+import configparser
 import os
 
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
-from openfisca_ceq.tests.test_indirect_tax_variables_generator import add_coicop_item_to_tax_benefit_system
 from openfisca_senegal import entities
 
 
@@ -24,4 +22,8 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
         # We add to our tax and benefit system all the legislation parameters defined in the  parameters files
         param_path = os.path.join(COUNTRY_DIR, 'parameters')
         self.load_parameters(param_path)
-        add_coicop_item_to_tax_benefit_system(self, country = "senegal")
+        try:
+            from openfisca_ceq.tests.test_indirect_tax_variables_generator import add_coicop_item_to_tax_benefit_system
+            add_coicop_item_to_tax_benefit_system(self, country = "senegal")
+        except configparser.NoSectionError:
+            log.info("No ceq")
