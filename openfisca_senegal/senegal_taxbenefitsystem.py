@@ -12,7 +12,7 @@ COUNTRY_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class SenegalTaxBenefitSystem(TaxBenefitSystem):
     """Senegalese tax and benefit system"""
-    CURRENCY = u"FCFA"
+    CURRENCY = "FCFA"
 
     def __init__(self):
         super(SenegalTaxBenefitSystem, self).__init__(entities.entities)

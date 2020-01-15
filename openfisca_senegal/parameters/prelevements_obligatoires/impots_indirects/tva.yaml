@@ -1,0 +1,21 @@
+description: Taxe sur la valeur ajoutée
+taux_normal:
+  description: Taux normal
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.18
+  metadata:
+    unit: /1
+taux_reduit:
+  description: Taux réduit
+  values:
+    # TODO corriger date si nécessaire
+    2007-01-01:
+      value: 0.1
+  metadata:
+    unit: /1
+metadata:
+  order:
+  - taux_normal
+  - taux_reduit

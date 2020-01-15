@@ -13,7 +13,7 @@ from openfisca_senegal.entities import *
 class nombre_de_parts(Variable):
     value_type = float
     entity = Person
-    label = u"Nombre de parts"
+    label = "Nombre de parts"
     definition_period = YEAR
 
     def formula(individu, period, parameters):
@@ -56,7 +56,7 @@ class impot_avant_reduction_famille(Variable):
         revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + benefices_imposable, 1000) * 1000
         revenus_imposable = max_(0, revenus_arrondis)
 
-        bareme_impot_progressif = legislation(period).bareme_impot_progressif
+        bareme_impot_progressif = legislation(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
         return bareme_impot_progressif.calc(revenus_imposable)
 
 
@@ -69,7 +69,7 @@ class reduction_impots_pour_charge_famille(Variable):
         impot_avant_reduction_famille = individu('impot_avant_reduction_famille', period)
 
         nombre_de_parts = individu('nombre_de_parts', period)
-        reductions_pour_charge_de_famille = legislation(period).reductions_pour_charge_de_famille
+        reductions_pour_charge_de_famille = legislation(period).prelevements_obligatoires.impots_directs.reductions_pour_charge_de_famille
 
         taux = (nombre_de_parts == 1) * reductions_pour_charge_de_famille.taux_1 + \
             (nombre_de_parts == 1.5) * reductions_pour_charge_de_famille.taux_2 + \

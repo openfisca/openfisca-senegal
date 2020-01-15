@@ -24,5 +24,5 @@ pypi-upload:
 
 test: check-syntax-errors
 	flake8
-	openfisca-run-test -c openfisca_senegal openfisca_senegal/tests/
+	openfisca test -c openfisca_senegal openfisca_senegal/tests/ -i depenses_ht_poste_3_2_1_1_1, depenses_ht_tva_taux_normal, tva_taux_normal, tva, impots_indirects, indirect_taxes
 	pytest

@@ -1,6 +1,14 @@
 # Changelog
 
-## 0.9.1 [#52](https://github.com/openfisca/openfisca-senegal/pull/52)
+## 0.10 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+
+* TODO
+
+### 0.9.2 [#58](https://github.com/openfisca/openfisca-senegal/pull/58)
+
+* Mise à jour des dépendances notamment openfisca-ceq
+
+### 0.9.1 [#52](https://github.com/openfisca/openfisca-senegal/pull/52)
 
 * Amélioration technique
   - Utilise une notation cohérente pour `variation_factor`

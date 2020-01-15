@@ -42,20 +42,20 @@ def init_single_entity(scenario, axes = None, enfants = None, household = None, 
     assert parent1 is not None
 
     households = {}
-    individus = {}
+    persons = {}
 
     count_so_far = 0
     for nth in range(0, 1):
         household_nth = household.copy() if household is not None else {}
         group = [parent1, parent2] + (enfants or [])
-        for index, individu in enumerate(group):
-            if individu is None:
+        for index, person in enumerate(group):
+            if person is None:
                 continue
-            id = individu.get('id')
+            id = person.get('id')
             if id is None:
-                individu = individu.copy()
+                person = person.copy()
                 id = 'ind{}'.format(index + count_so_far)
-            individus[id] = individu
+            persons[id] = person
             if index <= 1:
                 if index == 0:
                     household_nth['personne_de_reference'] = id
@@ -70,7 +70,7 @@ def init_single_entity(scenario, axes = None, enfants = None, household = None, 
     test_data = {
         'period': period,
         'households': households,
-        'individus': individus
+        'persons': persons
         }
     if axes:
         test_data['axes'] = axes
