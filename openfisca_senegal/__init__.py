@@ -2,6 +2,7 @@ import configparser
 import logging
 import os
 
+
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
 from openfisca_senegal import entities
 
@@ -16,7 +17,7 @@ COUNTRY_DIR = os.path.dirname(os.path.abspath(__file__))
 # The name CountryTaxBenefitSystem must not be changed, as all tools of the OpenFisca ecosystem expect a
 # CountryTaxBenefitSystem class to be exposed in the __init__ module of a country package.
 class CountryTaxBenefitSystem(TaxBenefitSystem):
-    def __init__(self, coicop = False):
+    def __init__(self, coicop = True):
         # We initialize our tax and benefit system with the general constructor
         super(CountryTaxBenefitSystem, self).__init__(entities.entities)
 
