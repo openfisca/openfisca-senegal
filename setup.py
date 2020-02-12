@@ -35,7 +35,7 @@ setup(
             ],
         'dev': [
             "autopep8 ==1.5",
-            "openfisca-ceq >= 0.3",
+            "openfisca-ceq >= 0.3.1",
             "flake8 >=3.5.0,<3.7.0",
             "flake8-print",
             "openfisca-survey-manager >= 0.38.1, <=1.0",
@@ -44,7 +44,7 @@ setup(
             "yamllint >=1.11.1,<1.21",
             ],
         'ceq': [
-            "openfisca-ceq >= 0.3",
+            "openfisca-ceq >= 0.3.1",
             ],
         },
     include_package_data = True,  # Will read MANIFEST.in
