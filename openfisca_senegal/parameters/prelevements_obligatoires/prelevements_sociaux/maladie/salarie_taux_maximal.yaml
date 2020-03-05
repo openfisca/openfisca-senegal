@@ -1,0 +1,14 @@
+description:Taux maximal de cotisations salariales pour la sécurité sociale (mensuel)
+brackets:
+- rate:
+    1950-01-01:
+      value: .075
+  threshold:
+    1950-01-01:
+      value: 0.0
+- rate:
+    1950-01-01:
+      value: 0.0
+  threshold:
+    1950-01-01:
+      value: 250000.0

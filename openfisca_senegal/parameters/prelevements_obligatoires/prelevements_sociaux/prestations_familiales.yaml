@@ -1,0 +1,14 @@
+description: Barème des cotisations famille payée par l'employeur (barème mensuel)
+brackets:
+- rate:
+    1950-01-01:
+      value: .07
+  threshold:
+    1950-01-01:
+      value: 0
+- rate:
+    1950-01-01:
+      value: 0
+  threshold:
+    1950-01-01:
+      value: 63000.0

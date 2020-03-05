@@ -1,0 +1,15 @@
+description: Taux de cotisation 1% accidents du travail (employeur, barème mensuel)
+unit: /1
+brackets:
+- rate:
+    1950-01-01:
+      value: .01
+  threshold:
+    1950-01-01:
+      value: 0
+- rate:
+    1950-01-01:
+      value: 0
+  threshold:
+    1950-01-01:
+      value: 63000.0
