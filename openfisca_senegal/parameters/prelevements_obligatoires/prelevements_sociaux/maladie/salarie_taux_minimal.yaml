@@ -1,4 +1,4 @@
-description:Taux minimal de cotisations salariales pour la sécurité sociale (mensuel)
+description: Taux minimal de cotisations salariales pour la sécurité sociale (par mois)
 brackets:
 - rate:
     1950-01-01:
