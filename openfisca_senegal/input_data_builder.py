@@ -49,7 +49,7 @@ def create_dataframes_from_stata_data():
         "NSP": "50.0",
         }).fillna("50").astype(float).astype(int)
 
-    person_dataframe['salaire'] = person_dataframe.wage_formal_ind
+    person_dataframe['salaire_imposable'] = person_dataframe.wage_formal_ind
     assert (person_dataframe.mstatus_ind.isin([
         "Celibataire",
         "Marie",

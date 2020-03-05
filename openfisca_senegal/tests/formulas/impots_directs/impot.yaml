@@ -3,7 +3,7 @@
 #   period: 2016
 #   absolute_error_margin: 0.03
 #   input:
-#     salaire: 4000000
+#     salaire_imposable: 4000000
 #   output:
 #     impot_avant_reduction_famille: 74000
 
@@ -13,7 +13,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 500000
+    salaire_imposable: 500000
   output:
     nombre_de_parts: 1
     impot_avant_reduction_famille: 0
@@ -24,7 +24,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
   output:
     nombre_de_parts: 1
     impot_avant_reduction_famille: 18541000
@@ -35,7 +35,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
     nombre_de_parts: 1.5
   output:
     impot_avant_reduction_famille: 18541000
@@ -46,7 +46,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
     nombre_de_parts: 2
   output:
     impot_avant_reduction_famille: 18541000
@@ -57,7 +57,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
     nombre_de_parts: 2.5
   output:
     impot_avant_reduction_famille: 18541000
@@ -68,7 +68,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
     nombre_de_parts: 3
   output:
     impot_avant_reduction_famille: 18541000
@@ -80,7 +80,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
     nombre_de_parts: 3.5
   output:
     impot_avant_reduction_famille: 18541000
@@ -91,7 +91,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
     nombre_de_parts: 4
   output:
     impot_avant_reduction_famille: 18541000
@@ -102,7 +102,7 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 49855000
+    salaire_imposable: 49855000
     nombre_de_parts: 4.5
   output:
     impot_avant_reduction_famille: 18541000

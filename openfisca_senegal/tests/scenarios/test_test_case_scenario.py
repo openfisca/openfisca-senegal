@@ -7,7 +7,7 @@ def test_senario():
     init_single_entity(
         scenario,
         parent1 = {
-            'salaire': 2800000,
+            'salaire_imposable': 2800000,
             'est_marie': True,
             'conjoint_a_des_revenus': False,
             'nombre_enfants': 1,

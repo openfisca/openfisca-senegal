@@ -28,7 +28,7 @@ def test_survey_scenario(create_dataframes = True):
         year = year,
         tax_benefit_system = tax_benefit_system,
         baseline_tax_benefit_system = tax_benefit_system,
-        varying_variable = 'salaire',
+        varying_variable = 'salaire_imposable',
         use_marginal_tax_rate = True,
         )
     log.info(1 - survey_scenario.compute_marginal_tax_rate(target_variable = 'impot_revenus', period = year))

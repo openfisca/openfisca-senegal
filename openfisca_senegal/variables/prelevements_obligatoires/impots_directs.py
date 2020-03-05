@@ -42,7 +42,7 @@ class impot_avant_reduction_famille(Variable):
     definition_period = YEAR
 
     def formula(individu, period, legislation):
-        salaire = individu('salaire', period, options = [ADD])
+        salaire = individu('salaire_imposable', period, options = [ADD])
         salaire_abattement = min_(0.3 * salaire, 900000)
         salaire_imposable = salaire - salaire_abattement
 

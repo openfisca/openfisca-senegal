@@ -29,3 +29,11 @@ class salaire(Variable):
     entity = Person
     label = "Salaire"
     definition_period = YEAR
+
+
+class salaire_brut(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Salaires et traitements brut tirés d'une activitée formelle"
+

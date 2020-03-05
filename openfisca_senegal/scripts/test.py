@@ -8,7 +8,7 @@ scenario = tax_benefit_system.new_scenario()
 init_single_entity(
     scenario,
     parent1 = {
-        'salaire': 1800000,
+        'salaire_imposable': 1800000,
         'est_marie': True,
         'conjoint_a_des_revenus': False,
         'nombre_enfants': 2,
@@ -19,7 +19,7 @@ init_single_entity(
 simulation = scenario.new_simulation()
 
 # print('Salaire retenu :')
-# print(simulation.individu('salaire', period='2015'))
+# print(simulation.individu('salaire_imposable', period='2015'))
 # print('Impot avant réduction famille :')
 # print(simulation.individu('impot_avant_reduction_famille', period='2015'))
 # print('Réduction pour charge famille :')

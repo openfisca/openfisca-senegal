@@ -1,7 +1,7 @@
 - name: Salarié au salaire moyen
   period: 2016
   input:
-    salaire: 12 * 100000
+    salaire_brut: 12 * 100000
   output:
     famille: 12 * .07 * 63000
     retraite_salarie: 12 * .056 * 100000
