@@ -60,11 +60,11 @@ class retraite_employeur(Variable):
 
     def formula(person, period, parameters):
         est_cadre = person('est_cadre', period)
-        salaire_annuel = person('salaire', period)
+        salaire_brut_annuel = person('salaire_brut', period)
         retraite = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite
         return (
-            12 * retraite.employeur_ipres.calc(salaire_annuel / 12)
-            + 12 * est_cadre * retraite.employeur_cadres.calc(salaire_annuel / 12)
+            12 * retraite.employeur_ipres.calc(salaire_brut_annuel / 12)
+            + 12 * est_cadre * retraite.employeur_cadres.calc(salaire_brut_annuel / 12)
             )
 
 

@@ -100,10 +100,6 @@ class statut_marital(Variable):
     label = "Statut marital"
     definition_period = YEAR
 
-class TypesCadre(Enum):
-    __order__ = 'cadre pas_cadre'
-    cadre = 'Cadre'
-    pas_cadre = 'Pas cadre'
 
 class est_cadre(Variable):
     value_type = bool
@@ -111,6 +107,3 @@ class est_cadre(Variable):
     label = "Est cadre"
     definition_period = YEAR
     set_input = set_input_dispatch_by_period
-
-    def formula(individu, period):
-        return individu('csp', period) == TypesCadre.cadre
