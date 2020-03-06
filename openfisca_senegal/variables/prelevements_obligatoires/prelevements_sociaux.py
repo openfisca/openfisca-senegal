@@ -59,9 +59,13 @@ class retraite_employeur(Variable):
     label = "Cotisation sociale retraite (employeur)"
 
     def formula(person, period, parameters):
-        salaire_brut_annuel = person('salaire_brut', period)
+        est_cadre = person('est_cadre', period)
+        salaire_annuel = person('salaire', period)
         retraite = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite
-        return 12 * retraite.employeur_ipres.calc(salaire_brut_annuel / 12)
+        return (
+            12 * retraite.employeur_ipres.calc(salaire_annuel / 12)
+            + 12 * est_cadre * retraite.employeur_cadres.calc(salaire_annuel / 12)
+            )
 
 
 class retraite_salarie(Variable):
@@ -72,8 +76,12 @@ class retraite_salarie(Variable):
 
     def formula(person, period, parameters):
         salaire_brut_annuel = person('salaire_brut', period)
+        est_cadre = person('est_cadre', period)
         retraite = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite
-        return 12 * retraite.salarie_ipres.calc(salaire_brut_annuel / 12)
+        return (
+            12 * retraite.salarie_ipres.calc(salaire_brut_annuel / 12)
+            + (12 * est_cadre * retraite.salarie_cadres.calc(salaire_brut_annuel / 12))
+            )
 
 
 class salaire_imposable(Variable):
