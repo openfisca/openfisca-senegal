@@ -36,4 +36,3 @@ class salaire_brut(Variable):
     entity = Person
     definition_period = YEAR
     label = "Salaires et traitements brut tirés d'une activitée formelle"
-

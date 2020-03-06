@@ -98,4 +98,3 @@ class salaire_super_brut(Variable):
         salaire_brut_annuel = person('salaire_brut', period)
         cotisations_employeur = person('cotisations_employeur', period)
         return salaire_brut_annuel + cotisations_employeur
-
