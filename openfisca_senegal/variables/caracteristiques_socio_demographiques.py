@@ -113,4 +113,4 @@ class est_cadre(Variable):
     set_input = set_input_dispatch_by_period
 
     def formula(individu, period):
-        return individu('csp', period) == TypesStatutMarital.cadre
+        return individu('csp', period) == TypesCadre.cadre
