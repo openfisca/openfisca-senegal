@@ -10,7 +10,6 @@ class salaire_brut(Variable):
 
     def formula(person, period, parameters):
         salaire = person('salaire', period)
-
         bareme = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif.copy()
         retraite = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite.salarie_ipres.copy()
         retraite_complementaire = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite.salarie_cadres.copy()
