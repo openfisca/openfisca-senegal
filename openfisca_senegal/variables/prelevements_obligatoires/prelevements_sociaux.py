@@ -12,7 +12,7 @@ class accidents_du_travail(Variable):
         salaire_brut_annuel = person('salaire_brut', period)
         accidents_du_travail = parameters(period).prelevements_obligatoires.prelevements_sociaux.accidents_du_travail
         taux_1pct = accidents_du_travail.taux_1
-        return taux_1pct * salaire_brut_annuel
+        return 12 * taux_1pct.calc(salaire_brut_annuel / 12)
 
 
 class cotisations_employeur(Variable):
@@ -23,10 +23,10 @@ class cotisations_employeur(Variable):
 
     def formula(person, period):
         return (
-            person('anpe', period)
-            + person('accidents_du_travail', period)
+            person('accidents_du_travail', period)
             + person('famille', period)
             + person('retraite_employeur', period)
+            + person('sante_employeur', period)
             )
 
 
@@ -37,7 +37,10 @@ class cotisations_salariales(Variable):
     label = "Cotisation sociale salariales"
 
     def formula(person, period):
-        return person('retraite_salarie', period)
+        return (
+            person('retraite_salarie', period)
+            + person('sante_employeur', period)
+            )
 
 
 class famille(Variable):
@@ -81,6 +84,32 @@ class retraite_salarie(Variable):
         return (
             12 * retraite.salarie_ipres.calc(salaire_brut_annuel / 12)
             + (12 * est_cadre * retraite.salarie_cadres.calc(salaire_brut_annuel / 12))
+            )
+
+class sante_employeur(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Cotisation sociale maladie (employeur)"
+
+    def formula(person, period, parameters):
+        salaire_brut_annuel = person('salaire_brut', period)
+        maladie = parameters(period).prelevements_obligatoires.prelevements_sociaux.maladie.employeur_taux_minimal
+        return (
+            12 * maladie.calc(salaire_brut_annuel / 12)
+            )
+
+class sante_salarie(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Cotisation sociale maladie (salarié)"
+
+    def formula(person, period, parameters):
+        salaire_brut_annuel = person('salaire_brut', period)
+        maladie = parameters(period).prelevements_obligatoires.prelevements_sociaux.maladie.salarie_taux_minimal
+        return (
+            12 * maladie.calc(salaire_brut_annuel / 12)
             )
 
 
