@@ -1,0 +1,57 @@
+description: Droit proportionnel dans le CGI 2007
+salaires_inf_700000:
+  description: Taux pour les salaires inférieurs à 700 000 CFA
+  values:
+    2007-01-01:
+      value: .0
+  metadata:
+    unit: /1
+salaires_sup_700000:
+  description: Taux pour les salaires supérieurs à 700 000 CFA
+  values:
+    2007-01-01:
+      value: .11
+  metadata:
+    unit: /1
+revenus_fonciers:
+  description: Taux pour les revenus fonciers
+  values:
+    2007-01-01:
+      value: .2
+  metadata:
+    unit: /1
+actions_interets:
+  description: Taux pour les produits des actions, parts sociales et parts d’intérêts des sociétés civiles
+  values:
+    2007-01-01:
+      value: .1
+  metadata:
+    unit: /1
+obligations:
+  description: Taux pour les obligations
+  values:
+    2007-01-01:
+      value: .13
+  metadata:
+    unit: /1
+lots:
+  description: Taux pour les lots
+  values:
+    2007-01-01:
+      value: .15
+  metadata:
+    unit: /1
+autres_revenus:
+  description: Taux pour les autres revenus notamment les jetons de présence et autres rémunérations
+  values:
+    2007-01-01:
+      value: .16
+  metadata:
+    unit: /1
+produits_des_comptes:
+  description: Taux pour les intérêts, arrérages et autres produits des comptes de dépôts et des comptes courants
+  values:
+    2007-01-01:
+      value: .08
+  metadata:
+    unit: /1
