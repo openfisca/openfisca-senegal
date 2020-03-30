@@ -1,0 +1,4 @@
+description: Abattement forfaitaire pour le droit proportionnel
+unit: currency
+values:
+  2007-01-01: 700000.0

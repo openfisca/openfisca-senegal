@@ -2,10 +2,10 @@ description: Barème de l'impôt progressif
 brackets:
 - rate:
     2007-01-01:
-      value: 0
+      value: null
   threshold:
     2007-01-01:
-      value: 0
+      value: null
 - rate:
     2007-01-01:
       value: 0.18
@@ -45,29 +45,21 @@ brackets:
       value: 0.3
     2013-01-01:
       value: 0.3
-    2007-01-01:
-      value: .22
   threshold:
     2007-01-01:
       value: 2475000
     2013-01-01:
       value: 1500000
-    2007-01-01:
-      value: 890000
 - rate:
     2007-01-01:
       value: 0.35
     2013-01-01:
       value: 0.35
-    2007-01-01:
-      value: .25
   threshold:
     2007-01-01:
       value: 3540000
     2013-01-01:
       value: 4000000
-    2007-01-01:
-      value: 1010000
 - rate:
     2013-01-01:
       value: 0.37
