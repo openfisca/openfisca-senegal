@@ -149,3 +149,14 @@ class impot_revenus(Variable):
         reduction_impots_pour_charge_famille = individu('reduction_impots_pour_charge_famille', period)
         impot_apres_reduction_famille = impot_avant_reduction_famille - reduction_impots_pour_charge_famille
         return max_(0, impot_apres_reduction_famille)
+
+
+class impots_directs(Variable):
+    value_type = float
+    entity = Household
+    definition_period = YEAR
+    label = "Impôts directs payés par le ménage"
+
+    def formula(household, period):
+        impot_revenus = household.members('impot_revenus', period)
+        return household.sum(impot_revenus)
