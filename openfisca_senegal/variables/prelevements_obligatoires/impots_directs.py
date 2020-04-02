@@ -69,10 +69,10 @@ class impot_avant_reduction_famille(Variable):
         retraite_imposable = pension_retraite - pension_abbattement
 
         bareme_impot_proportionnel = legislation(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
-        sup_700000 = individu('sup_700000', period, options = [ADD])
+        sup_700000 = (salaire_imposable > 700000)
         revenus_fonciers = individu('revenus_fonciers', period, options = [ADD])
-        revenu_proportionnel = bareme_impot_proportionnel.salaires_inf_700000 * sup_700000 * salaire + \
-            bareme_impot_proportionnel.salaires_sup_700000 * sup_700000 * salaire + \
+        revenu_proportionnel = bareme_impot_proportionnel.salaires_inf_700000 * sup_700000 * salaire_imposable + \
+            bareme_impot_proportionnel.salaires_sup_700000 * sup_700000 * salaire_imposable + \
             bareme_impot_proportionnel.revenus_fonciers * revenus_fonciers
 
         actions_interets = individu('actions_interets', period, options = [ADD])
@@ -87,13 +87,14 @@ class impot_avant_reduction_famille(Variable):
             bareme_impot_proportionnel.produits_des_comptes * produits_des_comptes
 
         abattement_proportionnel = legislation(period).prelevements_obligatoires.impots_directs.abattement
-        revenu_impot_proportionnel = revenu_proportionnel + revenu_capitaux_proportionnel - abattement_proportionnel
+        impot_proportionnel = revenu_proportionnel + revenu_capitaux_proportionnel - abattement_proportionnel
 
-        revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + revenu_impot_proportionnel, 1000) * 1000
+        revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable, 1000) * 1000
         revenus_imposable = max_(0, revenus_arrondis)
 
         bareme_impot_progressif = legislation(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
-        return bareme_impot_progressif.calc(revenus_imposable)
+        impot_progressif = bareme_impot_progressif.calc(revenus_imposable)
+        return impot_proportionnel + impot_progressif
 
 
 class reduction_impots_pour_charge_famille(Variable):
