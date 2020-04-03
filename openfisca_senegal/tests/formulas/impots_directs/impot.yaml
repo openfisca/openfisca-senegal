@@ -5,7 +5,7 @@
 #   input:
 #     salaire_imposable: 4000000
 #   output:
-#     impot_avant_reduction_famille: 74000
+#     droit_progressif: 74000
 
 
 - name: "Impot non imposable"
@@ -16,7 +16,7 @@
     salaire_imposable: 500000
   output:
     nombre_de_parts: 1
-    impot_avant_reduction_famille: 0
+    droit_progressif: 0
 
 
 - name: "Impot 1 part "
@@ -27,7 +27,7 @@
     salaire_imposable: 49855000
   output:
     nombre_de_parts: 1
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
 
 
 - name: "Impot 1.5 parts"
@@ -38,7 +38,7 @@
     salaire_imposable: 49855000
     nombre_de_parts: 1.5
   output:
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
     impot_revenus: 18241000
 
 - name: "Impot 2 parts"
@@ -49,7 +49,7 @@
     salaire_imposable: 49855000
     nombre_de_parts: 2
   output:
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
     impot_revenus: 17891000
 
 - name: "Impot 2.5 parts"
@@ -60,7 +60,7 @@
     salaire_imposable: 49855000
     nombre_de_parts: 2.5
   output:
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
     impot_revenus: 17441000
 
 - name: "Impot 3 parts"
@@ -71,7 +71,7 @@
     salaire_imposable: 49855000
     nombre_de_parts: 3
   output:
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
     impot_revenus: 16891000
 
 
@@ -83,7 +83,7 @@
     salaire_imposable: 49855000
     nombre_de_parts: 3.5
   output:
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
     impot_revenus: 16511000
 
 - name: "Impot 4 parts"
@@ -94,7 +94,7 @@
     salaire_imposable: 49855000
     nombre_de_parts: 4
   output:
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
     impot_revenus: 16051000
 
 - name: "Impot 4.5 parts"
@@ -105,5 +105,5 @@
     salaire_imposable: 49855000
     nombre_de_parts: 4.5
   output:
-    impot_avant_reduction_famille: 18541000
+    droit_progressif: 18541000
     impot_revenus: 15786000

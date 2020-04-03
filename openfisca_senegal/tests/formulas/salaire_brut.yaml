@@ -9,5 +9,5 @@
     salaire_imposable: 500000
     # salaire_net_a_payer: 1219491.9 - 19471.87
       nombre_de_parts: 1
-    impot_avant_reduction_famille: 0
+    droit_progressif: 0
 

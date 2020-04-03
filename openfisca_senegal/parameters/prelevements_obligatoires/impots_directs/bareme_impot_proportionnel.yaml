@@ -41,7 +41,7 @@ lots:
       value: .15
   metadata:
     unit: /1
-autres_revenus:
+autres_revenus_capitaux:
   description: Taux pour les autres revenus notamment les jetons de présence et autres rémunérations
   values:
     2007-01-01:

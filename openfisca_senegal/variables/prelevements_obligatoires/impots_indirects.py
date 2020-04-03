@@ -8,4 +8,4 @@ class impots_indirects(Variable):
     definition_period = YEAR
 
     def formula(menage, period):
-        return menage('tva', period)
+        return menage('tva', period) + menage('droits_douane', period)
