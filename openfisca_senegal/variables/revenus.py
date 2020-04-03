@@ -77,14 +77,3 @@ class produits_des_comptes(Variable):
     entity = Person
     definition_period = YEAR
     label = "Les intérêts, arrérages et autres produits des comptes de dépôts et des comptes courants"
-
-
-class sup_700000(Variable):
-    value_type = bool
-    entity = Person
-    definition_period = YEAR
-    label = "Variable binaire indiquant si le salaire est supérieur à 700 000"
-
-    def formula(Person, period):
-        sup_700000 = Person.salaire > 700000
-        return sup_700000
