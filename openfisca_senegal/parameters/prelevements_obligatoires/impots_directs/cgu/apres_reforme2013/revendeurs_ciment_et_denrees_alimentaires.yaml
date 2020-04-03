@@ -1,0 +1,29 @@
+description: Contribution globale unique (CGU) des revendeurs de ciment et de denrées alimentaires après la réforme de 2013
+metadata:
+  amount_unit: /1
+  threshold_unit: currency
+brackets:
+- amount:
+    2007-01-01:
+      value: 0.1
+  threshold:
+    2007-01-01:
+      value: 0
+- amount:
+    2007-01-01:
+      value: 0.2
+  threshold:
+    2007-01-01:
+      value: 10000000
+- amount:
+    2007-01-01:
+      value: 0.28
+  threshold:
+    2007-01-01:
+      value: 37000000
+- amount:
+    2007-01-01:
+      value: null
+  threshold:
+    2007-01-01:
+      value: 50000000

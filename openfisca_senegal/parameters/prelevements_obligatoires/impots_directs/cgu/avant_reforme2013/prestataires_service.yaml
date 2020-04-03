@@ -1,0 +1,77 @@
+description: Contribution globale unique (CGU) des prestataires de service avant la réforme de 2013
+metadata:
+  amount_unit: currency
+  threshold_unit: currency
+brackets:
+- amount:
+    2007-01-01:
+      value: 10000
+  threshold:
+    2007-01-01:
+      value: 0
+- amount:
+    2007-01-01:
+      value: 20000
+  threshold:
+    2007-01-01:
+      value: 330000
+- amount:
+    2007-01-01:
+      value: 40000
+  threshold:
+    2007-01-01:
+      value: 500000
+- amount:
+    2007-01-01:
+      value: 80000
+  threshold:
+    2007-01-01:
+      value: 1000000
+- amount:
+    2007-01-01:
+      value: 150000
+  threshold:
+    2007-01-01:
+      value: 2000000
+- amount:
+    2007-01-01:
+      value: 300000
+  threshold:
+    2007-01-01:
+      value: 3000000
+- amount:
+    2007-01-01:
+      value: 500000
+  threshold:
+    2007-01-01:
+      value: 5000000
+- amount:
+    2007-01-01:
+      value: 800000
+  threshold:
+    2007-01-01:
+      value: 7500000
+- amount:
+    2007-01-01:
+      value: 1200000
+  threshold:
+    2007-01-01:
+      value: 10000000
+- amount:
+    2007-01-01:
+      value: 1400000
+  threshold:
+    2007-01-01:
+      value: 15000000
+- amount:
+    2007-01-01:
+      value: 2000000
+  threshold:
+    2007-01-01:
+      value: 20000000
+- amount:
+    2007-01-01:
+      value: null
+  threshold:
+    2007-01-01:
+      value: 25000000
