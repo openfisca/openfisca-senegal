@@ -4,26 +4,26 @@ metadata:
   threshold_unit: currency
 brackets:
 - amount:
-    2007-01-01:
+    2013-01-01:
       value: 0.2
   threshold:
-    2007-01-01:
+    2013-01-01:
       value: 0
 - amount:
-    2007-01-01:
+    2013-01-01:
       value: 0.3
   threshold:
-    2007-01-01:
+    2013-01-01:
       value: 10000000
 - amount:
-    2007-01-01:
+    2013-01-01:
       value: 0.38
   threshold:
-    2007-01-01:
+    2013-01-01:
       value: 37000000
 - amount:
-    2007-01-01:
+    2013-01-01:
       value: null
   threshold:
-    2007-01-01:
+    2013-01-01:
       value: 50000000
