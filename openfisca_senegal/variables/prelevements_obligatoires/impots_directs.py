@@ -75,8 +75,7 @@ class droit_progressif(Variable):
         revenus_imposable = max_(0, revenus_arrondis)
 
         bareme_impot_progressif = legislation(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
-        impot_progressif = bareme_impot_progressif.calc(revenus_imposable)
-        return impot_proportionnel + impot_progressif
+        return bareme_impot_progressif.calc(revenus_imposable)
 
 
 class droit_proportionnel(Variable):
