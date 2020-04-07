@@ -149,6 +149,17 @@ class reduction_impots_pour_charge_famille(Variable):
         return reduction_impot
 
 
+class impot_revenu(Variable):
+    value_type = float
+    entity = Household
+    definition_period = YEAR
+    label = "Impôt sur le revenu par le ménage"
+
+    def formula(household, period):
+        impot_revenus = household.members('impot_revenus', period)
+        return household.sum(impot_revenus)
+
+
 class impot_revenus(Variable):
     value_type = float
     entity = Person
