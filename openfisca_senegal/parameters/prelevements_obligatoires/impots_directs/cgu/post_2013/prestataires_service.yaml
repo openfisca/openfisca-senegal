@@ -5,31 +5,31 @@ metadata:
 brackets:
 - amount:
     2013-01-01:
-      value: 0.4
+      value: 0.04
   threshold:
     2013-01-01:
       value: 0
 - amount:
     2013-01-01:
-      value: 0.5
+      value: 0.05
   threshold:
     2013-01-01:
       value: 500000
 - amount:
     2013-01-01:
-      value: 0.6
+      value: 0.06
   threshold:
     2013-01-01:
       value: 3000000
 - amount:
     2013-01-01:
-      value: 0.7
+      value: 0.07
   threshold:
     2013-01-01:
       value: 10000000
 - amount:
     2013-01-01:
-      value: 0.8
+      value: 0.08
   threshold:
     2013-01-01:
       value: 37000000

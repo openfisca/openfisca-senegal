@@ -1,12 +1,12 @@
 description: Droit proportionnel dans le CGI 2007
-salaires_inf_700000:
-  description: Taux pour les salaires inférieurs à 700 000 CFA
+seuil_imposabilite:
+  description: Seuil d'imposabilité des salaires
   values:
     2007-01-01:
-      value: .0
+      value: 700000
   metadata:
-    unit: /1
-salaires_sup_700000:
+    unit: currency
+salaires_imposables:
   description: Taux pour les salaires supérieurs à 700 000 CFA
   values:
     2007-01-01:
@@ -41,7 +41,7 @@ lots:
       value: .15
   metadata:
     unit: /1
-autres_revenus_capitaux:
+jetons_et_autres_remunerations:
   description: Taux pour les autres revenus notamment les jetons de présence et autres rémunérations
   values:
     2007-01-01:

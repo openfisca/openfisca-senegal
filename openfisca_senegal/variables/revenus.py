@@ -24,6 +24,13 @@ class pension_retraite(Variable):
     definition_period = YEAR
 
 
+class revenu_non_salarie(Variable):
+    value_type = float
+    entity = Person
+    label = "Revenu non salarié"
+    definition_period = YEAR
+
+
 class salaire(Variable):
     value_type = float
     entity = Person
@@ -42,7 +49,7 @@ class revenus_fonciers(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR
-    label = "Revenus fonciers"
+    label = "Revenus fonciers brut"
 
 
 class actions_interets(Variable):
@@ -50,6 +57,7 @@ class actions_interets(Variable):
     entity = Person
     definition_period = YEAR
     label = "Produits des actions, parts sociales et parts d’intérêts des sociétés civiles"
+
 
 class obligations(Variable):
     value_type = float
@@ -65,7 +73,7 @@ class lots(Variable):
     label = "Lots"
 
 
-class autres_revenus_capitaux(Variable):
+class jetons_et_autres_remunerations(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR

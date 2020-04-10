@@ -1,13 +1,3 @@
-# - name: "Impot"
-#   description: "Impot"
-#   period: 2016
-#   absolute_error_margin: 0.03
-#   input:
-#     salaire_imposable: 4000000
-#   output:
-#     droit_progressif: 74000
-
-
 - name: "Impot non imposable"
   description: "Impot"
   period: 2016

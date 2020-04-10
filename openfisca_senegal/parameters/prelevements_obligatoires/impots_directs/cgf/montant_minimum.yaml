@@ -1,0 +1,5 @@
+description: Montant minimum de la contribution globale foncière (CGF)
+metadata:
+  unit: currency
+values:
+  2013-01-01: 50000

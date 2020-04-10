@@ -6,3 +6,15 @@
     famille: 12 * .07 * 63000
     retraite_salarie: 12 * .056 * 100000
     retraite_employeur: 12 * .084 * 100000
+
+
+- name: Salarié à 500kCFA
+  period: 2016
+  input:
+    salaire_brut: 500000
+  output:
+    famille: .07 * 500000
+    retraite_salarie: .056 * 500000
+    retraite_employeur: .084 * 500000
+    salaire_imposable: 462000
+    salaire_net_a_payer: 462000

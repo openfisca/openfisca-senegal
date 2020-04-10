@@ -10,6 +10,163 @@ from openfisca_core.model_api import *
 from openfisca_senegal.entities import *
 
 
+class categorie_cgu(Variable):
+    # prod A: revendeurs de ciments et de denrées alimentaires
+    # prod B: autres commerçants ou revendeurs (CGU )
+    # [CGU comm/prod A < CGU comm/prod B < CGU service] -> 0, 1 ,2
+    # NaNs are -1
+    value_type = int
+    entity = Person
+    default_value = -1
+    definition_period = YEAR
+    label = "Index de la catgeorie CGU de l'individu"
+
+
+class contribution_generale_unique(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+
+    def formula_2013(individu, period, parameters):
+        categorie_cgu = individu('categorie_cgu', period)
+        revenu_non_salarie = individu('revenu_non_salarie', period)
+        cgu = parameters(period).prelevements_obligatoires.impots_directs.cgu.post_2013
+        taux_revendeurs_ciment_et_denrees_alimentaires = cgu.revendeurs_ciment_et_denrees_alimentaires
+        taux_autres_producteurs_et_revendeurs = cgu.autres_producteurs_et_revendeurs
+        taux_prestataires_service = cgu.prestataires_service
+
+        taux = (
+            (categorie_cgu == 0) * taux_revendeurs_ciment_et_denrees_alimentaires.calc(
+                revenu_non_salarie)
+            + (categorie_cgu == 1) * taux_autres_producteurs_et_revendeurs.calc(
+                revenu_non_salarie)
+            + (categorie_cgu == 2) * taux_prestataires_service.calc(
+                revenu_non_salarie)
+            )
+        return taux * revenu_non_salarie
+
+    def formula_2007(individu, period, parameters):
+        categorie_cgu = individu('categorie_cgu', period)
+        revenu_non_salarie = individu('revenu_non_salarie', period)
+        cgu = parameters(period).prelevements_obligatoires.impots_directs.cgu.pre_2013
+        montant_revendeurs_ciment_et_denrees_alimentaires = cgu.revendeurs_ciment_et_denrees_alimentaires
+        montant_autres_producteurs_et_revendeurs = cgu.autres_producteurs_et_revendeurs
+        montant_prestataires_service = cgu.prestataires_service
+        montant = (
+            (categorie_cgu == 0) * montant_revendeurs_ciment_et_denrees_alimentaires.calc(
+                revenu_non_salarie)
+            + (categorie_cgu == 1) * montant_autres_producteurs_et_revendeurs.calc(
+                revenu_non_salarie)
+            + (categorie_cgu == 2) * montant_prestataires_service.calc(
+                revenu_non_salarie)
+            )
+        return montant
+
+
+class droit_progressif(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+
+    def formula_2013(individu, period, parameters):
+        salaire = individu('salaire_imposable', period, options = [ADD])
+        salaire_abattement = min_(0.3 * salaire, 900000)
+        salaire_imposable = salaire - salaire_abattement
+
+        pension_retraite = individu('pension_retraite', period, options = [ADD])
+        pension_abbattement = max_(pension_retraite * 0.4, 1800000) * (pension_retraite > 0)
+        retraite_imposable = pension_retraite - pension_abbattement
+        benefices_non_salarie = individu('benefices_non_salarie', period, options = [ADD])
+        benefice_abattement = benefices_non_salarie * 0.15
+        benefices_imposable = benefices_non_salarie - benefice_abattement
+
+        revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + benefices_imposable, 1000) * 1000
+        revenus_imposable = max_(0, revenus_arrondis)
+
+        bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
+        return bareme_impot_progressif.calc(revenus_imposable)
+
+    def formula_2007(individu, period, parameters):
+        salaire = individu('salaire_imposable', period)
+        salaire_abattement = 0.132 * salaire
+        salaire_imposable = salaire - salaire_abattement
+
+        pension_retraite = individu('pension_retraite', period)
+        pension_abbattement = max_(pension_retraite * 0.33, 1800000) * (pension_retraite > 0)
+        retraite_imposable = pension_retraite - pension_abbattement
+
+        revenus_arrondis = floor_divide(
+            salaire_imposable + retraite_imposable,
+            1000
+            ) * 1000
+        revenus_imposable = max_(0, revenus_arrondis)
+
+        bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
+        return bareme_impot_progressif.calc(revenus_imposable)
+
+
+class droit_proportionnel(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    end = '2012-12-31'
+
+    def formula(individu, period, parameters):
+        bareme_impot_proportionnel = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
+        revenus_fonciers_brut = individu('revenus_fonciers_brut', period)
+        salaire = individu('salaire_imposable', period)
+        actions_interets = individu('actions_interets', period)
+        obligations = individu('obligations', period)
+        lots = individu('lots', period)
+        jetons_et_autres_remunerations = individu('jetons_et_autres_remunerations', period,)
+        produits_des_comptes = individu('produits_des_comptes', period,)
+        salaires_au_dela_du_seuil = (salaire > bareme_impot_proportionnel.seuil_imposabilite)
+
+        return (
+            bareme_impot_proportionnel.salaires_imposables * salaires_au_dela_du_seuil
+            + bareme_impot_proportionnel.revenus_fonciers * revenus_fonciers_brut
+            + bareme_impot_proportionnel.actions_interets * actions_interets
+            + bareme_impot_proportionnel.obligations * obligations
+            + bareme_impot_proportionnel.lots * lots
+            + bareme_impot_proportionnel.jetons_et_autres_remunerations * jetons_et_autres_remunerations
+            + bareme_impot_proportionnel.produits_des_comptes * produits_des_comptes
+            )
+
+
+class impots_directs(Variable):
+    value_type = float
+    entity = Household
+    definition_period = YEAR
+    label = "Impôts directs payés par le ménage"
+
+    def formula(household, period):
+        impot_revenus = household.members('impot_revenus', period)
+        return household.sum(impot_revenus)
+
+
+class impot_revenu(Variable):
+    value_type = float
+    entity = Household
+    definition_period = YEAR
+    label = "Impôt sur le revenu par le ménage"
+
+    def formula(household, period):
+        impot_revenus = household.members('impot_revenus', period)
+        return household.sum(impot_revenus)
+
+
+class impot_revenus(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+
+    def formula_2013(individu, period):
+        droit_progressif = individu('droit_progressif', period)
+        reduction_impots_pour_charge_famille = individu('reduction_impots_pour_charge_famille', period)
+        impot_apres_reduction_famille = droit_progressif - reduction_impots_pour_charge_famille
+        return max_(0, impot_apres_reduction_famille)
+
+
 class nombre_de_parts(Variable):
     value_type = float
     entity = Person
@@ -36,86 +193,16 @@ class nombre_de_parts(Variable):
         return min_(limite_nombre_de_parts, nombre_de_parts)
 
 
-class droit_progressif(Variable):
-    value_type = float
-    entity = Person
-    definition_period = YEAR
-
-    def formula_2013(individu, period, legislation):
-        salaire = individu('salaire_imposable', period, options = [ADD])
-        salaire_abattement = min_(0.3 * salaire, 900000)
-        salaire_imposable = salaire - salaire_abattement
-
-        pension_retraite = individu('pension_retraite', period, options = [ADD])
-        pension_abbattement = max_(pension_retraite * 0.4, 1800000) * (pension_retraite > 0)
-        retraite_imposable = pension_retraite - pension_abbattement
-        benefices_non_salarie = individu('benefices_non_salarie', period, options = [ADD])
-        benefice_abattement = benefices_non_salarie * 0.15
-        benefices_imposable = benefices_non_salarie - benefice_abattement
-
-        revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + benefices_imposable, 1000) * 1000
-        revenus_imposable = max_(0, revenus_arrondis)
-
-        bareme_impot_progressif = legislation(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
-        return bareme_impot_progressif.calc(revenus_imposable)
-
-    def formula_2007(individu, period, legislation):
-        salaire = individu('salaire_imposable', period)
-        salaire_abattement = 0.132 * salaire
-        salaire_imposable = salaire - salaire_abattement
-
-        pension_retraite = individu('pension_retraite', period)
-        pension_abbattement = max_(pension_retraite * 0.33, 1800000) * (pension_retraite > 0)
-        retraite_imposable = pension_retraite - pension_abbattement
-
-        revenus_arrondis = floor_divide(
-            salaire_imposable + retraite_imposable,
-            1000
-            ) * 1000
-        revenus_imposable = max_(0, revenus_arrondis)
-
-        bareme_impot_progressif = legislation(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
-        return bareme_impot_progressif.calc(revenus_imposable)
-
-
-class droit_proportionnel(Variable):
-    value_type = float
-    entity = Person
-    definition_period = YEAR
-    end = '2012-12-31'
-
-    def formula(individu, period, legislation):
-        bareme_impot_proportionnel = legislation(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
-        revenus_fonciers = individu('revenus_fonciers', period)
-        salaire = individu('salaire_imposable', period)
-        actions_interets = individu('actions_interets', period)
-        obligations = individu('obligations', period)
-        lots = individu('lots', period)
-        autres_revenus_capitaux = individu('autres_revenus_capitaux', period,)
-        produits_des_comptes = individu('produits_des_comptes', period,)
-
-        return (
-            bareme_impot_proportionnel.salaires_inf_700000 * sup_700000 * salaire
-            + bareme_impot_proportionnel.salaires_sup_700000 * sup_700000 * salaire
-            + bareme_impot_proportionnel.revenus_fonciers * revenus_fonciers
-            + bareme_impot_proportionnel.actions_interets * actions_interets
-            + bareme_impot_proportionnel.obligations * obligations
-            + bareme_impot_proportionnel.lots * lots
-            + bareme_impot_proportionnel.autres_revenus_capitaux * autres_revenus_capitaux
-            + bareme_impot_proportionnel.produits_des_comptes * produits_des_comptes
-            )
-
-
 class reduction_impots_pour_charge_famille(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR
 
-    def formula_2013(individu, period, legislation):
+    def formula_2013(individu, period, parameters):
         droit_progressif = individu('droit_progressif', period)
 
         nombre_de_parts = individu('nombre_de_parts', period)
-        reductions_pour_charge_de_famille = legislation(period).prelevements_obligatoires.impots_directs.reductions_pour_charge_de_famille
+        reductions_pour_charge_de_famille = parameters(period).prelevements_obligatoires.impots_directs.reductions_pour_charge_de_famille
 
         taux = (nombre_de_parts == 1) * reductions_pour_charge_de_famille.taux_1 + \
             (nombre_de_parts == 1.5) * reductions_pour_charge_de_famille.taux_2 + \
@@ -149,35 +236,14 @@ class reduction_impots_pour_charge_famille(Variable):
         return reduction_impot
 
 
-class impot_revenu(Variable):
-    value_type = float
-    entity = Household
-    definition_period = YEAR
-    label = "Impôt sur le revenu par le ménage"
-
-    def formula(household, period):
-        impot_revenus = household.members('impot_revenus', period)
-        return household.sum(impot_revenus)
-
-
-class impot_revenus(Variable):
+class salaire_net_a_payer(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR
+    label = "Salaire net à payer"
 
-    def formula(individu, period):
-        droit_progressif = individu('droit_progressif', period)
-        reduction_impots_pour_charge_famille = individu('reduction_impots_pour_charge_famille', period)
-        impot_apres_reduction_famille = droit_progressif - reduction_impots_pour_charge_famille
-        return max_(0, impot_apres_reduction_famille)
-
-
-class impots_directs(Variable):
-    value_type = float
-    entity = Household
-    definition_period = YEAR
-    label = "Impôts directs payés par le ménage"
-
-    def formula(household, period):
-        impot_revenus = household.members('impot_revenus', period)
-        return household.sum(impot_revenus)
+    def formula(person, period, parameters):
+        return (
+            person('salaire_imposable', period)
+            - person('impot_revenus', period)
+            )

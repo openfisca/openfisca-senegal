@@ -29,5 +29,6 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
                 log.info("Passing")
         self.legislation_country = "senegal"
         if inversion:
-            from openfisca_senegal.inversion import salaire_brut
+            from openfisca_senegal.inversion import salaire_brut, revenu_non_salarie_brut
+            self.update_variable(revenu_non_salarie_brut)
             self.update_variable(salaire_brut)

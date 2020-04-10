@@ -1,29 +1,35 @@
-description: Contribution globale unique (CGU) des revendeurs de ciment et de denrées alimentaires après la réforme de 2013
+description: Barème de la contribution globale foncière (CGF) après la réforme de 2013
 metadata:
   amount_unit: /1
   threshold_unit: currency
 brackets:
 - amount:
     2013-01-01:
+      value: 0.08
+  threshold:
+    2013-01-01:
+      value: 1
+- amount:
+    2013-01-01:
       value: 0.1
   threshold:
     2013-01-01:
-      value: 0
+      value: 1800000
 - amount:
     2013-01-01:
-      value: 0.2
+      value: 0.12
   threshold:
     2013-01-01:
-      value: 10000000
+      value: 2100000
 - amount:
     2013-01-01:
-      value: 0.28
+      value: 0.14
   threshold:
     2013-01-01:
-      value: 37000000
+      value: 2400000
 - amount:
     2013-01-01:
       value: null
   threshold:
     2013-01-01:
-      value: 50000000
+      value: 3000000

@@ -1,0 +1,28 @@
+- name: "Inversion CGU A"
+  description: "Inversion revenu non salarie (ciment et denrée alimentaires)"
+  period: 2016
+  input:
+    revenu_non_salarie: 250000
+    categorie_cgu: 0
+  output:
+    revenu_non_salarie_brut: 250000 / (1 - .01)
+
+
+- name: "CGU ciment et denrée alimentaires"
+  description: "CGU"
+  period: 2011
+  input:
+    revenu_non_salarie: 250000
+    categorie_cgu: 0
+  output:
+    revenu_non_salarie_brut: 250000 + 5000
+
+
+- name: "CGU ciment et denrée alimentaires"
+  description: "CGU"
+  period: 2011
+  input:
+    revenu_non_salarie: 250000
+  output:
+    revenu_non_salarie_brut: 250000
+

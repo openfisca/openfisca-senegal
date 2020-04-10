@@ -3,11 +3,11 @@
   period: 2016
   absolute_error_margin: 0.03
   input:
-    salaire: 500000
+    salaire: 462000
   output:
     salaire_brut: 500000
-    salaire_imposable: 500000
-    # salaire_net_a_payer: 1219491.9 - 19471.87
-      nombre_de_parts: 1
+    salaire_imposable: 462000
+    salaire_net_a_payer: 462000
+    nombre_de_parts: 1
     droit_progressif: 0
 
