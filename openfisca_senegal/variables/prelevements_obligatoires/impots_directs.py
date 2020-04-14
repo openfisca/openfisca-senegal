@@ -69,15 +69,18 @@ class droit_progressif(Variable):
     definition_period = YEAR
 
     def formula_2013(individu, period, parameters):
+        abattement = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        abattement_salaire_max = parameters(period).prelevements_obligatoires.impots_directs.abattement_salaire_max
         salaire = individu('salaire_imposable', period, options = [ADD])
-        salaire_abattement = min_(0.3 * salaire, 900000)
+        salaire_abattement = min_(abattement.abattement_salaire * salaire, abattement_salaire_max)
         salaire_imposable = salaire - salaire_abattement
 
         pension_retraite = individu('pension_retraite', period, options = [ADD])
-        pension_abbattement = max_(pension_retraite * 0.4, 1800000) * (pension_retraite > 0)
+        abattement_retraite_min = parameters(period).prelevements_obligatoires.impots_directs.abattement_retraite_min
+        pension_abbattement = max_(pension_retraite * abattement.abattement_retaire, abattement_retraite_min) * (pension_retraite > 0)
         retraite_imposable = pension_retraite - pension_abbattement
         benefices_non_salarie = individu('benefices_non_salarie', period, options = [ADD])
-        benefice_abattement = benefices_non_salarie * 0.15
+        benefice_abattement = benefices_non_salarie * abattement.abattement_benefice
         benefices_imposable = benefices_non_salarie - benefice_abattement
 
         revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + benefices_imposable, 1000) * 1000
@@ -87,12 +90,14 @@ class droit_progressif(Variable):
         return bareme_impot_progressif.calc(revenus_imposable)
 
     def formula_2007(individu, period, parameters):
+        abattement = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
         salaire = individu('salaire_imposable', period)
-        salaire_abattement = 0.132 * salaire
+        salaire_abattement = abattement.abattement_salaire * salaire
         salaire_imposable = salaire - salaire_abattement
 
         pension_retraite = individu('pension_retraite', period)
-        pension_abbattement = max_(pension_retraite * 0.33, 1800000) * (pension_retraite > 0)
+        abattement_retraite_min = parameters(period).prelevements_obligatoires.impots_directs.abattement_retraite_min
+        pension_abbattement = max_(pension_retraite * abattement.abattement_retaire, abattement_retraite_min) * (pension_retraite > 0)
         retraite_imposable = pension_retraite - pension_abbattement
 
         revenus_arrondis = floor_divide(

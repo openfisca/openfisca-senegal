@@ -1,0 +1,6 @@
+unit: currency
+values:
+  2013-01-01:
+    value: 1800000.0
+  2007-01-01:
+    value: 1800000.0

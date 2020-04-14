@@ -1,0 +1,25 @@
+abattement_salaire:
+  description: Abattement proportionnel pour le salaire
+  values:
+    2013-01-01:
+      value: .30
+    2007-01-01:
+      value: .132
+  metadata:
+    unit: /1
+abattement_retaire:
+  description: Abattement pour les retraites
+  values:
+    2013-01-01:
+      value: .40
+    2007-01-01:
+      value: .33
+  metadata:
+    unit: /1
+abattement_benefice:
+  description: Abattement pour les bénéfices non salariés
+  values:
+    2013-01-01:
+      value: .15
+  metadata:
+    unit: /1
