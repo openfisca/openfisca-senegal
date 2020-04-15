@@ -38,6 +38,7 @@ class contribution_globale_fonciere(Variable):
             * max_(taux * revenu_foncier_brut, cgf.montant_minimum)
             )
 
+
 class contribution_globale_unique(Variable):
     value_type = float
     entity = Person
