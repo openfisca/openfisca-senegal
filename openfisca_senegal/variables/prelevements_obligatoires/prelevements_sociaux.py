@@ -86,6 +86,7 @@ class retraite_salarie(Variable):
             + (12 * est_cadre * retraite.salarie_cadres.calc(salaire_brut_annuel / 12))
             )
 
+
 class sante_employeur(Variable):
     value_type = float
     entity = Person
@@ -98,6 +99,7 @@ class sante_employeur(Variable):
         return (
             12 * maladie.calc(salaire_brut_annuel / 12)
             )
+
 
 class sante_salarie(Variable):
     value_type = float
