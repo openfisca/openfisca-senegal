@@ -16,7 +16,7 @@ class autres_revenus_du_capital_brut(Variable):
         return autres_revenus_du_capital / (1 - taux_imposition_commun)
 
 
-class revenus_fonciers_brut(Variable):
+class revenu_foncier_brut(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR
@@ -27,7 +27,6 @@ class revenus_fonciers_brut(Variable):
         revenu_locatif = individu("revenu_locatif", period)
         bareme_impot_proportionnel = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
         return revenu_locatif / (1 - bareme_impot_proportionnel.revenus_fonciers)
-
 
 
 class revenu_non_salarie_brut(Variable):

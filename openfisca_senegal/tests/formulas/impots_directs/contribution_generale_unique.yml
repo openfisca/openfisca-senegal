@@ -6,7 +6,7 @@
     revenu_non_salarie: 250000
     categorie_cgu: 0
   output:
-    contribution_generale_unique: 250000 * .01
+    contribution_globale_unique: 250000 * .01
 
 - name: "CGU autres revendeurs"
   description: "CGU"
@@ -15,7 +15,7 @@
     revenu_non_salarie: 250000
     categorie_cgu: 1
   output:
-    contribution_generale_unique: 250000 * .02
+    contribution_globale_unique: 250000 * .02
 
 
 - name: "CGU prestataires de services"
@@ -25,7 +25,7 @@
     revenu_non_salarie: 250000
     categorie_cgu: 2
   output:
-    contribution_generale_unique: 250000 * .04
+    contribution_globale_unique: 250000 * .04
 
 
 - name: "CGU ciment et denrée alimentaires (pré-réforme 2013)"
@@ -36,7 +36,7 @@
     revenu_non_salarie: 250000
     categorie_cgu: 0
   output:
-    contribution_generale_unique: 5000
+    contribution_globale_unique: 5000
 
 - name: "CGU autres revendeurs  (pré-réforme 2013)"
   description: "CGU"
@@ -45,7 +45,7 @@
     revenu_non_salarie: 250000
     categorie_cgu: 1
   output:
-    contribution_generale_unique: 5000
+    contribution_globale_unique: 5000
 
 
 - name: "CGU prestataires de services  (pré-réforme 2013)"
@@ -55,7 +55,7 @@
     revenu_non_salarie: 250000
     categorie_cgu: 2
   output:
-    contribution_generale_unique: 10000
+    contribution_globale_unique: 10000
 
 - name: "CGU non éligible"
   description: "CGU"
@@ -64,7 +64,7 @@
     revenu_non_salarie: 250000
     categorie_cgu: -1
   output:
-    contribution_generale_unique: 0
+    contribution_globale_unique: 0
 
 
 - name: "CGU non éligible"
@@ -73,4 +73,4 @@
   input:
     revenu_non_salarie: 250000
   output:
-    contribution_generale_unique: 0
+    contribution_globale_unique: 0

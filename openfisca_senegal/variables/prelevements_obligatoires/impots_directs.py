@@ -22,10 +22,27 @@ class categorie_cgu(Variable):
     label = "Index de la catgeorie CGU de l'individu"
 
 
-class contribution_generale_unique(Variable):
+class contribution_globale_fonciere(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR
+    label = "Contribution globale foncière"
+
+    def formula_2013(individu, period, parameters):
+        revenu_foncier_brut = individu('revenu_foncier_brut', period)
+        cgf = parameters(period).prelevements_obligatoires.impots_directs.cgf
+        taux = cgf.bareme.calc(revenu_foncier_brut)
+
+        return (
+            (revenu_foncier_brut > 1)
+            * max_(taux * revenu_foncier_brut, cgf.montant_minimum)
+            )
+
+class contribution_globale_unique(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Contribution globale unique"
 
     def formula_2013(individu, period, parameters):
         categorie_cgu = individu('categorie_cgu', period)
@@ -67,6 +84,7 @@ class droit_progressif(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR
+    label = "Impôt sur le revenu - droit progressif"
 
     def formula_2013(individu, period, parameters):
         abattement = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
@@ -114,11 +132,12 @@ class droit_proportionnel(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR
+    label = "Impôt sur le revenu - droit proportionnel"
     end = '2012-12-31'
 
     def formula(individu, period, parameters):
         bareme_impot_proportionnel = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
-        revenus_fonciers_brut = individu('revenus_fonciers_brut', period)
+        revenu_foncier_brut = individu('revenu_foncier_brut', period)
         salaire = individu('salaire_imposable', period)
         actions_interets = individu('actions_interets', period)
         obligations = individu('obligations', period)
@@ -129,7 +148,7 @@ class droit_proportionnel(Variable):
 
         return (
             bareme_impot_proportionnel.salaires_imposables * salaires_au_dela_du_seuil
-            + bareme_impot_proportionnel.revenus_fonciers * revenus_fonciers_brut
+            + bareme_impot_proportionnel.revenus_fonciers * revenu_foncier_brut
             + bareme_impot_proportionnel.actions_interets * actions_interets
             + bareme_impot_proportionnel.obligations * obligations
             + bareme_impot_proportionnel.lots * lots

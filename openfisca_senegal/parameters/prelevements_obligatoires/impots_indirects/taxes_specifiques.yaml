@@ -1,0 +1,69 @@
+description: Accises
+cafe_et_the:
+	description: Café et thé
+  values:
+    2013-01-01:
+      value: .05
+    2001-10-01:
+      value: .038
+  metadata:
+    unit: /1
+    reference: LOI n° 2001-07 du 18 septembre 2001 abrogeant et remplaçant certaines dispositions du livre II du Code général des Impôts
+
+biere_autres_boissons_alcoolisees_et_malt:
+  description: Bière, autres boissons alcoolisées et malt
+	values:
+    2013-01-01:
+      value: .4
+    2001-10-01:
+      value: .3
+  metadata:
+    unit: /1
+    reference: LOI n° 2001-07 du 18 septembre 2001 abrogeant et remplaçant certaines dispositions du livre II du Code général des Impôts
+
+boissons_gazeuses:
+	values: Taxe spécifique sur les boissons gazeuses
+    2001-10-01:
+      value: .0275
+  metadata:
+    unit: /1
+    reference: LOI n° 2001-07 du 18 septembre 2001 abrogeant et remplaçant certaines dispositions du livre II du Code général des Impôts
+
+tabac_cigarettes:
+  description: Tabac et cigarettes
+	values:
+    2013-10-01:
+      value: .4
+    2001-10-01:
+      value: .2
+  metadata:
+    unit: /1
+    reference: LOI n° 2001-07 du 18 septembre 2001 abrogeant et remplaçant certaines dispositions du livre II du Code général des Impôts
+
+parfums:
+  description: Taxe spécifique sur les parfums
+	values:
+    2001-10-01:
+      value: .1
+  metadata:
+    unit: /1
+    reference: LOI n° 2001-07 du 18 septembre 2001 abrogeant et remplaçant certaines dispositions du livre II du Code général des Impôts
+
+gasoil_essence_ordinaire_super_carburant:
+  description:
+	values: Gasoil, essence ordinaire, super carburant
+    2013-10-01:
+      value: .18
+    2007-10-01:  # TODO corriger date si nécessaire
+      value: .16
+  metadata:
+  unit: /1
+
+rutel:
+  description: Redevance sur l’accès ou l’utilisation du réseau des télécommunications public (RUTEL)
+  values:
+    2010-01-01: .05
+    2009-01-01: .02
+  metadata:
+    unit: /1
+    reference: Loi n°2008-46 du 3 septembre 2008
