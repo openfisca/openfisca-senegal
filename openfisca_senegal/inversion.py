@@ -101,8 +101,6 @@ class salaire_brut(Variable):
         return salaire_brut
 
 
-
-
 # helpers
 
 def inverse_amount_tax_scale(tax_scale, net_income):
@@ -114,5 +112,3 @@ def inverse_amount_tax_scale(tax_scale, net_income):
         ]
     # print(gross_tax_scale)
     return net_income + gross_tax_scale.calc(net_income)
-
-
