@@ -104,29 +104,30 @@ class droit_progressif(Variable):
 
         revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + benefices_imposable, 1000) * 1000
         revenus_imposable = max_(0, revenus_arrondis)
-
         bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
         return bareme_impot_progressif.calc(revenus_imposable)
 
     def formula_2007(individu, period, parameters):
-        abattement = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
         salaire = individu('salaire_imposable', period)
-        salaire_abattement = abattement.abattement_salaire * salaire
-        salaire_imposable = salaire - salaire_abattement
-
+        # On suppose qu'on est au régime de la retenue à la source
+        salaire_imposable = (
+            salaire
+            * (1 - abattements.abattement_salaire)
+            * (1 - abattements.abattement_forfaitaire)
+            )
         pension_retraite = individu('pension_retraite', period)
         abattement_retraite_min = parameters(period).prelevements_obligatoires.impots_directs.abattement_retraite_min
-        pension_abbattement = max_(pension_retraite * abattement.abattement_retaire, abattement_retraite_min) * (pension_retraite > 0)
+        pension_abbattement = max_(pension_retraite * abattements.abattement_retaire, abattement_retraite_min) * (pension_retraite > 0)
         retraite_imposable = pension_retraite - pension_abbattement
 
         revenus_arrondis = floor_divide(
             salaire_imposable + retraite_imposable,
             1000
             ) * 1000
-        revenus_imposable = max_(0, revenus_arrondis)
 
         bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
-        return bareme_impot_progressif.calc(revenus_imposable)
+        return bareme_impot_progressif.calc(revenus_arrondis)
 
 
 class droit_proportionnel(Variable):
@@ -139,13 +140,20 @@ class droit_proportionnel(Variable):
     def formula(individu, period, parameters):
         bareme_impot_proportionnel = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
         revenu_foncier_brut = individu('revenu_foncier_brut', period)
-        salaire = individu('salaire_imposable', period)
+        abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        salaire_abattu = (
+            individu('salaire_imposable', period)
+            * (1 - abattements.abattement_salaire)
+            )
         actions_interets = individu('actions_interets', period)
         obligations = individu('obligations', period)
         lots = individu('lots', period)
         jetons_et_autres_remunerations = individu('jetons_et_autres_remunerations', period,)
         produits_des_comptes = individu('produits_des_comptes', period,)
-        salaires_au_dela_du_seuil = (salaire > bareme_impot_proportionnel.seuil_imposabilite)
+        salaires_au_dela_du_seuil = max_(
+            salaire_abattu - bareme_impot_proportionnel.seuil_imposabilite,
+            0
+            )
 
         return (
             bareme_impot_proportionnel.salaires_imposables * salaires_au_dela_du_seuil

@@ -45,7 +45,7 @@ class salaire_brut(Variable):
     label = "Salaires et traitements brut tirés d'une activitée formelle"
 
 
-class revenus_fonciers(Variable):
+class revenus_fonciers_brut(Variable):
     value_type = float
     entity = Person
     definition_period = YEAR

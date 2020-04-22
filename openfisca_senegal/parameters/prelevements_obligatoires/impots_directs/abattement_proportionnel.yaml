@@ -7,6 +7,20 @@ abattement_salaire:
       value: .132
   metadata:
     unit: /1
+abattement_frais_professionnels:
+  description: Abattement proportionnel sur le salaire pour frais professionnels (hors retenue à la source)
+  values:
+    2013-01-01:
+      value: null
+    2007-01-01:
+      value:  .10
+abattement_forfaitaire:
+  description: Abattement proportionnel sur les salaires en cas de retenue à la source
+  values:
+    2013-01-01:
+      value: null
+    2007-01-01:
+      value: .15
 abattement_retaire:
   description: Abattement pour les retraites
   values:
@@ -19,7 +33,7 @@ abattement_retaire:
 abattement_benefice:
   description: Abattement pour les bénéfices non salariés
   values:
-    2013-01-01:
+    2007-01-01:
       value: .15
   metadata:
     unit: /1

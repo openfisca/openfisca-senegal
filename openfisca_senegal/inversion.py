@@ -90,14 +90,21 @@ class salaire_brut(Variable):
     label = "Salaire brut"
 
     def formula(individu, period, parameters):
+        # Valable entre 20007 et avant la réforme de 2013
         salaire = individu('salaire', period)
         bareme = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif.copy()
+        abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        # On suppose qu'on est au régime de la retenue à la source
+        taux_abattements = abattements.abattement_salaire + abattements.abattement_forfaitaire
+        bareme.multiply_rates(1 - taux_abattements)
+        salaire_imposable = bareme.inverse().calc(salaire)
+
         retraite = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite.salarie_ipres.copy()
         retraite_complementaire = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite.salarie_cadres.copy()
         prelevements_sociaux = retraite.copy()
         prelevements_sociaux.add_tax_scale(retraite_complementaire)
-        salaire_imposable = bareme.inverse().calc(salaire)
         salaire_brut = 12 * prelevements_sociaux.inverse().calc(salaire_imposable / 12)
+
         return salaire_brut
 
 

@@ -18,3 +18,17 @@
     retraite_employeur: .084 * 500000
     salaire_imposable: 462000
     salaire_net_a_payer: 462000
+
+
+- name: "2011 Salarié au salaire moyen Impot "
+  description: "Impot 1 part "
+  period: 2011
+  absolute_error_margin: 0.03
+  input:
+    salaire_brut: 12 * 100000
+  output:
+    famille: 12 * .07 * 63000
+    retraite_salarie: 12 * .056 * 100000
+    retraite_employeur: 12 * .084 * 100000
+    sante_employeur: 12 * .02 * 100000
+    salaire_imposable: 12 * 100000 *(1 - .056 - .02)

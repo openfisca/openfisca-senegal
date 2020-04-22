@@ -1,6 +1,6 @@
 - name: "Impot non imposable"
   description: "Inversion du salaire brut"
-  period: 2016
+  period: 2011
   absolute_error_margin: 0.03
   input:
     salaire: 462000

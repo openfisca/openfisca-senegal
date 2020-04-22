@@ -39,7 +39,7 @@ class cotisations_salariales(Variable):
     def formula(person, period):
         return (
             person('retraite_salarie', period)
-            + person('sante_employeur', period)
+            + person('sante_salarie', period)
             )
 
 

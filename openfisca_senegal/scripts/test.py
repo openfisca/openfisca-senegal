@@ -17,7 +17,7 @@ init_single_entity(
     )
 
 simulation = scenario.new_simulation()
-
+assert all(simulation.calculate("salaire_imposable", period = 2015) == 1800000)
 # print('Salaire retenu :')
 # print(simulation.individu('salaire_imposable', period='2015'))
 # print('Impot avant réduction famille :')

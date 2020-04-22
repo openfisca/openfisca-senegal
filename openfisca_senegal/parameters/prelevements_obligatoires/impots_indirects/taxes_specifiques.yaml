@@ -30,10 +30,32 @@ boissons_gazeuses:
     unit: /1
     reference: LOI n° 2001-07 du 18 septembre 2001 abrogeant et remplaçant certaines dispositions du livre II du Code général des Impôts
 
+beurre_et_crème:
+  description: Taxe sur les corps gras alimentaires - beurre et crème de lait, succédanés et mélanges qui en contiennent.
+  values:
+    2013-01-01:
+      value: .15
+    2001-10-01:
+      value: .12
+  metadata:
+    unit: /1
+    reference: Articles 429,430 et 431 du CGI
+
+autres_corps_gras:
+  description: Taxe sur les corps gras alimentaires - corps gras autres que le beure et la crème de lait (et arachide qui est exonérée).
+  values:
+    2013-01-01:
+      value: .15
+    2001-10-01:
+      value: .05
+  metadata:
+    unit: /1
+    reference: Articles 429,430 et 431 du CGI
+
 tabac_cigarettes:
   description: Tabac et cigarettes
   values:
-    2013-10-01:
+    2013-01-01:
       value: .4
     2001-10-01:
       value: .2
@@ -53,7 +75,7 @@ parfums:
 gasoil_essence_ordinaire_super_carburant:
   description: Gasoil, essence ordinaire, super carburant
   values:
-    2013-10-01:
+    2013-01-01:
       value: .18
     2007-10-01:  # TODO corriger date si nécessaire
       value: .16
