@@ -62,6 +62,10 @@ class nombre_enfants(Variable):
     entity = Person
     definition_period = YEAR
 
+    def formula(person, period, parameters):
+        nombre_enfants = person.household.nb_persons(Household.ENFANT)
+        return nombre_enfants
+
 
 class date_naissance(Variable):
     value_type = date

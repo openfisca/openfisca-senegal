@@ -21,13 +21,13 @@ abattement_forfaitaire:
       value: null
     2007-01-01:
       value: .15
-abattement_retaire:
+abattement_retraite:
   description: Abattement pour les retraites
   values:
     2013-01-01:
       value: .40
     2007-01-01:
-      value: .33
+      value: .33333333333
   metadata:
     unit: /1
 abattement_benefice:

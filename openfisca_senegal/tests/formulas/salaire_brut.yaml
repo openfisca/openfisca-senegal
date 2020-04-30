@@ -1,13 +1,47 @@
-- name: "Impot non imposable"
-  description: "Inversion du salaire brut"
+- name: "2011 Salarié au salaire moyen Impot 1 part "
+  description: "Impot 1 part "
+  period: 2011
+  absolute_error_margin: 20
+  input:
+    salaire: 1108800 - (.11 * (1108800 * (1 - .132) - 700000) + 39240)
+    revenu_foncier_brut: 0
+  output:
+    salaire_brut: 12 * 100000
+    famille: 12 * .07 * 63000
+    retraite_salarie: 12 * .056 * 100000
+    retraite_employeur: 12 * .084 * 100000
+    sante_employeur: 12 * .02 * 100000
+    salaire_imposable: 12 * 100000 *(1 - .056 - .02) # 1108800
+    nombre_de_parts: 1
+    droit_proportionnel: .11 * (1108800 * (1 - .132) - 700000)
+    droit_progressif: 39240  # (1108800 * (1 - .132) * .85 - 600000) * .18 et arrondi du la base taxable
+    impot_revenus: .11 * (1108800 * (1 - .132) - 700000) + 39240
+    salaire_net_a_payer: 1108800 - (.11 * (1108800 * (1 - .132) - 700000) + 39240)
+
+
+- name: "2011 Salarié au salaire moyen Impot 1 part "
+  description: "Impot 1 part "
   period: 2011
   absolute_error_margin: 0.03
   input:
-    salaire: 462000
+    salaire: 4200000
+    revenu_foncier_brut: 0
   output:
-    salaire_brut: 500000
-    salaire_imposable: 462000
-    salaire_net_a_payer: 462000
-    nombre_de_parts: 1
-    droit_progressif: 0
+    salaire_net_a_payer: 4200000
+
+
+# - name: "Impot non imposable"
+#   description: "Inversion du salaire brut"
+#   period: 2011
+#   absolute_error_margin: 0.03
+#   input:
+#     salaire: 462000
+#   output:
+#     salaire_brut: 500000
+#     salaire_imposable: 462000
+#     salaire_net_a_payer: 462000
+#     nombre_de_parts: 1
+#     droit_progressif: 0
+
+
 

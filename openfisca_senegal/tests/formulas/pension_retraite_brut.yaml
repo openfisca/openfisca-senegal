@@ -1,0 +1,35 @@
+- name: "2011 Retraité non imposable "
+  period: 2011
+  absolute_error_margin: 1
+  input:
+    salaire_brut: 0
+    revenu_foncier_brut: 0
+    pension_retraite: 1000000
+  output:
+    impot_revenus: 0
+    pension_net_a_payer: 1000000
+
+
+- name: "2011 Retraité imposable"
+  period: 2011
+  absolute_error_margin: 1
+  input:
+    salaire_brut: 0
+    revenu_foncier_brut: 0
+    pension_retraite_brut: 4500000
+  output:
+    droit_progressif: 544300
+    impot_revenus: 544300
+    pension_net_a_payer: 4500000 - 544300
+
+
+- name: "2011 Retraité imposable inversion"
+  period: 2011
+  absolute_error_margin: 1
+  input:
+    salaire_brut: 0
+    revenu_foncier_brut: 0
+    pension_retraite: 4500000 - 544300
+  output:
+    droit_progressif_pension_retraite: 544300
+    pension_net_a_payer: 4500000 - 544300

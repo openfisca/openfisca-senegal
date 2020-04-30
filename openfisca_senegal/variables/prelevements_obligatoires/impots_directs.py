@@ -94,14 +94,16 @@ class droit_progressif(Variable):
         salaire_abattement = min_(abattement.abattement_salaire * salaire, abattement_salaire_max)
         salaire_imposable = salaire - salaire_abattement
 
-        pension_retraite = individu('pension_retraite', period, options = [ADD])
+        pension_retraite_brut = individu('pension_retraite_brut', period, options = [ADD])
         abattement_retraite_min = parameters(period).prelevements_obligatoires.impots_directs.abattement_retraite_min
-        pension_abbattement = max_(pension_retraite * abattement.abattement_retaire, abattement_retraite_min) * (pension_retraite > 0)
-        retraite_imposable = pension_retraite - pension_abbattement
+        pension_abbattement = max_(
+            pension_retraite_brut * abattement.abattement_retraite,
+            abattement_retraite_min
+            )
+        retraite_imposable = max_(0, pension_retraite_brut - pension_abbattement)
         benefices_non_salarie = individu('benefices_non_salarie', period, options = [ADD])
         benefice_abattement = benefices_non_salarie * abattement.abattement_benefice
         benefices_imposable = benefices_non_salarie - benefice_abattement
-
         revenus_arrondis = floor_divide(salaire_imposable + retraite_imposable + benefices_imposable, 1000) * 1000
         revenus_imposable = max_(0, revenus_arrondis)
         bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
@@ -109,6 +111,7 @@ class droit_progressif(Variable):
 
     def formula_2007(individu, period, parameters):
         abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        nombre_de_parts = individu('nombre_de_parts', period)
         salaire = individu('salaire_imposable', period)
         # On suppose qu'on est au régime de la retenue à la source
         salaire_imposable = (
@@ -116,18 +119,97 @@ class droit_progressif(Variable):
             * (1 - abattements.abattement_salaire)
             * (1 - abattements.abattement_forfaitaire)
             )
-        pension_retraite = individu('pension_retraite', period)
+        pension_retraite_brut = individu('pension_retraite_brut', period)
         abattement_retraite_min = parameters(period).prelevements_obligatoires.impots_directs.abattement_retraite_min
-        pension_abbattement = max_(pension_retraite * abattements.abattement_retaire, abattement_retraite_min) * (pension_retraite > 0)
-        retraite_imposable = pension_retraite - pension_abbattement
+        pension_abbattement = max_(
+            pension_retraite_brut * abattements.abattement_retraite,
+            abattement_retraite_min
+            )
+        retraite_imposable = max_(0, pension_retraite_brut - pension_abbattement)
+        # revenus_arrondis = floor_divide(
+        #     salaire_imposable + retraite_imposable,
+        #     1000
+        #     ) * 1000
 
-        revenus_arrondis = floor_divide(
-            salaire_imposable + retraite_imposable,
-            1000
-            ) * 1000
-
+        revenus_arrondis = salaire_imposable + retraite_imposable
         bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
-        return bareme_impot_progressif.calc(revenus_arrondis)
+        return nombre_de_parts * bareme_impot_progressif.calc(revenus_arrondis / nombre_de_parts)
+
+
+class droit_progressif_salaire(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Impôt sur le revenu - droit progressif"
+
+    def formula_2013(individu, period, parameters):
+        abattement = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        abattement_salaire_max = parameters(period).prelevements_obligatoires.impots_directs.abattement_salaire_max
+        salaire = individu('salaire_imposable', period, options = [ADD])
+        salaire_abattement = min_(abattement.abattement_salaire * salaire, abattement_salaire_max)
+        salaire_imposable = salaire - salaire_abattement
+
+        revenus_arrondis = floor_divide(salaire_imposable, 1000) * 1000
+        revenus_imposable = max_(0, revenus_arrondis)
+        bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
+        return bareme_impot_progressif.calc(revenus_imposable)
+
+    def formula_2007(individu, period, parameters):
+        abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        nombre_de_parts = individu('nombre_de_parts', period)
+        salaire = individu('salaire_imposable', period)
+        # On suppose qu'on est au régime de la retenue à la source
+        salaire_imposable = (
+            salaire
+            * (1 - abattements.abattement_salaire)
+            * (1 - abattements.abattement_forfaitaire)
+            )
+        # revenus_arrondis = floor_divide(
+        #     salaire_imposable,
+        #     1000
+        #     ) * 1000
+        revenus_arrondis = salaire_imposable
+        bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
+        return nombre_de_parts * bareme_impot_progressif.calc(revenus_arrondis / nombre_de_parts)
+
+
+class droit_progressif_pension_retraite(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Impôt sur le revenu - droit progressif"
+
+    def formula_2013(individu, period, parameters):
+        pension_retraite_brut = individu('pension_retraite_brut', period, options = [ADD])
+        abattement = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        abattement_retraite_min = parameters(period).prelevements_obligatoires.impots_directs.abattement_retraite_min
+        pension_abbattement = max_(
+            pension_retraite_brut * abattement.abattement_retraite,
+            abattement_retraite_min
+            )
+        retraite_imposable = max_(0, pension_retraite_brut - pension_abbattement)
+        revenus_arrondis = floor_divide(retraite_imposable, 1000) * 1000
+        revenus_imposable = max_(0, revenus_arrondis)
+        bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
+        return bareme_impot_progressif.calc(revenus_imposable)
+
+    def formula_2007(individu, period, parameters):
+        abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        nombre_de_parts = individu('nombre_de_parts', period)
+        pension_retraite_brut = individu('pension_retraite_brut', period)
+        abattement_retraite_min = parameters(period).prelevements_obligatoires.impots_directs.abattement_retraite_min
+        pension_abbattement = max_(
+            pension_retraite_brut * abattements.abattement_retraite,
+            abattement_retraite_min
+            )
+        retraite_imposable = max_(0, pension_retraite_brut - pension_abbattement)
+        # revenus_arrondis = floor_divide(
+        #     retraite_imposable,
+        #     1000
+        #     ) * 1000
+        revenus_arrondis = retraite_imposable
+        bareme_impot_progressif = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_progressif
+        return nombre_de_parts * bareme_impot_progressif.calc(revenus_arrondis / nombre_de_parts)
 
 
 class droit_proportionnel(Variable):
@@ -138,32 +220,56 @@ class droit_proportionnel(Variable):
     end = '2012-12-31'
 
     def formula(individu, period, parameters):
+        return (
+            individu('droit_proportionnel_salaire', period)
+            + individu('droit_proportionnel_autres_revenus', period)
+            )
+
+
+class droit_proportionnel_autres_revenus(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Impôt sur le revenu - droit proportionnel sur les revenus autres que le salaire"
+    end = '2012-12-31'
+
+    def formula(individu, period, parameters):
         bareme_impot_proportionnel = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
         revenu_foncier_brut = individu('revenu_foncier_brut', period)
-        abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
-        salaire_abattu = (
-            individu('salaire_imposable', period)
-            * (1 - abattements.abattement_salaire)
-            )
         actions_interets = individu('actions_interets', period)
         obligations = individu('obligations', period)
         lots = individu('lots', period)
-        jetons_et_autres_remunerations = individu('jetons_et_autres_remunerations', period,)
-        produits_des_comptes = individu('produits_des_comptes', period,)
-        salaires_au_dela_du_seuil = max_(
-            salaire_abattu - bareme_impot_proportionnel.seuil_imposabilite,
-            0
-            )
-
+        jetons_et_autres_remunerations = individu('jetons_et_autres_remunerations', period)
+        produits_des_comptes = individu('produits_des_comptes', period)
         return (
-            bareme_impot_proportionnel.salaires_imposables * salaires_au_dela_du_seuil
-            + bareme_impot_proportionnel.revenus_fonciers * revenu_foncier_brut
+            bareme_impot_proportionnel.revenus_fonciers * revenu_foncier_brut
             + bareme_impot_proportionnel.actions_interets * actions_interets
             + bareme_impot_proportionnel.obligations * obligations
             + bareme_impot_proportionnel.lots * lots
             + bareme_impot_proportionnel.jetons_et_autres_remunerations * jetons_et_autres_remunerations
             + bareme_impot_proportionnel.produits_des_comptes * produits_des_comptes
             )
+
+
+class droit_proportionnel_salaire(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Impôt sur le revenu - droit proportionnel sur les salaires"
+    end = '2012-12-31'
+
+    def formula(individu, period, parameters):
+        bareme_impot_proportionnel = parameters(period).prelevements_obligatoires.impots_directs.bareme_impot_proportionnel
+        abattements = parameters(period).prelevements_obligatoires.impots_directs.abattement_proportionnel
+        salaire_abattu = (
+            individu('salaire_imposable', period)
+            * (1 - abattements.abattement_salaire)
+            )
+        salaires_au_dela_du_seuil = max_(
+            salaire_abattu - bareme_impot_proportionnel.seuil_imposabilite,
+            0
+            )
+        return bareme_impot_proportionnel.salaires_imposables * salaires_au_dela_du_seuil
 
 
 class impots_directs(Variable):
@@ -196,8 +302,16 @@ class impot_revenus(Variable):
     def formula_2013(individu, period):
         droit_progressif = individu('droit_progressif', period)
         reduction_impots_pour_charge_famille = individu('reduction_impots_pour_charge_famille', period)
-        impot_apres_reduction_famille = droit_progressif - reduction_impots_pour_charge_famille
+        impot_apres_reduction_famille = (
+            droit_progressif
+            - reduction_impots_pour_charge_famille
+            )
         return max_(0, impot_apres_reduction_famille)
+
+    def formula_2007(individu, period):
+        droit_proportionnel = individu('droit_proportionnel', period)
+        droit_progressif = individu('droit_progressif', period)
+        return droit_proportionnel + droit_progressif
 
 
 class nombre_de_parts(Variable):
@@ -276,7 +390,22 @@ class salaire_net_a_payer(Variable):
     label = "Salaire net à payer"
 
     def formula(person, period, parameters):
+        salaire_imposable = person('salaire_imposable', period)
+        droit_progressif_salaire = person('droit_progressif_salaire', period)
+        droit_proportionnel_salaire = person('droit_proportionnel_salaire', period)
+        return (salaire_imposable - droit_proportionnel_salaire - droit_progressif_salaire) * (salaire_imposable > 0)
+
+
+class pension_net_a_payer(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Salaire net à payer"
+
+    def formula(person, period, parameters):
+        pension_retraite_imposable = person('pension_retraite_brut', period)
+        droit_progressif_pension_retraite = person('droit_progressif_pension_retraite', period)
         return (
-            person('salaire_imposable', period)
-            - person('impot_revenus', period)
+            (pension_retraite_imposable - droit_progressif_pension_retraite)
+            * (pension_retraite_imposable > 0)
             )

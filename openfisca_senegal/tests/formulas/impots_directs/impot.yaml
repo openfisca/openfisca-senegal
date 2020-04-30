@@ -126,5 +126,11 @@
     salaire_imposable: 12 * 100000 *(1 - .056 - .02) # 1108800
     nombre_de_parts: 1
     droit_proportionnel: .11 * (1108800 * (1 - .132) - 700000)
-    droit_progressif: 39240  # (1108800 * (1 - .132) * .85 - 600000) * .18 et arrondi du la base taxable
-
+    # En arrondissant
+    # droit_progressif: 39240  # (1108800 * (1 - .132) * .85 - 600000) * .18 et arrondi du la base taxable
+    # impot_revenus: .11 * (1108800 * (1 - .132) - 700000) + 39240
+    # salaire_net_a_payer: 1108800 - (.11 * (1108800 * (1 - .132) - 700000) + 39240)
+    # Sans arrondir
+    droit_progressif: 39253.074
+    impot_revenus: .11 * (1108800 * (1 - .132) - 700000) + 39253.074
+    salaire_net_a_payer: 1108800 - (.11 * (1108800 * (1 - .132) - 700000) + 39253.074)
