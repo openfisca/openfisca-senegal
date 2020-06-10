@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from numpy import (
     clip,
     floor_divide,
@@ -22,6 +20,7 @@ class categorie_cgu(Variable):
     label = "Index de la catgeorie CGU de l'individu"
 
 
+# TODO doublons
 class contribution_globale_fonciere(Variable):
     value_type = float
     entity = Person
@@ -32,7 +31,22 @@ class contribution_globale_fonciere(Variable):
         revenu_foncier_brut = individu('revenu_foncier_brut', period)
         cgf = parameters(period).prelevements_obligatoires.impots_directs.cgf
         taux = cgf.bareme.calc(revenu_foncier_brut)
+        return (
+            (revenu_foncier_brut > 1)
+            * max_(taux * revenu_foncier_brut, cgf.montant_minimum)
+            )
 
+
+class impot_foncier(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Contribution globale foncière"
+
+    def formula_2013(individu, period, parameters):
+        revenu_foncier_brut = individu('revenu_foncier_brut', period)
+        cgf = parameters(period).prelevements_obligatoires.impots_directs.cgf
+        taux = cgf.bareme.calc(revenu_foncier_brut)
         return (
             (revenu_foncier_brut > 1)
             * max_(taux * revenu_foncier_brut, cgf.montant_minimum)
@@ -47,7 +61,7 @@ class contribution_globale_unique(Variable):
 
     def formula_2013(individu, period, parameters):
         categorie_cgu = individu('categorie_cgu', period)
-        revenu_non_salarie = individu('revenu_non_salarie', period)
+        revenu_non_salarie = individu('revenu_non_salarie_brut', period)
         cgu = parameters(period).prelevements_obligatoires.impots_directs.cgu.post_2013
         taux_revendeurs_ciment_et_denrees_alimentaires = cgu.revendeurs_ciment_et_denrees_alimentaires
         taux_autres_producteurs_et_revendeurs = cgu.autres_producteurs_et_revendeurs
@@ -65,7 +79,7 @@ class contribution_globale_unique(Variable):
 
     def formula_2007(individu, period, parameters):
         categorie_cgu = individu('categorie_cgu', period)
-        revenu_non_salarie = individu('revenu_non_salarie', period)
+        revenu_non_salarie = individu('revenu_non_salarie_brut', period)
         cgu = parameters(period).prelevements_obligatoires.impots_directs.cgu.pre_2013
         montant_revendeurs_ciment_et_denrees_alimentaires = cgu.revendeurs_ciment_et_denrees_alimentaires
         montant_autres_producteurs_et_revendeurs = cgu.autres_producteurs_et_revendeurs

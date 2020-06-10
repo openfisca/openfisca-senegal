@@ -185,13 +185,13 @@ class salaire_brut(Variable):
         taux_impot_proportionnel = impots_directs.bareme_impot_proportionnel.salaires_imposables
         seuil_imposabilite = impots_directs.bareme_impot_proportionnel.seuil_imposabilite
 
-        bareme_droit_porportionnel = MarginalRateTaxScale()
-        bareme_droit_porportionnel.add_bracket(0, 0)
-        bareme_droit_porportionnel.add_bracket(
+        bareme_droit_proportionnel = MarginalRateTaxScale()
+        bareme_droit_proportionnel.add_bracket(0, 0)
+        bareme_droit_proportionnel.add_bracket(
             threshold = seuil_imposabilite / (1 - abattements.abattement_salaire),
             rate = taux_impot_proportionnel * (1 - abattements.abattement_salaire),
             )
-        bareme.add_tax_scale(bareme_droit_porportionnel)
+        bareme.add_tax_scale(bareme_droit_proportionnel)
         salaire_imposable = bareme.inverse().calc(salaire)
 
         retraite = parameters(period).prelevements_obligatoires.prelevements_sociaux.retraite.salarie_ipres.copy()
