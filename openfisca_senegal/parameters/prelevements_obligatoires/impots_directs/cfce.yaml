@@ -1,0 +1,8 @@
+description: Contribution forfaitaire à la charge des employeurs (CFCE)
+taux:
+  description: taux de la contribution forfaitaire à la charge des employeurs
+  values:
+    2007-01-01:  # A vérifier
+      value: .03
+  metadata:
+    unit: /1

@@ -83,3 +83,6 @@ class produits_des_comptes(Variable):
     entity = Person
     definition_period = YEAR
     label = "Les intérêts, arrérages et autres produits des comptes de dépôts et des comptes courants"
+
+    def formula(individu, period):
+        return individu("autres_revenus_du_capital_brut", period)

@@ -20,6 +20,21 @@ class categorie_cgu(Variable):
     label = "Index de la catgeorie CGU de l'individu"
 
 
+class contribution_forfaitaire_charge_employeur(Variable):
+    value_type = float
+    entity = Person
+    definition_period = YEAR
+    label = "Contribution forfaitaire à la charge des employeurs (CFCE)"
+
+    def formula_2013(individu, period, parameters):
+        salaire_brut = individu('salaire_brut', period)
+        secteur_public = individu('secteur_public', period)
+        cfce = parameters(period).prelevements_obligatoires.impots_directs.cfce
+        taux = cfce.taux
+        return taux * salaire_brut * not_(secteur_public)
+
+
+
 # TODO doublons
 class contribution_globale_fonciere(Variable):
     value_type = float
@@ -37,20 +52,20 @@ class contribution_globale_fonciere(Variable):
             )
 
 
-class impot_foncier(Variable):
-    value_type = float
-    entity = Person
-    definition_period = YEAR
-    label = "Contribution globale foncière"
+# class impot_foncier(Variable):
+#     value_type = float
+#     entity = Person
+#     definition_period = YEAR
+#     label = "Contribution globale foncière"
 
-    def formula_2013(individu, period, parameters):
-        revenu_foncier_brut = individu('revenu_foncier_brut', period)
-        cgf = parameters(period).prelevements_obligatoires.impots_directs.cgf
-        taux = cgf.bareme.calc(revenu_foncier_brut)
-        return (
-            (revenu_foncier_brut > 1)
-            * max_(taux * revenu_foncier_brut, cgf.montant_minimum)
-            )
+#     def formula_2013(individu, period, parameters):
+#         revenu_foncier_brut = individu('revenu_foncier_brut', period)
+#         cgf = parameters(period).prelevements_obligatoires.impots_directs.cgf
+#         taux = cgf.bareme.calc(revenu_foncier_brut)
+#         return (
+#             (revenu_foncier_brut > 1)
+#             * max_(taux * revenu_foncier_brut, cgf.montant_minimum)
+#             )
 
 
 class contribution_globale_unique(Variable):
