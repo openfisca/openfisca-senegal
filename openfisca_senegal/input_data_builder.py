@@ -54,13 +54,13 @@ def create_dataframes_from_stata_data():
         "Non concerne",
         "Veuf, Divorce",
         ])).all()
-    person_dataframe['statut_marital'] = person_dataframe.mstatus_ind.map({
+    person_dataframe['statut_matrimonial'] = person_dataframe.mstatus_ind.map({
         "Marie": 0,
         "Celibataire": 1,
         "Veuf, Divorce": 2,
         "Non concerne": 3,
         })
-    assert (person_dataframe.statut_marital.isin([0, 1, 2, 3])).all()
+    assert (person_dataframe.statut_matrimonial.isin([0, 1, 2, 3])).all()
     # print(person_dataframe.link_to_head.value_counts())
     person_dataframe['household_role_index'] = (
         0 * (person_dataframe.link_to_head == 1)

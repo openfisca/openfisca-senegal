@@ -355,14 +355,14 @@ class nombre_de_parts(Variable):
         repartition_marie_conjoint = parameters(period).nombre_de_parts.repartition_marie_conjoint
         veuf_avec_enfant = parameters(period).nombre_de_parts.veuf_avec_enfant
 
-        est_marie = individu('est_marie', period)
-        est_veuf = individu('est_veuf', period)
+        marie = individu('marie', period)
+        veuf = individu('veuf', period)
         nombre_enfants = individu('nombre_enfants', period)
-        parts_enfant_veuf = est_veuf * veuf_avec_enfant * min_(1, nombre_enfants)
+        parts_enfant_veuf = veuf * veuf_avec_enfant * min_(1, nombre_enfants)
 
         nombre_de_parts_enfants = nombre_enfants * nombre_de_parts_par_enfant + parts_enfant_veuf
         conjoint_a_des_revenus = individu('conjoint_a_des_revenus', period)
-        nombre_de_parts_conjoint = est_marie * repartition_marie_conjoint * (1 + not_(conjoint_a_des_revenus))
+        nombre_de_parts_conjoint = marie * repartition_marie_conjoint * (1 + not_(conjoint_a_des_revenus))
 
         nombre_de_parts = 1 + nombre_de_parts_conjoint + nombre_de_parts_enfants
 

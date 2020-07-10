@@ -3,7 +3,7 @@ from openfisca_core.model_api import *
 from openfisca_senegal.entities import *
 
 
-class TypesStatutMarital(Enum):
+class TypesStatutMatrimonial(Enum):
     __order__ = 'marie celibataire veuf_divorce non_concerne'
     marie = 'Marié'
     celibataire = 'Célibataire'
@@ -11,7 +11,7 @@ class TypesStatutMarital(Enum):
     non_concerne = 'Non concerné'
 
 
-class est_marie(Variable):
+class marie(Variable):
     value_type = bool
     entity = Person
     label = "Est marié"
@@ -19,10 +19,10 @@ class est_marie(Variable):
     definition_period = YEAR
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.marie
+        return individu('statut_matrimonial', period) == TypesStatutMatrimonial.marie
 
 
-class est_divorce(Variable):
+class divorce(Variable):
     value_type = bool
     entity = Person
     label = "Est divorcé"
@@ -30,10 +30,10 @@ class est_divorce(Variable):
     set_input = set_input_dispatch_by_period
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.veuf_divorce
+        return individu('statut_matrimonial', period) == TypesStatutMatrimonial.veuf_divorce
 
 
-class est_veuf(Variable):
+class veuf(Variable):
     value_type = bool
     entity = Person
     label = "Est veuf"
@@ -41,7 +41,7 @@ class est_veuf(Variable):
     set_input = set_input_dispatch_by_period
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.veuf_divorce
+        return individu('statut_matrimonial', period) == TypesStatutMatrimonial.veuf_divorce
 
 
 class est_celibataire(Variable):
@@ -52,7 +52,7 @@ class est_celibataire(Variable):
     set_input = set_input_dispatch_by_period
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.celibataire
+        return individu('statut_matrimonial', period) == TypesStatutMatrimonial.celibataire
 
 
 class nombre_enfants(Variable):
@@ -94,12 +94,12 @@ class age(Variable):
         return (period.start.year - birth_year) - where(is_birthday_past, 0, 1)
 
 
-class statut_marital(Variable):
+class statut_matrimonial(Variable):
     value_type = Enum
-    possible_values = TypesStatutMarital
-    default_value = TypesStatutMarital.non_concerne
+    possible_values = TypesStatutMatrimonial
+    default_value = TypesStatutMatrimonial.non_concerne
     entity = Person
-    label = "Statut marital"
+    label = "Statut matrimonial"
     definition_period = YEAR
 
 

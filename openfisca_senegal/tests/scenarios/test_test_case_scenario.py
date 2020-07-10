@@ -8,7 +8,7 @@ def test_senario():
         scenario,
         parent1 = {
             'salaire_imposable': 2800000,
-            'est_marie': True,
+            'marie': True,
             'conjoint_a_des_revenus': False,
             'nombre_enfants': 1,
             },

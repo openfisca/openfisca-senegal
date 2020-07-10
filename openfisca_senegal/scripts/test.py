@@ -9,7 +9,7 @@ init_single_entity(
     scenario,
     parent1 = {
         'salaire_imposable': 1800000,
-        'est_marie': True,
+        'marie': True,
         'conjoint_a_des_revenus': False,
         'nombre_enfants': 2,
         },
