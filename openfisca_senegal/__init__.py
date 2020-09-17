@@ -33,4 +33,3 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
             log.info("No ceq baecause:")
             log.info(e)
             log.info("Passing")
-
