@@ -1,9 +1,6 @@
 import numpy as np
 from numpy.testing import assert_allclose
 
-from openfisca_core.rates import marginal_rate
-
-
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenfitSystem
 from openfisca_senegal.scenarios import init_single_entity
 from openfisca_senegal.inversion import compute_bareme_retraite

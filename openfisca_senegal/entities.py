@@ -36,8 +36,6 @@ Household = build_entity(
             'plural': 'autres_membres',
             'label': 'Autres membres du ménage',
             'doc': 'Membres du ménage différents de la personne de référence, de son/sa conjoint-e et de leurs enfants'
-            }
-        ]
             # 'Chef du menage',
             # 'Conjoint du CM',
             # 'Enfant du chef/conjoint du CM',
@@ -46,7 +44,9 @@ Household = build_entity(
             # 'Autre parent du CM/conjoint du CM',
             # 'Autres personnes non apparentees',
             # 'Domestique'
-        )
+            }
+        ]
+    )
 
 
 Person = build_entity(
