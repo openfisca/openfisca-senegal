@@ -32,13 +32,12 @@ setup(
             'scipy',
             ],
         'dev': [
-            "autopep8 ==1.5",
-            "openfisca-ceq >= 0.3.1",
-            "flake8 >=3.5.0,<3.7.0",
+            "autopep8 ==1.5.4",
+            "flake8 >=3.8.0,<3.9.0",
             "flake8-print",
+            "openfisca-ceq >= 0.3.1",
             "openfisca-survey-manager >= 0.38.1, <=1.0",
-            "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
-            "pytest <6.0",
+            "pytest >= 5.0.0, < 7.0.0",
             "yamllint >=1.11.1,<1.25",
             ],
         'ceq': [
