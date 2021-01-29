@@ -34,7 +34,7 @@ jobs:
           name: Run tests
           command: |
             rm openfisca_senegal/tests/ceq/formulas/test.yaml
-            rm openfisca_senegal/tests/ceq/formulas/impoets_indirects/tva.yaml
+            rm openfisca_senegal/tests/ceq/formulas/impots_indirects/tva.yaml
             make test
 
       - run:
