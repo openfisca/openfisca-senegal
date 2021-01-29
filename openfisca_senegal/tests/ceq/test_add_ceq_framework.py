@@ -1,4 +1,5 @@
 import logging
+import os
 import pytest
 import sys
 
@@ -16,6 +17,10 @@ log = logging.getLogger(__name__)
 
 @pytest.mark.skip(reason = "FileNotFoundError: [Errno 2] No such file or directory: '/home/benjello/Dropbox/Projet_Micro_Sim/B_all_final_dta/TaxeIneq_prep_inc_SEN.dta'")
 def test_add_ceq_framework_to_senegal():
+    circleci = 'CIRCLECI' in os.environ
+    if circleci or not data_is_available:
+        return
+
     tax_benefit_system = SenegalTaxBenefitSystem()
     tax_benefit_system.legislation_country = "senegal"
     ceq_enhanced_tax_benefit_system = ceq(tax_benefit_system)
