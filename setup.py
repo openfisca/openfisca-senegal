@@ -49,7 +49,7 @@ setup(
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core >= 34.6.7, < 35.0',
+        'OpenFisca-Core >= 35.0.1, < 36.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     )
