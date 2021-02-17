@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.10 [#XX](https://github.com/openfisca/openfisca-senegal/pull/XX)
+## 0.10.3 [#86](https://github.com/openfisca/openfisca-senegal/pull/86)
 
-* TODO
+* Fix CI and weights
 
 ### 0.9.2 [#58](https://github.com/openfisca/openfisca-senegal/pull/58)
 
