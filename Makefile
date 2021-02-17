@@ -23,7 +23,7 @@ build: clean deps
 	@# of OpenFisca-Senegal, the same we put in the hands of users and reusers.
 	python setup.py bdist_wheel
 	find dist -name "*.whl" -exec pip install --upgrade {}[dev] \;
-	pip install openfisca-core[web-api]
+	pip install openfisca-core
 
 check-syntax-errors:
 	python -m compileall -q .
