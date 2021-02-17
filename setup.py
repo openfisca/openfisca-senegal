@@ -40,7 +40,7 @@ setup(
             "flake8-print",
             "openfisca-survey-manager >= 0.38.1, <=1.0",
             "pytest >= 5.0.0, < 7.0.0",
-            "yamllint >=1.11.1,<1.25",
+            "yamllint >=1.11.1,<1.27",
             ],
         'ceq': [
             "openfisca-ceq >= 0.4.1",
