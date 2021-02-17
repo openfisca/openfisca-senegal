@@ -12,7 +12,7 @@ deps:
 
 install: deps
 	@# Install OpenFisca-Senegal for development.
-	@# `make install` installs the editable version of OpenFisca-France.
+	@# `make install` installs the editable version of OpenFisca-Senegal.
 	@# This allows contributors to test as they code.
 	pip install --editable .[dev] --upgrade
 	pip install openfisca-core
@@ -39,7 +39,7 @@ check-style:
 	flake8 `git ls-files | grep "\.py$$"`
 
 test: clean check-syntax-errors check-style
-	@# Launch tests from openfisca_france/tests directory (and not .) because TaxBenefitSystem must be initialized
+	@# Launch tests from openfisca_senegal/tests directory (and not .) because TaxBenefitSystem must be initialized
 	@# before parsing source files containing formulas.
 	pytest
-	openfisca test --country-package openfisca_france tests
+	openfisca test --country-package openfisca_senegal tests
