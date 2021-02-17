@@ -1,13 +1,10 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
-
 from setuptools import setup, find_packages
 
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.10.2',
+    version='0.10.3',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     description='Senegalese tax and benefit system for OpenFisca',
