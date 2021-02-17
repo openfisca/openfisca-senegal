@@ -1,7 +1,8 @@
 # CircleCI 2.0 configuration file. See <https://circleci.com/docs/2.0/language-python/>.
 version: 2
 jobs:
-  build_python3:
+  build:
+    parallelism: 2  # Speed up the tests, while letting two containers available for other builds.
     docker:
       - image: python:3.7
 
@@ -9,7 +10,7 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v1-py3-{{ checksum "setup.py" }}
+          key: v1-py3-deps-{{ .Branch }}-{{ checksum "setup.py" }}
 
       - run:
           name: Create a virtualenv
@@ -26,9 +27,14 @@ jobs:
             pip install --editable .[dev] --upgrade
 
       - save_cache:
-          key: v1-py3-{{ checksum "setup.py" }}
+          key: v1-py3-deps-{{ .Branch }}-{{ checksum "setup.py" }}
           paths:
             - /tmp/venv/senegal
+
+      - save_cache:
+          key: v1-py3-build-{{ .Revision }}
+          paths:
+            - dist
 
       - run:
           name: Run tests
@@ -37,13 +43,61 @@ jobs:
             rm openfisca_senegal/tests/formulas/impots_indirects/tva.yaml
             make test
 
+  lint_yaml_files:
+    docker:
+      - image: python:3.7
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-py3-deps-{{ .Branch }}-{{ checksum "setup.py" }}
+
+      - run:
+          name: Activate virtualenv
+          command: |
+            echo "source /tmp/venv/senegal/bin/activate" >> $BASH_ENV
+
+      - run:
+          name: Lint files
+          command: |
+            .circleci/lint-changed-yaml-tests.sh
+
+  lint_python_files:
+    docker:
+      - image: python:3.7
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-py3-deps-{{ .Branch }}-{{ checksum "setup.py" }}
+
+      - run:
+          name: Activate virtualenv
+          command: |
+            echo "source /tmp/venv/senegal/bin/activate" >> $BASH_ENV
+
+      - run:
+          name: Lint files
+          command: |
+            make check-syntax-errors check-style
+            .circleci/lint-changed-python-files.sh
+
+  check_version_and_changelog:
+    docker:
+      - image: python:3.7
+
+    steps:
+      - checkout
+
       - run:
           name: Check version number has been properly updated
           command: |
             git fetch
             .circleci/is-version-number-acceptable.sh
 
-  deploy_python3:
+  deploy:
     docker:
       - image: python:3.7
     environment:
@@ -54,7 +108,10 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v1-py3-{{ checksum "setup.py" }}
+          key: v1-py3-deps-{{ .Branch }}-{{ checksum "setup.py" }}
+
+      - restore_cache:
+          key: v1-py3-build-{{ .Revision }}
 
       - run:
           name: Check for functional changes
@@ -64,16 +121,30 @@ jobs:
           name: Upload a Python package to Pypi
           command: |
             source /tmp/venv/senegal/bin/activate
-            .circleci/publish-python-package.sh
+            twine upload dist/* --username $PYPI_USERNAME --password $PYPI_PASSWORD
+
+      - run:
+          name: Publish a git tag
+          command: .circleci/publish-git-tag.sh
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build_python3
-      - deploy_python3:
+      - check_version_and_changelog
+      - build
+      - lint_yaml_files:
           requires:
-            - build_python3
+            - build
+      - lint_python_files:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - check_version_and_changelog
+            - build
+            - lint_yaml_files
+            - lint_python_files
           filters:
             branches:
               only: master
