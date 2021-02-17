@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 import pandas as pd
 
 
@@ -12,7 +9,7 @@ from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 
 
 class SenegalSurveyScenario(AbstractSurveyScenario):
-    weight_column_name_by_entity = dict(
+    weight_variable_by_entity = dict(
         household = 'household_weight',
         person = 'person_weight',
         )
