@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "00:00"
+    timezone: Europe/Paris
+  open-pull-requests-limit: 2
+  reviewers:
+  - benjello
+  ignore:
+  - dependency-name: flake8
+    versions:
+    - 3.8.3
+  - dependency-name: pycodestyle
+    versions:
+    - 2.6.0
