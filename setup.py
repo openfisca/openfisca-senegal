@@ -33,7 +33,7 @@ setup(
         'dev': [
             "autopep8 ==1.5.5",
             "openfisca-ceq >= 0.3",
-            "flake8 >=3.8.0,<3.9.0",
+            "flake8 >=3.8.0,<4.1.0",
             "flake8-print",
             "openfisca-survey-manager >= 0.38.1, <=1.0",
             "pytest >= 5.0.0, < 7.0.0",
