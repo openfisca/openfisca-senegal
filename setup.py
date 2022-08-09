@@ -31,7 +31,7 @@ setup(
             'scipy',
             ],
         'dev': [
-            "autopep8 ==1.5.5",
+            "autopep8 ==1.7.0",
             "openfisca-ceq >= 0.3",
             "flake8 >=3.8.0,<3.9.0",
             "flake8-print",
