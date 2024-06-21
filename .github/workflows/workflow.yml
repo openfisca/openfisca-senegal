@@ -56,8 +56,8 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ github.sha }}-ubuntu-20.04
       - run: |
+          pip install flake8
           make check-syntax-errors
-          # pip install flake8
           # make check-style  # Pas lancé car 1 600 erreurs !!!
 
   coverage:
@@ -104,7 +104,7 @@ jobs:
         with:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ github.sha }}-${{ matrix.os }}
-      - run: pip install .[test]
+      - run: pip install .[dev]
       - run: make test
 
   check-version-and-changelog:
