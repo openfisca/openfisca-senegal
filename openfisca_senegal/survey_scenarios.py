@@ -2,31 +2,35 @@ import pandas as pd
 
 
 from openfisca_core import periods
-from openfisca_survey_manager.scenarios import AbstractSurveyScenario
+from openfisca_survey_manager.scenarios.reform_scenario import ReformScenario
 
 
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
 
 
-class SenegalSurveyScenario(AbstractSurveyScenario):
+class SenegalSurveyScenario(ReformScenario):
     weight_variable_by_entity = dict(
         household = 'household_weight',
         person = 'person_weight',
         )
     varying_variable = None
 
-    def __init__(self, tax_benefit_system = None, baseline_tax_benefit_system = None, year = None,
+    def __init__(self, tax_benefit_system = None, baseline_tax_benefit_system = None, period = None,
             data = None, use_marginal_tax_rate = False, varying_variable = None, variation_factor = 0.03):
         super(SenegalSurveyScenario, self).__init__()
-        assert year is not None
-        self.year = year
+        assert period is not None
+        self.period = period
 
         if tax_benefit_system is None:
             tax_benefit_system = SenegalTaxBenefitSystem()
-        self.set_tax_benefit_systems(
-            tax_benefit_system = tax_benefit_system,
-            baseline_tax_benefit_system = baseline_tax_benefit_system,
-            )
+        if baseline_tax_benefit_system is not None:
+            self.set_tax_benefit_systems(
+                tax_benefit_systems = {"reform" : tax_benefit_system, "baseline" : baseline_tax_benefit_system},
+                )
+        else:
+            self.set_tax_benefit_systems(
+                tax_benefit_systems = {"baseline" : tax_benefit_system},
+                )
 
         if use_marginal_tax_rate:
             assert varying_variable is not None
@@ -38,7 +42,7 @@ class SenegalSurveyScenario(AbstractSurveyScenario):
             return
 
         if 'input_data_frame_by_entity_by_period' in data:
-            period = periods.period(year)
+            period = periods.period(period)
             dataframe_variables = set()
             for entity_dataframe in data['input_data_frame_by_entity_by_period'][period].values():
                 if not isinstance(entity_dataframe, pd.DataFrame):
