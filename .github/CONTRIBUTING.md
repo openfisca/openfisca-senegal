@@ -61,16 +61,12 @@ Certaines interventions sur OpenFica concernent à la fois [OpenFica-Core](https
 
 C'est par exemple le cas lorsqu'une version à paraître de Core contient un changement non-rétrocompatible, et que l'on souhaite s'assurer qu'il est possible d'adapter OpenFisca-Sénégal à cette nouvelle version.
 
-Dans ce cas, il peut être pertinent de faire tourner les tests d'OpenFisca-Sénégal en se basant sur une version non-publiée de Core, disponible sur une branche spécifique. Pour ce faire, éditer le fichier `circle.yml` comme suit :
+Dans ce cas, il peut être pertinent de faire tourner les tests d'OpenFisca-Sénégal en se basant sur une version non-publiée de Core, disponible sur une branche spécifique. Pour ce faire, éditer le fichier de configuration `workflow.yml` comme suit :
 
 ```diff
 (...)
-dependencies:
-  override:
-    - pip install --upgrade pip wheel  # pip >= 8.0 needed to be compatible with "manylinux" wheels, used by numpy >= 1.11
-    - pip install twine
-+    - pip install --editable git+https://github.com/openfisca/openfisca-core.git@SPECIFIC_BRANCH_NAME#egg=OpenFisca-Core
-    - pip install .[test] --upgrade
+-     - run: pip install .[dev]dependencies:
++     - run: pip install .[dev] --editable git+https://github.com/openfisca/openfisca-core.git@SPECIFIC_BRANCH_NAME#egg=OpenFisca-Core
 (...)
 ```
 En remplaçant `SPECIFIC_BRANCH_NAME` par le nom de votre branche Core.
