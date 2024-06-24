@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.0 [#99](https://github.com/openfisca/openfisca-senegal/pull/99)
+
+* Met à jour vers Python 3.11.
+* Adaptation aux dernières versions d'Openfisca-Survey-Manager : modifications dans le survey-scenario
+* Remplace la CircleCI par Github Action
+
 ## 0.10.3 [#86](https://github.com/openfisca/openfisca-senegal/pull/86)
 
 * Fix CI and weights

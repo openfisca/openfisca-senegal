@@ -56,7 +56,6 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ github.sha }}-ubuntu-20.04
       - run: |
-          pip install flake8
           make check-syntax-errors
           # make check-style  # Pas lancé car 1 600 erreurs !!!
 
