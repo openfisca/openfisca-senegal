@@ -145,7 +145,8 @@ jobs:
     needs: [ check-for-functional-changes ]
     if: needs.check-for-functional-changes.outputs.status == 'success'
     env:
-      PYPI_TOKEN_OPENFISCA_BOT: ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
+      PYPI_USERNAME: __token__
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     steps:
       - uses: actions/checkout@v3
         with:
