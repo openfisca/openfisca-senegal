@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.11.1 [#100](https://github.com/openfisca/openfisca-senegal/pull/100)
+
+* Corrige la CI pour publier le paquet sur PyPi
+
 ## 0.11.0 [#99](https://github.com/openfisca/openfisca-senegal/pull/99)
 
 * Met à jour vers Python 3.11.

@@ -65,7 +65,7 @@ class date_naissance(Variable):
     default_value = date(1970, 1, 1)
     entity = Person
     label = "Date de naissance"
-    definition_period = ETERNITY  # This variable cannot change over time.
+    definition_period = ETERNITY
 
 
 class age(Variable):
