@@ -4,6 +4,14 @@ import os
 
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
 
+# Fix compatibility between OpenFisca-Core v43+ and OpenFisca-Survey-Manager v4.1.0
+import openfisca_core.types
+try:
+    from openfisca_core.entities.entity import Entity
+    openfisca_core.types.Entity = Entity
+except ImportError:
+    pass
+
 __version__ = "0.11.2"
 from openfisca_senegal import entities
 

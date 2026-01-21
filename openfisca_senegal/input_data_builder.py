@@ -4,7 +4,7 @@ import os
 import pandas as pd
 
 
-from openfisca_survey_manager import default_config_files_directory as config_files_directory
+from openfisca_survey_manager.paths import default_config_files_directory as config_files_directory
 from openfisca_core import periods
 
 
