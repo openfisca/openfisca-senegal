@@ -3,6 +3,8 @@ import logging
 import os
 
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
+
+__version__ = "0.11.2"
 from openfisca_senegal import entities
 
 
@@ -17,7 +19,7 @@ COUNTRY_DIR = os.path.dirname(os.path.abspath(__file__))
 # CountryTaxBenefitSystem class to be exposed in the __init__ module of a country package.
 class CountryTaxBenefitSystem(TaxBenefitSystem):
     CURRENCY = "FCFA"
-    
+
     def __init__(self):
         # We initialize our tax and benefit system with the general constructor
         super(CountryTaxBenefitSystem, self).__init__(entities.entities)
