@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Senegal',
-    version='0.11.2',
+    version='0.12.0',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     description='Senegalese tax and benefit system for OpenFisca',
@@ -19,7 +19,7 @@ setup(
         'notebook': [
             'matplotlib',
             'notebook',
-            'OpenFisca-Survey-Manager >= 2, <=2.3',
+            'OpenFisca-Survey-Manager >= 2.3, <=2.4',
             'openpyxl',
             'pandas',
             'scipy',
@@ -27,14 +27,14 @@ setup(
             'xlwt',
             ],
         'survey': [
-            'OpenFisca-Survey-Manager >= 2, <=2.3',
+            'OpenFisca-Survey-Manager >= 2.3, <=2.4',
             'scipy',
             ],
         'dev': [
             "autopep8 ==1.5.5",
             "flake8 >=6.0.0,<7.0.0",
             "flake8-print",
-            "openfisca-survey-manager >= 2, <=2.3",
+            "openfisca-survey-manager >= 2.3, <=2.4",
             "pytest >= 7.2.2, < 8.0.0",
             "yamllint >=1.11.1,<1.27",
             "pandas",
@@ -45,7 +45,7 @@ setup(
         },
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
-        'OpenFisca-Core >= 41, < 42.0',
+        'OpenFisca-Core >= 42, < 44.0',
         ],
     packages=find_packages(exclude=['openfisca_senegal.tests*']),
     )

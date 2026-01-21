@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.11.3 [#105](https://github.com/openfisca/openfisca-senegal/pull/105)
+
+* Maj openfisca-survey-manager et core
+
 ### 0.11.2 [#103](https://github.com/openfisca/openfisca-senegal/pull/103)
 
 * Corrige la CI pour publier le paquet sur PyPi
