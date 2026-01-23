@@ -60,13 +60,21 @@ packages = ["openfisca_senegal"]
 line-length = 120
 target-version = "py39"
 
+exclude = ["notebooks"]
+
 [tool.ruff.lint]
 select = [
     "E", "F", "W", # standard flake8 rules
     "I",           # isort
     "N",           # pep8-naming
 ]
-ignore = []
+ignore = [
+    "F403", # star imports
+    "F405", # star imports usage
+    "N801", # class naming (snake_case for variables)
+    "N805", # first argument name (entity name instead of self)
+    "E501", # line length
+]
 
 [tool.ruff.format]
 quote-style = "double"

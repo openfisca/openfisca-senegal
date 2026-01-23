@@ -1,13 +1,14 @@
 from openfisca_core.model_api import *
+
 from openfisca_senegal.entities import *
 
 
 class TypesStatutMarital(Enum):
-    __order__ = 'marie celibataire veuf_divorce non_concerne'
-    marie = 'Marié'
-    celibataire = 'Célibataire'
-    veuf_divorce = 'Veuf ou divorcé'
-    non_concerne = 'Non concerné'
+    __order__ = "marie celibataire veuf_divorce non_concerne"
+    marie = "Marié"
+    celibataire = "Célibataire"
+    veuf_divorce = "Veuf ou divorcé"
+    non_concerne = "Non concerné"
 
 
 class est_marie(Variable):
@@ -18,7 +19,7 @@ class est_marie(Variable):
     definition_period = YEAR
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.marie
+        return individu("statut_marital", period) == TypesStatutMarital.marie
 
 
 class est_divorce(Variable):
@@ -29,7 +30,7 @@ class est_divorce(Variable):
     set_input = set_input_dispatch_by_period
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.veuf_divorce
+        return individu("statut_marital", period) == TypesStatutMarital.veuf_divorce
 
 
 class est_veuf(Variable):
@@ -40,7 +41,7 @@ class est_veuf(Variable):
     set_input = set_input_dispatch_by_period
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.veuf_divorce
+        return individu("statut_marital", period) == TypesStatutMarital.veuf_divorce
 
 
 class est_celibataire(Variable):
@@ -51,7 +52,7 @@ class est_celibataire(Variable):
     set_input = set_input_dispatch_by_period
 
     def formula(individu, period):
-        return individu('statut_marital', period) == TypesStatutMarital.celibataire
+        return individu("statut_marital", period) == TypesStatutMarital.celibataire
 
 
 class nombre_enfants(Variable):
@@ -77,14 +78,14 @@ class age(Variable):
 
     # A person's age is computed according to its birth date.
     def formula(individu, period, parameters):
-        date_naissance = individu('date_naissance', period)
-        birth_year = date_naissance.astype('datetime64[Y]').astype(int) + 1970
-        birth_month = date_naissance.astype('datetime64[M]').astype(int) % 12 + 1
-        birth_day = (date_naissance - date_naissance.astype('datetime64[M]') + 1).astype(int)
+        date_naissance = individu("date_naissance", period)
+        birth_year = date_naissance.astype("datetime64[Y]").astype(int) + 1970
+        birth_month = date_naissance.astype("datetime64[M]").astype(int) % 12 + 1
+        birth_day = (date_naissance - date_naissance.astype("datetime64[M]") + 1).astype(int)
 
-        is_birthday_past = (
-            (birth_month < period.start.month) + (birth_month == period.start.month) * (birth_day <= period.start.day)
-            )
+        is_birthday_past = (birth_month < period.start.month) + (birth_month == period.start.month) * (
+            birth_day <= period.start.day
+        )
         # If the birthday is not passed this year, subtract one year
         return (period.start.year - birth_year) - where(is_birthday_past, 0, 1)
 

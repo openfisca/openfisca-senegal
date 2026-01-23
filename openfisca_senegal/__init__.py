@@ -7,7 +7,6 @@ from openfisca_core.taxbenefitsystems import TaxBenefitSystem
 __version__ = "0.11.2"
 from openfisca_senegal import entities
 
-
 log = logging.getLogger(__name__)
 
 
@@ -25,14 +24,15 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
         super(CountryTaxBenefitSystem, self).__init__(entities.entities)
 
         # We add to our tax and benefit system all the variables
-        self.add_variables_from_directory(os.path.join(COUNTRY_DIR, 'variables'))
+        self.add_variables_from_directory(os.path.join(COUNTRY_DIR, "variables"))
 
         # We add to our tax and benefit system all the legislation parameters defined in the  parameters files
-        param_path = os.path.join(COUNTRY_DIR, 'parameters')
+        param_path = os.path.join(COUNTRY_DIR, "parameters")
         self.load_parameters(param_path)
         try:
             from openfisca_ceq.tests.test_indirect_tax_variables_generator import add_coicop_item_to_tax_benefit_system
-            add_coicop_item_to_tax_benefit_system(self, country = "senegal")
+
+            add_coicop_item_to_tax_benefit_system(self, country="senegal")
         except (configparser.NoSectionError, ModuleNotFoundError) as e:
             log.info("No ceq baecause:")
             log.info(e)

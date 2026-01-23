@@ -6,11 +6,11 @@ def test_senario():
     scenario = SenegalTaxBenfitSystem().new_scenario()
     init_single_entity(
         scenario,
-        parent1 = {
-            'salaire': 2800000,
-            'est_marie': True,
-            'conjoint_a_des_revenus': False,
-            'nombre_enfants': 1,
-            },
-        period = '2017',
-        )
+        parent1={
+            "salaire": 2800000,
+            "est_marie": True,
+            "conjoint_a_des_revenus": False,
+            "nombre_enfants": 1,
+        },
+        period="2017",
+    )
