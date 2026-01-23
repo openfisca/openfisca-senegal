@@ -9,7 +9,7 @@ from openfisca_survey_manager.paths import default_config_files_directory as con
 log = logging.getLogger(__file__)
 
 
-config_parser = configparser.SafeConfigParser()
+config_parser = configparser.ConfigParser()
 config_parser.read(os.path.join(config_files_directory, "raw_data.ini"))
 data_is_available = config_parser.has_section("senegal")
 if not data_is_available:
