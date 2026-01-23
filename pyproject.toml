@@ -37,7 +37,7 @@ survey = [
     "scipy",
 ]
 dev = [
-    "openfisca-survey-manager >= 5.0.1",
+    "pre-commit",
     "pytest >= 8.3.3",
     "yamllint >= 1.11.1",
     "pandas",
