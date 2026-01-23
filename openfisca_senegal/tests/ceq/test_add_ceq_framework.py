@@ -5,8 +5,8 @@ import sys
 import pytest
 
 from openfisca_senegal import CountryTaxBenefitSystem as SenegalTaxBenefitSystem
-from openfisca_senegal.survey_scenarios import SenegalSurveyScenario
 from openfisca_senegal.input_data_builder import data_is_available
+from openfisca_senegal.survey_scenarios import SenegalSurveyScenario
 from openfisca_senegal.tests.test_survey_scenario_from_stata_data import (
     create_data_from_stata,
 )
