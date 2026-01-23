@@ -1,0 +1,83 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "OpenFisca-Senegal"
+description = "Senegalese tax and benefit system for OpenFisca"
+readme = "README.md"
+license = { text = "AGPL-3.0" }
+authors = [{ name = "OpenFisca Team", email = "contact@openfisca.fr" }]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+keywords = ["benefit", "microsimulation", "senegal", "social", "tax"]
+dependencies = [
+    "OpenFisca-Core >= 43",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+notebook = [
+    "matplotlib",
+    "notebook",
+    "OpenFisca-Survey-Manager >= 5.0.1",
+    "openpyxl",
+    "pandas",
+    "scipy",
+    "xlrd",
+    "xlwt",
+]
+survey = [
+    "OpenFisca-Survey-Manager >= 5.0.1",
+    "scipy",
+]
+dev = [
+    "pre-commit",
+    "pytest >= 8.3.3",
+    "yamllint >= 1.11.1",
+    "pandas",
+    "ruff",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/openfisca/openfisca-senegal"
+Documentation = "https://github.com/openfisca/openfisca-senegal"
+Repository = "https://github.com/openfisca/openfisca-senegal"
+
+[tool.hatch.version]
+path = "openfisca_senegal/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["openfisca_senegal"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "W", # standard flake8 rules
+    "I",           # isort
+    "N",           # pep8-naming
+]
+ignore = [
+    "F403", # star imports
+    "F405", # star imports usage
+    "N801", # class naming (snake_case for variables)
+    "N805", # first argument name (entity name instead of self)
+    "E501", # line length
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
