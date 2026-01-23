@@ -25,7 +25,7 @@ dynamic = ["version"]
 notebook = [
     "matplotlib",
     "notebook",
-    "OpenFisca-Survey-Manager >= 4",
+    "OpenFisca-Survey-Manager >= 5.0.1",
     "openpyxl",
     "pandas",
     "scipy",
@@ -33,11 +33,11 @@ notebook = [
     "xlwt",
 ]
 survey = [
-    "OpenFisca-Survey-Manager >= 4",
+    "OpenFisca-Survey-Manager >= 5.0.1",
     "scipy",
 ]
 dev = [
-    "openfisca-survey-manager >= 4",
+    "openfisca-survey-manager >= 5.0.1",
     "pytest >= 8.3.3",
     "yamllint >= 1.11.1",
     "pandas",
