@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.2.0 [#106](https://github.com/openfisca/openfisca-senegal/pull/106)
+
+* Ajoute un numero de version sur pyproject.toml pour permettre Pypi
+
 ### 0.11.2 [#103](https://github.com/openfisca/openfisca-senegal/pull/103)
 
 * Corrige la CI pour publier le paquet sur PyPi
