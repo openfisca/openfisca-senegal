@@ -1,8 +1,32 @@
 # OpenFisca Sénégal
 
-Senegalese tax and benefit system for OpenFisca
+Senegalese tax and benefit system for OpenFisca.
 
 > Warning: this is highly experimental!
+
+## Rôle dans l'écosystème CEQ
+
+Ce paquet fournit le système socio-fiscal du **Sénégal** sous forme de
+`CountryTaxBenefitSystem` OpenFisca. Il est consommé par les analyses
+[Commitment to Equity (CEQ)](https://github.com/openfisca/openfisca-ceq) :
+le cœur [`openfisca-ceq`](https://github.com/openfisca/openfisca-ceq) y greffe les
+variables de concepts de revenu CEQ via `add_ceq_framework`, et l'étude
+[`openfisca-ceq-afrique-ouest`](https://github.com/openfisca/openfisca-ceq-afrique-ouest)
+en fait l'un de ses trois pays (avec le Mali et la Côte d'Ivoire).
+
+```python
+from openfisca_senegal import CountryTaxBenefitSystem
+from openfisca_ceq.tools.tax_benefit_system_ceq_completion import add_ceq_framework
+
+tbs = CountryTaxBenefitSystem()
+add_ceq_framework(tbs, ...)  # voir la doc du cœur openfisca-ceq
+```
+
+### Variables
+
+Les variables sont organisées sous `openfisca_senegal/variables/` :
+caractéristiques socio-démographiques, revenus, consommation, prestations, et
+prélèvements obligatoires (impôts directs / indirects, prélèvements sociaux).
 
 ## OGP Paris Hackathon
 This work was done during the first [OGP hackathon in Paris](https://en.2016.ogpsummit.org/osem/conference/ogp-summit/)
